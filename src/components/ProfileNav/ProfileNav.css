@@ -1,0 +1,10 @@
+.ProfileNav nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+.ProfileNav ul{
+     display: flex;
+     margin-left: 20px;
+}

@@ -1,0 +1,162 @@
+.loginMainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 90px;
+    /* height: 100vh; */
+}
+
+.loginContainer {
+    text-align: center;
+    width: 700px;
+    margin: 50px;
+    height: 700px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 0 #4949493b;
+   }
+
+   .loginMainContainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   }
+ 
+ .LoginInfo h1 {
+    font-size: 50px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+  }
+ 
+ .LoginInfoConetents {
+    margin: 0;
+    padding: 0;
+  }
+ 
+ .LoginInput {
+    width: 400px;  
+    height: 50px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f5f5f5;
+    border: 1px solid #494949;
+    border-radius: none;
+  } 
+  span{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 10px;
+    align-items: center;
+  }
+    
+ .LoginButton {
+     width: 400px;
+     font-family: 'Courier New', Courier, monospace;
+     display: block;
+     margin: 7px auto;
+     padding: 10px 20px;
+     background-color: #f5f5f5;
+     border: none;
+     outline: none;
+     font-size: 20px;
+     font-weight: 600;
+     color: #494949;
+     cursor: pointer;    
+     border: 1px solid #494949; 
+  }
+ 
+   span h3{
+       font-size: 15px;
+       color: #494949;
+       font-family: 'Courier New', Courier, monospace;
+  }
+  .sgnupin{
+    color: #000000;
+    text-decoration: underline;
+  }
+ 
+  .upInfoConetents h3{
+    margin-top: 20px;
+       font-size: 20px;
+       color: #494949;
+       font-family: 'Courier New', Courier, monospace;
+       font-weight: 700;
+  }
+ 
+  small{
+     font-size: 15px;
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .error{
+    color: red;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .SocialButtons{
+    display: flex;
+    background-color: #f5f5f5;
+    border: none;
+    outline: none;
+    padding: 10px 20px;     
+    width: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #494949;
+    align-items: center;
+   }
+   .SocialButtons h4{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 600;
+    color: #494949;
+    cursor: pointer;    
+    margin-left: 20px;
+    }
+
+  .ServiceLogins{
+     /* background-color: beige; */
+     margin-left: 150px;
+  }
+
+  .LoginButton:hover{
+    background-color: #494949;
+    color: #f5f5f5;
+    transition: 0.5s;
+    transform: scale(1.0);
+    cursor: pointer;
+  }
+  .SocialButtons:hover{
+    background-color: #e2e2e2;
+    color: aquamarine;
+    cursor: pointer;
+   }
+  .faceTweet button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .loginMainContainer p{
+    text-align: center;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 17px;
+  }
+
+  .faceTweet img{
+    width: 35px;
+    height: 30px;
+  }

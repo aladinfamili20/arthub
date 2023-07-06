@@ -1,0 +1,71 @@
+.subContainer{
+    margin-top: 80px;
+ }
+
+.subContainer h1{
+    font-size: 20px;
+    font-weight: 700;
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 20px;
+}
+.subContainer h2{
+    font-size: 20px;
+    font-weight: 700;
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 20px;
+}
+
+.subIcons{
+    width: 40px;
+    height: 40px;
+}
+.SubDiamondCon , .SubGoldCon,.SubPlatinumCon{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 500px;
+}
+
+ .SubDiamondCon:hover{
+    background-color: #49494949;
+    color: #f5f5f5;
+}
+
+.SubGoldCon:hover{
+    background-color: #49494949;
+    color: #f5f5f5;
+}
+
+.SubPlatinumCon:hover{
+    background-color: #49494949;
+    color: #f5f5f5;
+}
+.subContainer h2:hover{
+    /* background-color: #49494949; */
+    color: #f5f5f5;
+}
+
+#subdiamond{
+    width: 100%;
+    text-align: center;
+     margin-top: 20px; 
+}
+
+.Subsumbit h2{
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+
+}
+
+.Subsumbit h2:hover{
+    background-color: #49494949;
+    color: #f5f5f5;
+    cursor: pointer;
+ }

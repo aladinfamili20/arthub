@@ -1,0 +1,161 @@
+.upContainer {
+   width: 85%;
+   margin: auto;
+   height: 700px;
+   overflow: auto;
+ }
+
+ .sellerH1 h1{
+    font-size: 30px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+    /* text-transform: uppercase; */
+  }
+
+.upContent{
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.upImg {
+   width: 700px;
+   height: 500px;
+   margin-top: 50px;
+ }
+.upContainer img {
+  width: 715px;
+  height: 500px;
+   /* cursor: zoom-in; */
+}
+
+.upInfo {
+    width: 700px;
+   margin: 50px;
+   height: 500px;
+   background-color: #f5f5f5;
+ }
+
+.upInfo h1 {
+   font-size: 50px;
+   font-weight: 700;
+   justify-content: center;
+   align-items: center;    
+   color: #494949;
+   font-family: 'Courier New', Courier, monospace;
+   /* text-transform: uppercase; */
+}
+
+.upInfoConetents {
+   margin: 0;
+   padding: 0;
+ }
+
+ .upInfoConetents h3{
+   text-decoration: underline;
+ }
+
+.signInput {
+   width: 400px;  
+   height: 40px;
+   margin: 10px;
+   padding: 10px;
+   font-size: 16px;
+   font-weight: 400;
+   color: #494949;
+   font-family: 'Courier New', Courier, monospace;
+   background-color: #ffffff;
+ } 
+ span{
+   display: flex;
+   justify-content: center;
+   flex-direction: row;
+   margin: 10px;
+   align-items: center;
+ }
+
+ 
+
+.signButton {
+   font-family: 'Courier New', Courier, monospace;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #494949;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #f5f5f5;
+    cursor: pointer;
+    transition: 0.5s;
+ }
+
+  span h3{
+      font-size: 15px;
+      color: #494949;
+      font-family: 'Courier New', Courier, monospace;
+ }
+ .sgnupin{
+   color: #000000;
+   text-decoration: underline;
+ }
+
+ .upInfoConetents button{
+   margin-top: 20px;
+      font-size: 20px;
+       font-family: 'Courier New', Courier, monospace;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+       
+ }
+
+  .upInfoConetents button:hover{
+    color: #494949;
+    cursor: pointer;
+  }
+
+ small{
+   font-size: 15px;
+   color: #494949;
+   font-family: 'Courier New', Courier, monospace;
+ }
+
+ .signButton:hover{
+      background-color: #ffffff;
+      color: #494949;
+ }
+
+ main{
+  margin-top: 80px;
+ }
+
+ .form{
+  overflow: auto;
+ }
+
+ .topH1 h1{
+    font-size: 30px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+    /* text-transform: uppercase; */
+ }
+
+ .signupError {
+     text-align: center;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+     margin: 10px;
+    align-items: center;
+    color: red;
+    background-color: #ffffff;
+ }

@@ -1,0 +1,290 @@
+ /* Filter Generetor */
+ 
+ .ArtCollection1 {   
+    width: 85%;
+     margin: auto;
+      display: flex;
+     /* background-color: aquamarine; */
+      }
+ 
+  
+ .filter1 h1{
+       font-size: 20px;
+       font-weight: 700;
+       justify-content: center;
+       align-items: center;    
+       color: #494949;
+       font-family: 'Courier New', Courier, monospace;
+  }
+ 
+  .filter1 h5{
+       font-size: 15px;
+       font-weight: 700;
+       justify-content: center;
+       align-items: center;    
+       color: #494949;
+       font-family: 'Courier New', Courier, monospace;
+  }
+ 
+ .filter2 h2 {
+    margin-top: 20px;
+ }
+  
+ .search {
+    width: 100%;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: row;
+    color: #ffffff;
+    border:  none;
+ }
+  
+ .artfilter{
+    width: 20%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10;
+    padding: 10px;
+    overflow: auto;
+      
+  }
+ 
+  .KeySearch  {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+ 
+  input{
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+ 
+ .artfilter hr{
+    margin-top: 10px;
+    width: 100%;
+    height: 1px;
+    background-color: #494949;
+    border: none;
+ }
+ 
+ .artCollection2 {
+    width: '100%';
+    height: auto;
+     align-items: center;
+    justify-content: center;
+    /* margin: 50px; */
+    margin-left: 10px;
+    }
+   .filter2 h1{
+    margin-top: 30px;
+   }
+ 
+ .filter2 h2{
+    font-size: 20px;
+        font-weight: 700;
+       justify-content: center;
+       align-items: center;    
+       color: rgb(73, 73, 73);
+       font-family: 'Courier New', Courier, monospace;
+  }
+ /* Collection of the day */
+  
+ #artsection{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+ } 
+ 
+ 
+ 
+ .artcollectionbox img{
+    width: 300px;
+    height: 200px;
+    background-color: #ffffff;
+    margin: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    position: relative;
+ }
+ /* .artcollectionbox img:hover{
+     box-shadow: 0 0 20px 0 #4949496a;
+ } */
+ 
+ .artcollectInfo  {
+     /* background-color: #FEBE00; */
+    display: flex;
+    flex-direction: row;
+    gap: 10;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+ }
+ 
+ .artcollectionbox h1{
+    color: rgb(73, 73, 73);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .artcollectionbox b{
+   color: rgb(73, 73, 73);
+   font-family: 'Courier New', Courier, monospace;
+   font-size: 17px;
+   font-weight: 700;
+   text-align: left;
+ }
+ 
+ .artcollectInfo  h3,p{
+    font-size: 15px;
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+ }
+ .artcollectIcon {
+    display: flex;
+    flex-direction: column;
+    gap: 10;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+ }
+ 
+ .artcollectIcon{
+    align-self: center;
+    width: 30px;
+     color: #494949;
+ }
+ 
+ .artsection button{
+    font-family: 'Courier New', Courier, monospace;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    cursor: pointer;
+    transition: 0.5s;
+ }
+ 
+ .artsection button:hover{   
+    background-color: #494949;
+    color: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+ }
+ 
+  
+ /* Filter Select */
+ select{
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    display: block;
+    margin-top: 10px;
+    border: 1px solid #f5f5f5;
+    padding: 10px;
+    margin-bottom: 20px;
+ }
+ 
+ .selectArtist, .selectType, .selectTime option{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    color: #494949;
+    cursor: pointer;
+    transition: 0.5s;
+ }
+ 
+ .selectType,.selectArtist  option{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    color: #494949;
+    cursor: pointer;
+    transition: 0.5s;
+ }
+ 
+ .selectSize option{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    color: #494949;
+    cursor: pointer;
+    transition: 0.5s;
+ }
+ 
+ .selectTime, .selectSize option, .selectSize{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    color: #494949;
+    cursor: pointer;
+    transition: 0.5s; 
+ }
+ 
+  .selectStyle option, .selectStyle{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    color: #494949;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+ 
+  .artFoot {
+    margin-top: 300px;
+    z-index: 1;
+    background-color: aqua;
+  }
+ 
+  .hide{
+    width: 300px;
+    display: flex;
+    justify-content: space-around;  
+    z-index: 1;
+    background-color: #f5f5f5af;  
+   }
+ 
+  .hide h1{
+    border: 1px solid #f5f5f5;
+    padding: 5px;
+    margin-left: 10px;
+    color: #f5f5f5;
+    }
+   
+  .hide, .hide2 {
+    display: none;
+    position: absolute;
+    top: 60%;
+    margin-left: 10px;
+    padding: 5px;
+    }
+      
+  #myDIV:hover + .hide  {
+    display: flex;
+    color: red;
+  }
+  
+  .hide:hover h1{
+    border: 1px solid #f5f5f5;
+    padding: 5px;
+  }
+
+  .PriceComp{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+  }
+
+  .PriceComp p{
+   margin-left: 20px;
+  }
+
+  .PriceCompCont{
+   display: flex;
+   align-items: center;
+   margin-left: 20px;
+   justify-content: space-between;
+  }

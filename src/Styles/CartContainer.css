@@ -1,0 +1,220 @@
+.CartContainerMain {
+     width: 400px;
+    background-color: #f5f5f5;
+    z-index: 1;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    overflow: scroll;
+ }
+
+ .clear {
+    cursor: pointer;
+  }
+ .cartConLeftIcon1 {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-right: 30px;
+  }
+ 
+
+  .CartContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 400px;
+   
+  }
+
+  .CartContainer h1{
+    font-size: 25px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+     font-family: 'Courier New', Courier, monospace;
+     margin-top: 10px;
+   }
+  
+ 
+  .MergeIcon{
+     margin: 10px;
+  }
+
+  .ClearIcon{
+    display: flex;
+    margin-left: 10px;
+    padding: 7px;
+    cursor: pointer;
+       }
+
+    
+     .ClearIcon h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #494949;
+        font-family: 'Courier New', Courier, monospace;
+        margin-left: 5px;  
+        margin-top: 10px;       
+     }
+
+     .CartContent {
+        width: 100%;
+        background-color: brown;   
+        margin-top: 20px;
+        /* height: 70pc; */
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+        box-shadow: 0, 0, 10px #494949;
+     }
+
+     .CartArtWork {       
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+              /* box-shadow: 0 0 10px 0 rgba(0,0,0,0.2); */
+
+       }
+
+       .tired{
+         margin-top: 40px;
+        }
+
+       .Wow {
+            display: flex;
+            flex-direction: row;
+       }
+
+     .CartArtWork img{
+        width: 90px;
+        height: 60px;
+        margin-top: 30px;
+        margin-left: 30px;
+        border-radius: 5px;
+       }
+
+.CartContent {     
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+     
+}
+
+  .CartArtWork h1{
+    font-size: 20px;
+    font-weight: 700;
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+     margin-top: 30px;
+     margin-left: 10px;
+  }
+
+  .CartArtWork h2{
+    font-size: 17px;
+    font-weight: 700;
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 7px;
+    margin-left: 10px;   
+  }
+
+  .Operations {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+     margin-right: 10px;
+    align-items: center;
+  }
+
+  .Operations p{
+    font-size: 20px;
+    padding: 7px;
+  }
+
+  .CartTotalContainerMain{
+    width: 100%;     
+    background-color: #ffffff;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+  }
+
+  .CartTotalContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .CartTotal{
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+ 
+  }
+
+  .CartSubTotal, .CartDelievert, .CartTotalPrice{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+   }
+
+  .CartSubTotal h1{
+    font-size: 20px;
+    font-weight: 700;
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+   }
+   .CartDelievert{
+    margin-bottom: 30px;
+   }
+   .CartDelievert h1{
+    font-size: 20px;
+    font-weight: 700;
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+   }
+   .CartTotalPrice h1{
+    font-size: 20px;
+    font-weight: bold;
+    color: #49494949;
+    font-family: 'Courier New', Courier, monospace;
+   }
+
+   .CartTotalPrice {
+    margin-top: 20px;
+   }
+
+   .CartSubTotal h2, .CartDelievert h2{
+    font-size: 17px;
+    font-weight: 700;
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+   }
+   .CartTotalPrice h2{
+    font-size: 17px;
+    font-weight: bold;
+    color: #49494949;
+    font-family: 'Courier New', Courier, monospace;
+   }
+
+   .cartButton1{
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #494949;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    margin-bottom: 20px;
+   }

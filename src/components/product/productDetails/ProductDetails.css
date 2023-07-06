@@ -1,0 +1,240 @@
+.imageview{
+    display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin: auto;
+   margin-top: 80px;
+}
+
+.imageInfo{
+   height: 500px;
+   background-color: #fff;
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+
+ }
+
+ .imageInfo p{  
+   color: #494949;
+   font-family: 'Courier New', Courier, monospace;
+   margin-top: 40px;
+ }
+
+ .imageInfo h1{
+   font-size: 30px;
+   font-weight: 700;
+   justify-content: center;
+   align-items: center;    
+   color: #494949;
+   font-family: 'Courier New', Courier, monospace;
+   text-transform: uppercase;
+   text-align: left;
+ }
+
+ .imageInfo h2{
+   font-size: 20px;
+   font-weight: normal;
+   justify-content: center;
+   align-items: center;    
+   color: #494949;
+   font-family: 'Courier New', Courier, monospace;
+   text-transform: uppercase;
+   text-align: left;
+   margin-top: 10px;
+ }
+
+ .imageInfo h3{
+   font-size: 30px;
+   font-weight: bold;
+   justify-content: center;
+   align-items: center;    
+   color: #494949;
+   font-family: 'Courier New', Courier, monospace;
+   text-transform: uppercase;
+   text-align: left;
+   margin-top: 10px;
+  }
+
+  .imageInfo h4{
+   font-size: 16;
+   font-weight: normal;
+   justify-content: center;
+   align-items: center;    
+   color: #494949;
+   margin-right: 10px;
+   font-family: 'Courier New', Courier, monospace;
+   text-align: left;
+   margin-top: 10px;
+  }
+
+  .imageInfoView button{
+   height: 50px;
+   background-color: #494949;
+   color: #f5f5f5;
+   font-size: 20px;
+   font-weight: 700;
+   font-family: 'Courier New', Courier, monospace;
+   text-transform: uppercase;
+   border: none;
+   margin-top: 20px;
+   cursor: pointer;
+   padding: 10px;
+  }
+
+  .imageInfoView button:hover{
+   background-color: #f5f5f5;
+   color: #494949;
+ }
+
+  .imageInfo{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ 
+  }
+  .imageInfoEdit{
+   width: 30px;
+   height: 30px;
+    color: #494949;
+   }
+
+   .aboutArtWork, .ArtistImgViewConProf {
+     width: 60%;
+     border: 1px solid #f5f5f5;
+     margin-top: 20px;
+      }
+
+    .aboutArtWork h1{
+     font-size: 20px;
+     font-weight: 700;
+     justify-content: center;
+     color: rgb(73, 73, 73);
+     font-family: 'Courier New', Courier, monospace;
+     text-align: start;
+     margin: 20px;
+       }
+
+      .abtArtWork{
+        margin: 20px;
+      }
+
+      .abtArtWork{
+        
+       margin-top: 10px;
+        align-items: center;
+       }
+
+
+
+       .abtArtWork h2{
+          font-weight: 700;
+         justify-content: center;
+         color: #494949;
+         font-family: 'Courier New', Courier, monospace;
+         text-align: start;
+          width: 100px;
+        }
+
+        .aboutArtWork h3 {
+         font-size: 15px;
+         color: #494949;
+         font-family: 'Courier New', Courier, monospace;
+         text-align: start;
+         margin-left: 50px;
+          }
+
+          .abtArtDet{
+           width: 500px;
+            margin-left: 200px;
+          }
+
+          .ArtistImgViewConDet img{
+           height: 5000px;
+           width: 50px;
+           border-radius: 50px;
+           background-color: aquamarine;
+          }
+
+          .ArtistImgViewConDet{
+           display: flex;
+           align-items: center;
+           margin: 10px;
+           justify-content: space-between;
+          }
+          .ArtistImgViewConDetNames {
+           margin-left: 10px;
+           }
+
+           .ArtistImgViewConDetNames h2{
+             font-size: 20px;
+             font-weight: 700;
+             justify-content: center;
+             align-items: center;    
+             color: #494949;
+             font-family: 'Courier New', Courier, monospace;
+           }
+
+           .ArtistImgViewConDetNames h4{
+             font-size: 16;
+             font-weight: normal;
+             justify-content: center;
+             align-items: center;    
+             color: #494949;
+             margin-right: 10px;
+             font-family: 'Courier New', Courier, monospace;
+           }
+
+           .ArtistImgViewConDet button{
+             font-family: 'Courier New', Courier, monospace;
+             display: block;
+              padding: 10px 20px;
+             background-color: #f5f5f5;
+             border: none;
+             outline: none;
+             font-size: 20px;
+             font-weight: 600;
+             color: #000000;
+             cursor: pointer;
+             transition: 0.5s;
+           }
+
+           .ArtistImgViewConDet button:hover{
+             background-color: #494949;
+             color: #f5f5f5;
+           }
+           .ArtistIamgeViewStory{
+             margin: 20px;
+           }
+           .ArtistIamgeViewStory h2{
+             font-size: 17px;
+             font-weight: normal;
+             justify-content: center;
+             align-items: center;    
+             color: #494949;
+             font-family: 'Courier New', Courier, monospace;
+           }
+
+           .desc {
+             width: 600px;
+             height: 150px;
+           }
+
+           .count{
+            display: flex;
+             text-align: center;
+           }
+
+           .count button{
+            font-family: 'Courier New', Courier, monospace;
+             display: block;
+             padding: 10px 20px;
+             background-color: #494949;
+             border: none;
+             outline: none;
+             font-size: 20px;
+             font-weight: 600;
+             color: #f5f5f5;
+             cursor: pointer;
+             transition: 0.5s;
+           }

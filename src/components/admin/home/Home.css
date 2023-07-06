@@ -1,0 +1,22 @@
+/* .info-box {
+    display: flex;
+    flex-wrap: wrap;
+  } */
+  .HomeChartCon{
+    width: 80%;
+    margin: auto;
+  }
+  .HomeChartContent{
+     width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    }
+  
+  .HomeCard {
+    border: none;
+    width: 400px;
+     }
+  
+  

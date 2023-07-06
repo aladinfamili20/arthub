@@ -1,0 +1,154 @@
+.table-container table {
+    margin: auto;
+    width: 80%;
+    margin-top: 50px;
+       }
+  
+  .table-container th,
+  .table-container td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table-container th {
+    background-color: #f2f2f2;
+  }
+  
+  .table-container tr:hover {
+    background-color: #f5f5f5;
+  }
+
+  .table-container th {
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .table-container td{
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+  }
+ 
+  .table-container td:last-child {
+    text-align: center;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .table-container {
+      display: block;
+      overflow-x: auto;
+    }
+    
+    .table-container tr {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .table-container th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    
+    .table-container td:last-child {
+      text-align: right;
+    }
+  }
+ 
+  .table-container img{
+    width: 300px;
+    height: 200px;
+  }
+
+  .tableIcons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .editIcon, .trashIcon {
+    cursor: pointer;
+  }
+
+  .trashIcon:hover{
+    color: red;
+  }
+
+  .editIcon:hover{
+    opacity: 0.5;
+  }
+
+  .checkoutCount {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .checkoutSum{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+ 
+  .checkout{
+     width: auto;
+   }
+  .CheckoutText{
+    display: flex;
+    font-size: large;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+  }
+
+  .CheckoutText h4{
+     text-align: center;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .checkout p{
+    margin: 10px;
+  }
+  .CheckoutText h3{
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+   justify-content: center;
+   align-items: center;    
+   color: #494949;
+   font-family: 'Courier New', Courier, monospace;
+ }
+ 
+ .ChechoutButton {
+   font-family: 'Courier New', Courier, monospace;
+   display: block;
+   margin: 20px auto;
+   padding: 10px 20px;
+   background-color: #f5f5f5;
+   border: none;
+   outline: none;
+   font-size: 20px;
+   font-weight: 600;
+   color: #000000;
+   cursor: pointer;
+   transition: 0.5s;
+ }
+
+ .ChechoutButton button:hover{   
+    background-color: #494949;
+    color: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+ }

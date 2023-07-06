@@ -1,0 +1,67 @@
+ 
+
+.imageEdit {
+    margin-top: 50px;
+}
+
+.imageEdit select{
+    font-size: 17px;
+    font-family: 'Courier New', Courier, monospace;
+    width: 400px;
+    background-color: #f5f5f5;
+ }
+
+ .imageEdit form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+ }
+
+.imageEdit textarea{
+    width: 800px;
+    height: 200px;
+    font-size: 17px;
+    justify-content: center;
+    align-items: center;    
+     font-family: 'Courier New', Courier, monospace;
+}
+
+.save{
+     height: 50px;
+    background-color: #494949;
+    color: #f5f5f5;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.save:hover{
+    background-color: #f5f5f5;
+    color: #494949;
+    transform: scale(1.0);
+}
+.imageEdit h1{
+    font-size: 20px;
+    font-weight: 700;
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+    margin-right: 20px;
+    text-align: left;
+}
+
+.stylemedium{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ }
+ .styl{
+    margin-left: 10px;
+ }

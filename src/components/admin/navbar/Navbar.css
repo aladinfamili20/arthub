@@ -1,0 +1,38 @@
+.adminHome{
+    margin-top: 150px;
+  }
+.AdminNavCon {
+    display: flex;
+    height: 100px;
+    margin-left: 40px;
+  }
+
+ AdminCont{
+    background-color: blueviolet;
+ }
+ .adminHome ul{
+    display: flex;
+    margin-left: 40px;
+    justify-content: space-around;
+  }
+
+.adminHome li{
+    background-color: #f5f5f5;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+     color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 10px;
+ }
+
+.adminHome li:hover{
+    background-color: #e5e5e5;
+    color: #494949;
+}
+
+.AdminNavCon hr{
+    background-color: #f5f5f5;
+    opacity: 0.3;
+
+}

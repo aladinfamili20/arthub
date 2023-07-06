@@ -1,0 +1,18 @@
+ #sellMain{
+    top:0;
+    left:0;
+  }
+ #SellerInfo{
+    margin-top: 150px;
+ }
+
+ .sellForm h1{
+    font-size: 30px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+     margin-bottom: 20px;
+ }

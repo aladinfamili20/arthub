@@ -10,7 +10,7 @@ import styles from "./ProductItem.module.scss";
 import  "./ProductItem.css";
 import { IoBasketSharp } from "react-icons/io5";
 
-const ProductItem = ({ product, grid, id, name, price, desc, image,medium,displayName,size }) => {
+const ProductItem = ({ product, year, id, name, price, desc, image,medium,displayName,artSize }) => {
   const dispatch = useDispatch();
   const shortenText = (text, n) => {
     if (text.length > n) {
@@ -31,7 +31,9 @@ const ProductItem = ({ product, grid, id, name, price, desc, image,medium,displa
      <div className='artwork' key={id}  >
     <div className='artcollectionbox'>         
        <div >    
-  <div id='myDIV'>
+  <div 
+  // id='myDIV'
+  >
   <Link to={`/product-details/${id}`}>
    <img src={image} alt=""/>  
    </Link>  
@@ -44,16 +46,13 @@ const ProductItem = ({ product, grid, id, name, price, desc, image,medium,displa
     <div className='artcollectInfo'>
     <div>           
     <h1>{displayName}</h1>
-   <b> {name} </b>
-    <p>{medium}</p>
-    <p>{size}</p>
-    <div className="PriceComp"> 
-    <b>$550/mon</b>     
-     <p>${price}</p>
-    <p>Purchase</p> 
- 
-  
-    </div>
+   <div>
+   <b> {name}, </b>
+   <b> {year} </b>
+   </div>
+    {/* <p>{medium}</p> */}
+    <p>{shortenText(artSize)}</p>     
+     <b>${price}</b> 
     </div>
     <div className='artcollectIcon'    
     onClick={()=>addToCart(product)}

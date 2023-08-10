@@ -6,7 +6,7 @@ import Login from './auth/Login';
 import Gallery from './screens/Gallery';
 import Artist from './screens/Artist';
 import AddPost from './screens/AddPost';
-import Subscription from './Substriction/Subscription';
+import Subscription from './Subscription/Subscription';
 
 import "react-toastify/dist/ReactToastify.css";
 // Pages
@@ -35,15 +35,8 @@ import UploadArtwork from "./screens/UploadArtwork";
 import AddProduct from "./components/admin/addProduct/AddProduct";
  import Artwork from "./components/ProfileNav/Artwork";
 import AddArtwork from "./components/admin/addProduct/AddArtwork";
-import Diamond from "./Substriction/diamond/Diamond";
-import DiamondProdDet from "./Substriction/diamond/DiamondProdDet";
-
-import Gold from "./Substriction/Gold/Gold";
- import Sub from "./upload/Sub";
-import Upload from "./upload/Upload";
-import Platinum from "./Substriction/Platinum/Platinum";
-import GoldProdDet from "./Substriction/Gold/GoldProdDet";
-import PlatinumProdDet from "./Substriction/Platinum/PlatinumProdDet";
+import EditProfile from "./screens/EditProfile";
+import ArtistProfile from "./screens/ArtistProfile";
  
 function App() {
   const getuser = getAuth()
@@ -89,22 +82,15 @@ function App() {
           <Route path="/review-product/:id" element={<ReviewProducts />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/sub" element={<Sub />} />
-          <Route path="/upload" element={<Upload />} />
-
-          <Route path="/addArtwork" element={<AddArtwork />} />
+          <Route path="/artistprofile" element={<ArtistProfile />} />
+          <Route path="/addArtwork/:id" element={<AddArtwork />} />
           <Route path="/add-product" element={<AddProduct />} />
           <Route path='/profile' element={
           <PrivateRoutes><Profile/></PrivateRoutes>}/>
             <Route path="/subscription" element={<Subscription />} />
-            <Route path="/diamond" element={<Diamond />} />
-            <Route path="/diamondArtwork/:id" element={<DiamondProdDet />} />
-            <Route path="/platinumdetail/:id" element={<PlatinumProdDet />} />
-            <Route path="/golddetail/:id" element={<GoldProdDet />} />
-
-            <Route path="/gold" element={<Gold />} />
-            <Route path="/platinum" element={<Platinum />} />
-              <Route path="/addpost" element={<PrivateRoutes><AddPost /></PrivateRoutes>
+            <Route path="/addpost" element={<PrivateRoutes><AddPost /></PrivateRoutes>
+          } /> 
+            <Route path="/editprofile" element={<PrivateRoutes><EditProfile /></PrivateRoutes>
             } /> 
          </Routes>
  

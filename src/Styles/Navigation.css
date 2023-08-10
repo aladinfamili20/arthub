@@ -20,6 +20,18 @@ li {
     /* height: 40px; */
   }
 
+.navName h2{
+    cursor: pointer;
+    user-select:none ;
+    -webkit-user-drag: none;
+    font-size: 10px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+}
+
  headers{
     display: flex;
     align-items: center;
@@ -134,7 +146,7 @@ input[type=checkbox] {
     .menu {
         display: none;
         position: absolute;
-        background-color: #FEBE00;
+        background-color: #f5f5f5;
         right: 0;
         left: 0;
         text-align: center;
@@ -143,9 +155,9 @@ input[type=checkbox] {
 
     .menu li:hover {
         display: inline-block;
-        background-color: #4c9e9e;
+        background-color: #c5c5c5;
         transition: 0.3s ease;
-        color: #fff;
+        color: #f5f5f5;
     }
 
     .menu li+li {
@@ -167,36 +179,28 @@ input[type=checkbox] {
     }
 
     .dropdown li:hover {
-        background-color: #4c9e9e;
+        background-color: #494949;
     }
 }
 
-.active1 {
-    background-color: #00b613;
-    /* padding: 0.5em 0.5em 0.5em; */
-    padding: 5px;
+#active1 a {
+    background-color: #494949;
+     padding: 5px;
+    color: '#f5f5f5';
  }
 
- .Login{             
-    border-radius: 10px;
-    border: 1px solid #494949;
-    padding: 7px;
-  }
+ .logbutton{             
+     border: 1px solid #494949;
+     margin: none;
+     padding: none;
+   }
 
-    .Login:hover{
-        background-color: #494949;
-        transition: all 0.5s ease-in-out;
-        transition: 0.3s ease;
-        padding: 5px;
+    .logbutton:hover{
+        background-color: #c5c5c5;
         color: #ffffff;
     }
 
-    .Signup{
-        background-color: #494949;
-        padding: 7px;
-        border-radius: 10px;
-     }
-
+   
     .Signup:hover{
         background-color: #f5f5f5;
         /* background-color: #ff8e8e; */

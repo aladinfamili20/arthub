@@ -58,9 +58,9 @@ const CheckoutDeatil = () => {
     <section>
 <div className='upContainer'>
 <div className='upContent'>
-<div className='upImg'>
+{/* <div className='upImg'>
 <img src='https://static.vecteezy.com/system/resources/previews/007/620/390/non_2x/delivery-service-delivery-fast-shipping-concept-illustration-vector.jpg' alt="imagedetail" />
-</div>
+</div> */}
 <div className='upInfo'>
 <div className='imageInfo'>
 <div className='imageInfoView'>    

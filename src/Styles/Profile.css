@@ -1,6 +1,4 @@
-.prof1{
-    margin-top: 70px;
-}
+ 
 .artProfileContainer{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -21,8 +19,7 @@
     margin-bottom: 20px;
     display: flex;
     flex-direction: row;
-    /* background-color: aliceblue; */
-}
+ }
 
 .settingsH1a h1{
     font-size: 50px;
@@ -46,11 +43,9 @@
 
 .profileContainer1 img{
     width: 100px;
-    /* height: auto; */
-    height: 100px;
+     height: 100px;
     object-fit: cover;
-    /* border-radius: 50px; */
-    margin: 20px
+     margin: 20px
  }
  .bioContainer{
     width: 100%;
@@ -72,25 +67,20 @@
     font-family: 'Courier New', Courier, monospace;
      text-align: left;
  }
- .CoverImg img{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
- }
+ 
+ 
  .profileInfo1{
-  width: 400px;
+  width: 1000px;
     margin: 20px;
     display: flex;
     flex-direction: column;
     margin-right: 20px;
-    /* background-color: antiquewhite; */
-  }
+   }
   .profileInfo0{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* align-items: center; */
-  }
+   }
 
   .settingIcon{
     width: 30px;
@@ -109,6 +99,7 @@
     font-family: 'Courier New', Courier, monospace;
     text-align: left;
     margin-left: 20px;
+    font-weight: bold;
  }   
 
 .profileInfo1 h3{
@@ -147,7 +138,7 @@
      margin-right: 1100px;
  }
  
-.line1 hr{
+.profileInfo3 hr{
     margin-top: 10px;
     width: 100%;
     height: 1px;
@@ -155,7 +146,7 @@
     border: none;
  }
 
- .profileContainer2 {
+ #profileContainer2 {
     width: 85%;
     margin: auto;
     margin-top: 25px;
@@ -181,24 +172,7 @@
   
  }
 
- .uploadArtwork {
-    display: flex;
-    flex-direction: row;
-    gap: 10;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 #00000033;
-    transition: 1.1s;
-    position: relative;
-    z-index: 1;     
-   }
+ 
   .uploadArtwork:hover{
     background-color: #494949;
     box-shadow: 0 0 10px 0 #00000066;
@@ -217,18 +191,7 @@
     margin-right: 20px;
   }
   
-.uplaod{
-    width: 255px;
-    display: flex;
-    justify-content: space-between ;
-    flex-direction: row;
-}
-.UploadInfo{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    margin-left: 20px;
-  }
+ 
 
   .logout{
     display: flex;
@@ -272,6 +235,12 @@
   #cover, #profile:hover{
     cursor: pointer;
     opacity: 0.5;
+   }
+ 
+
+   #profile img{
+    width: 150px;
+    height: 200px;
    }
 
    input{
@@ -328,18 +297,7 @@
     color: #f5f5f5;
   }
   
-
-  textarea{
-    width: 400px;
-    height: 200px;
-    font-size: 17px;
-    justify-content: center;
-    align-items: center;    
-     font-family: 'Courier New', Courier, monospace;
-     margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-  }
+ 
 
   .ArtText1 h1{
     font-size: 30px;
@@ -348,8 +306,7 @@
     align-items: center;    
     color: #494949;
     font-family: 'Courier New', Courier, monospace;
-    text-transform: uppercase;
-    text-align: left;
+     text-align: left;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
@@ -367,8 +324,7 @@
     align-items: center;    
     color: #494949;
     font-family: 'Courier New', Courier, monospace;
-    text-transform: uppercase;
-    text-align: left;
+     text-align: left;
     margin-top: 35px;
     margin-bottom: 20px;
     margin-left: 20px;
@@ -404,102 +360,37 @@
   }
 
   .icon3{
-    display: flex;
     width: 20px;
     height: 20px;
     background-color: #f5f5f5;   
     color: black;
+    margin-left: 10px;
   }
 
-  .SaveText2 button{
-    background-color: #f5f5f5;
-    color: #494949;
+  .editProf button{
+    height: 50px;
+    background-color: #494949;
+    color: #f5f5f5;
     font-size: 20px;
     font-weight: 700;
-    justify-content: center;
-    align-items: center;
     font-family: 'Courier New', Courier, monospace;
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 10px;
-    border-radius: 7px;
     border: none;
+    margin-top: 20px;
     cursor: pointer;
+    padding: 10px;  
+    transition: 0.5s; 
+    }
+
+    .editProf h1{
+     color: #f5f5f5;
+    }
+
     
-    }
+ 
 
-    .signout{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      background-color: #f5f5f5;
-      padding: 5px;
-      }
-    .signout h1{
-      font-size: 20px;
-      font-weight: 700;
-      color: #494949;
-      font-family: 'Courier New', Courier, monospace;
-      margin-right: 20px;
-     }
+     
 
-     .icon2 {
-      margin-top: 4px;
-     }
-
-     .signout:hover{
-      background-color: #f5f5f5;
-      transition: 0.5s;
-      cursor: pointer;
-      color: #494949;
-      transform: scale(1.1);
-     }
-
-    .signout h1:hover{
-      color: #494949;
-    }
-
-    .prof1 br{
-      background-color: #f5f5f5;
-     }
-     .fullName{
-      margin-left: 20px;
-      display: flex;
-      flex-direction: row;
-       padding: 5px;
-     }
-     .fullName h1 {
-      font-size: 20px;
-      font-weight: 700;
-      color: #494949;
-      font-family: 'Courier New', Courier, monospace;
-      margin-right: 20px;
-      }
-
-      .profileInfo0 label {
-        font-size: 20px;
-        font-weight: normal;
-        color: #494949;
-        font-family: 'Courier New', Courier, monospace;
-        text-align: left;
-        margin-left: 25px;
-        padding: 20px;
-        background-color: antiquewhite;
-      }
-
-      .edit {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-         margin-left: 20px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-
+            
       .profileNav nav{
         height :6vh;
         border-radius:.3rem;
@@ -530,8 +421,7 @@
         background-color: #f5f5f5;  
        }
 
-       .profileNav a:hover{
-        transform: scale(1.1);
-        background-color: #494949;
-        color: #f5f5f5;
-       }
+        
+ 
+
+     

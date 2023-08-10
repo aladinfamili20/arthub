@@ -75,6 +75,10 @@
 
   .editIcon, .trashIcon {
     cursor: pointer;
+ 
+  }
+  .editIcon{
+    font-size: 25px;
   }
 
   .trashIcon:hover{

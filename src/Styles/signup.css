@@ -23,14 +23,14 @@
 }
 
 .upImg {
-   width: 700px;
+   max-width: '100%';
    height: 500px;
    margin-top: 50px;
  }
 .upContainer img {
-  width: 715px;
-  height: 500px;
-   /* cursor: zoom-in; */
+  width: 100%;
+  height: 100%;
+   /* cursor: zoom-in; */ 
 }
 
 .upInfo {

@@ -81,11 +81,12 @@ const cartSlice = createSlice({
 
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+
     CALCULATE_SUBTOTAL(state, action) {
       const array = [];
       state.cartItems.map((item) => {
-        const { price, cartQuantity } = item;
-        const cartItemAmount = price * cartQuantity;
+        const { price, cartQuantity, shipfee } = item;
+        const cartItemAmount = price + shipfee * cartQuantity  ;
         return array.push(cartItemAmount);
       });
       const totalAmount = array.reduce((a, b) => {
@@ -93,6 +94,7 @@ const cartSlice = createSlice({
       }, 0);
       state.cartTotalAmount = totalAmount;
     },
+
     CALCULATE_TOTAL_QUANTITY(state, action) {
       const array = [];
       state.cartItems.map((item) => {

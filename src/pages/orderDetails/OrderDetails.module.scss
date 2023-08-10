@@ -9,8 +9,8 @@
     font-size: 1.4rem;
 
     thead {
-      border-top: 2px solid var(--light-blue);
-      border-bottom: 2px solid var(--light-blue);
+      border-top: 2px solid #f5f5f5;
+      border-bottom: 2px solid #f5f5f5;
     }
 
     th {
@@ -31,11 +31,11 @@
     }
 
     tr {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #c5c5c5;
     }
 
     tr:nth-child(even) {
-      background-color: #eee;
+      background-color: #f5f5f5;
     }
   }
   .summary {
@@ -64,7 +64,7 @@
   display: flex;
   align-items: center;
   button {
-    border: 1px solid var(--darkblue);
+    border: 1px solid #494949;
   }
   & > * {
     margin-right: 1rem;

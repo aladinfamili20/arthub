@@ -14,6 +14,14 @@ export const firebaseConfig = {
   measurementId: "G-K0ZTBTB8TY"
 };
 
+// apiKey: "AIzaSyBgvFz8noj6AUZlsLEQSCFc2doHRrZoATs",
+//   authDomain: "arthub-2baca.firebaseapp.com",
+//   projectId: "arthub-2baca",
+//   storageBucket: "arthub-2baca.appspot.com",
+//   messagingSenderId: "422949007958",
+//   appId: "1:422949007958:web:dcce43b0eefbd49ff741f7",
+//   measurementId: "G-MSWM5DG1PL"
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

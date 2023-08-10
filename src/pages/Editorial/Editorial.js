@@ -1,17 +1,21 @@
-import React from 'react'
-import '../../Styles/Editorial.css'
-const Editorial = () => {
+import React from "react";
+import EditorioProduct from "./EditorioProduct";
+ import Slider from "../Slider/EditorialSlider";
+
+const Editorial = () => {   
   return (
-    <div>Editorial
+    <section>        
+      <EditorioProduct />
+      <div className="roomIllusion">
+      <h2>
+        Room Illusions
+      </h2>
+      </div>  
+      <Slider/>
+   </section>
+  );
+};
 
+ 
 
-    <div className='editorialConatainer'>
-      <div className='editorialContent'>
-        <img src='https://i.pinimg.com/564x/11/6b/05/116b05ea1563a9873f6b859984e018d8.jpg' alt='editoriamainimg'/>
-    </div>      
-    </div>
-    </div>
-  )
-}
-
-export default Editorial
+export default Editorial;

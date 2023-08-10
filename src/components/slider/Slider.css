@@ -81,7 +81,7 @@
   opacity: 1;
 }
 .arrow {
-  border: 2px solid orangered;
+  border: 2px solid #494949;
   border-radius: 50%;
   background: transparent;
   color: #fff;
@@ -100,11 +100,11 @@
 
 .next {
   right: 1.5rem;
-  color: orangered;
+  color: #f5f5f5;
 }
 .prev {
   left: 1.5rem;
-  color: orangered;
+  color: #f5f5f5;
 }
 
 hr {

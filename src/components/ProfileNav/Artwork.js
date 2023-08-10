@@ -1,72 +1,104 @@
 import React, { useEffect, useState } from 'react'
-import {collection , where, query, getDocs, getDoc, doc, orderBy} from "firebase/firestore";
+import {collection , where, query, getDocs, getDoc, doc, orderBy, deleteDoc} from "firebase/firestore";
 import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth'
  import '../../Styles/AddPost.css'
 import { Link } from 'react-router-dom';
-import { db } from '../../firebase/config';
-
-const Artwork = () => {
-  const [posts, setPost]=useState([])
-  const auth = getAuth();  
- 
+import { db, storage } from '../../firebase/config';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import Notiflix from "notiflix";
+import { deleteObject, ref } from 'firebase/storage';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { STORE_PRODUCTS, selectProducts 
+} from '../../redux/slice/productSlice';
+import ProfUseFetchCol from '../../screens/ProfUseFetchCol'; 
+ const Artwork = () => {  
+  const products = useSelector(selectProducts); 
+  const dispatch = useDispatch();
+  const {posts} = ProfUseFetchCol('posts') 
  useEffect(() => {
-  onAuthStateChanged(auth, (user)=>{
-    if (user){
-      const uid =  user.uid;
-      console.log(uid)
-      const artistDocRef = doc(db, 'users', uid);
-      const fetchArtist = async () => {
-        const docSnap = await getDoc(artistDocRef);
-        setPost([{...docSnap.data(), id: docSnap.id}]);
-      };
-      fetchArtist();
-      const fetchData = async () => {
-        const timestamp = ('timestamp', 'desc')
-          const citiesRef = collection(db, "posts");
-        const querySnapshot = query(citiesRef, 
-          where("userID", "==", uid));  
-        orderBy(timestamp);
-        const snapshot = await getDocs(querySnapshot);
-        console.log(snapshot)
-        const documents = snapshot.docs.map((doc) => ({
-         id: doc.id,
-            ...doc.data(),
-           }));
-           setPost(documents);
-      };    
-      fetchData();
+  dispatch(
+    STORE_PRODUCTS({
+      products: posts,      
+    })
+  );
+}, [dispatch, posts]);
+// Subsctriction
+ 
+const confirmDelete = (id, image) => {
+  Notiflix.Confirm.show(
+    "Delete Product!!!",
+    "You are about to delete this product",
+    "Delete",
+    "Cancel",
+    function okCb() {
+      deleteProduct(id, image);
+    },
+    function cancelCb() {
+      console.log("Delete Canceled");
+    },
+    {
+      width: "320px",
+      borderRadius: "3px",
+      titleColor: "#494949",
+      okButtonBackground: "#f5f5f5",
+      cssAnimationStyle: "zoom",
     }
-  })      
-},[]) 
+  );
+};
+
+const deleteProduct = async (id, image) => {
+  try {
+    await deleteDoc(doc(db, "posts", id));
+
+    const storageRef = ref(storage, image);
+    await deleteObject(storageRef);
+    toast.success("Product deleted successfully.");
+  } catch (error) {
+    toast.error(error.message);
+  }
+};
+
   return (
     <>
-    <div className='artsection' id='artsection'>  
+    <div className='artsection' id='artsection'> 
+ 
 <section>        
        <div className='artsection' id='artsection'>
  {
-  posts.map((post)=>(
-    <div className='artwork' key={post.id}>
-  <div className='artcollectionbox'>   
-  <div>    
- <Link to={`/product-details/${post.id}`}>
- <img src={post.image} alt=""/>  
- </Link> 
-  </div>
-  <div className='artcollectInfo'>
-  <div>           
-   <h1>{post.displayName}</h1>
-   <h2>{post.name}</h2>
-  <p>{post.medium}</p>
-  <p>{post.size}</p>
-  <p>${post.price}</p>
-  </div>
-   </div>
-   </div>
-    </div>
-  ))
+  products.map((artwork, index)=>{
+    const {id, image, medium, price, displayName, name, artSize}= artwork;
+    return (
+      <div className='artwork' key={id}>
+        <p>{index + 1}</p>
+      <div className='artcollectionbox'>   
+      <div>    
+     <Link to={`/product-details/${id}`}>
+     <img src={image} alt=""/>  
+     </Link> 
+      </div>
+      <div className='artcollectInfo'>
+      <div>            
+       <h1>{displayName}</h1>
+       <h2>{name}</h2>
+      <p>{medium}</p>
+      <p>{artSize}</p>
+      <p>${price}</p>
+      </div>
+      <Link to={`/addArtwork/${id}`}>
+      <FaEdit className='editIcon'/>
+      </Link>
+      <FaTrash className='trash' 
+       onClick={() => confirmDelete(id, image)}
+      />      
+       </div>
+       </div>
+        </div>
+    )
+  })
 }
 </div>         
-   </section> 
+   </section>   
 </div>
     </>
   )

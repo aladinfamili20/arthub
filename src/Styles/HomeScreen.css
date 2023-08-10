@@ -65,7 +65,7 @@
     align-items: center;    
     color: rgb(73, 73, 73);
     font-family: 'Courier New', Courier, monospace;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     text-align: left;
  }
 /* Collection of the day */
@@ -102,21 +102,7 @@
     padding: 10px;
  }
 
- .collection h1{
-    color: rgb(73, 73, 73);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
-    font-weight: 700;
-     
-  }
-
- .collectInfo  h3,h2,p{
-    font-size: 15px;
-    color: #494949;
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-
- }
+  
  .collectIcon {
     display: flex;
     flex-direction: column;

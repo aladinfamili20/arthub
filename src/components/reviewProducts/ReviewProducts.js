@@ -60,7 +60,7 @@ const ReviewProducts = () => {
               <b>Product name:</b> {product.name}
             </p>
             <img
-              src={product.imageURL}
+              src={product.image}
               alt={product.name}
               style={{ width: "100px" }}
             />
@@ -84,7 +84,7 @@ const ReviewProducts = () => {
               cols="30"
               rows="10"
             ></textarea>
-            <button type="submit" className="--btn --btn-primary">
+            <button type="submit" className="btn1">
               Submit Review
             </button>
           </form>

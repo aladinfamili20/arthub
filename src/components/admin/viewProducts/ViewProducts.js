@@ -118,9 +118,15 @@ const ViewProducts = () => {
                   <FaEdit size={24} className='editIcon'
                   
                   /></Link> */}
+                 <Link to={`/admin/add-product/${id}`}>
+                 <FaEdit className='editIcon' 
+                   /> 
+                 </Link>
                   <FaTrash className='trashIcon' 
-                  onClick={() => confirmDelete(id, image)}
+                  onClick={() => confirmDelete(id, image)}                  
                   />
+
+                    
                   </div></td>
                 </tr>
               )

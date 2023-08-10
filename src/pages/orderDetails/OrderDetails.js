@@ -47,7 +47,7 @@ const OrderDetails = () => {
               </thead>
               <tbody>
                 {order.cartItems.map((cart, index) => {
-                  const { id, name, price, imageURL, cartQuantity } = cart;
+                  const { id, name, price, image, cartQuantity } = cart;
                   return (
                     <tr key={id}>
                       <td>
@@ -58,7 +58,7 @@ const OrderDetails = () => {
                           <b>{name}</b>
                         </p>
                         <img
-                          src={imageURL}
+                          src={image}
                           alt={name}
                           style={{ width: "100px" }}
                         />
@@ -68,7 +68,7 @@ const OrderDetails = () => {
                       <td>{(price * cartQuantity).toFixed(2)}</td>
                       <td className={styles.icons}>
                         <Link to={`/review-product/${id}`}>
-                          <button className="--btn --btn-primary">
+                          <button className="btn1">
                             Review Product
                           </button>
                         </Link>

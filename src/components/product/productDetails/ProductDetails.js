@@ -12,13 +12,17 @@ import {
 import '../../../Styles/signup.css'
 import useFetchCollection from '../../../customHooks/useFetchCollection';
 import useFetchDocument from '../../../customHooks/useFetchDocument';
+import UseFetchArtistProfDoc from '../../../customHooks/UseFetchArtistProfDoc';
  const Registration =()=>{ 
 const {id} = useParams()
 const [product, setProduct] = useState(null);
+const [artistInfo, setArtistInfo] = useState('');
+
 const dispatch = useDispatch();
 const cartItems = useSelector(selectCartItems);
 const { document } = useFetchDocument("posts", id);
-const { data } = useFetchCollection("reviews");
+const { artist } = UseFetchArtistProfDoc("posts", id);
+ const { data } = useFetchCollection("reviews");
 const filteredReviews = data.filter((review) => review.productID === id);
 
 const cart = cartItems.find((cart) => cart.id === id);
@@ -29,6 +33,10 @@ const isCartAdded = cartItems.findIndex((cart) => {
 useEffect(() => {
   setProduct(document);
 }, [document]);
+
+useEffect(() => {
+  setArtistInfo(artist);
+}, [artist]);
 
 const addToCart = (product) => {
   dispatch(ADD_TO_CART(product));
@@ -51,13 +59,16 @@ const decreaseCart = (product) => {
 <div className='upInfo'>
 <div className='imageInfo'>
 <div className='imageInfoView'>    
- <h1>{product?.displayName}</h1>
-<h2>{product?.name}</h2>
-<h2>{product?.size}</h2>
-<h2>{product?.medium}</h2>
-<h3 className='price'>{`$${product?.price}`}</h3>
-<h4>SKU: {id} </h4>
- 
+<h1>{product?.displayName}</h1>
+<div className='detNameInfo'>
+<h1>{product?.name},</h1>
+<h1>{product?.year}</h1>
+</div>
+<h2>{product?.rarity}</h2>
+<h2>{product?.artSize}</h2> 
+
+<h3 className=''>{`$${product?.price}`}</h3>
+<h2 className=''>Shipping fee {`$${product?.shipfee}`}</h2>
 <div className='count'>
                   {isCartAdded < 0 ? null : (
 <>
@@ -71,7 +82,7 @@ const decreaseCart = (product) => {
     <b>{cart.cartQuantity}</b>
   </p>
   <button
-    className="countbtn"
+    className="btn"
     onClick={() => addToCart(product)}
   >
     +
@@ -99,67 +110,55 @@ const decreaseCart = (product) => {
 <div className='aboutArtWork'>
           <h1>About the work</h1>
           <div className='abtArtWork'>
-           <div  >
-           <h2>Material </h2> 
-           <div className='abtArtDet'>
-           <h3> 9 colour screenprint on Rives GFK paper
-          </h3>
+           <div className='abtArtWorkinpt' >
+           <h2>Material:</h2> 
+           <h3>{product?.material} </h3> 
+           </div>                      
+           <div className='abtArtWorkinpt'>
+           <h2>Medium: </h2> 
+           <h3> {product?.medium}</h3> 
            </div>
-           </div>
-           <div  >
-           <h2>Size </h2> 
-          <div className='abtArtDet'>
-          <h3> 20 × 20 in | 50.8 × 50.8 cm
-          </h3>
-          </div>
-           </div>
-          <div  >
-           <h2>Rarity </h2> 
-           <div className='abtArtDet'>
-           <h3 > Limited edition
-          </h3>
-           </div>
-           </div>
-           <div >
-           <h2>Medium</h2> 
-           <div  className='abtArtDet'><h3> Print</h3></div>
-           </div>
-             <div>
-           <h2>Condition </h2> 
-          <div className='abtArtDet'><h3>Exelent Condition</h3></div>
-           </div>
-           <div>
-           <h2>Signature</h2> 
-           <div className='abtArtDet'><h3> Hand-signed by artist
-          </h3></div>
+              
+           <div className='abtArtWorkinpt'>
+           <h2>Signature: </h2>
+           <h3>{product?.sign}</h3>            
            </div>
             
-           <div >
-           <h2>Frame </h2> 
-           <div className='abtArtDet'><h3> Included
-          </h3></div>
-           </div>      
+           <div className='abtArtWorkinpt'>
+           <h2>Frame: </h2>
+           <h3>{product?.frame}</h3>
+            </div> 
+            <div className='abtArtWorkinpt'>
+           <h2>Special Features: </h2>
+           <h3>{product?.specialfeature}</h3>
+            </div> 
+            <div className='abtArtWorkinpt'>
+           <h2>Ship from: </h2>
+           <h3>{product?.country}</h3>
+            </div>            
           </div>
-          </div>   
+          </div>  
         
 
         <div className='ArtistImgViewConProf'>
            <div className='ArtistImgViewContProf'>
+           {/* <div className='ArtistImgViewConDet'>
            <div className='ArtistImgViewConDet'>
-           <div className='ArtistImgViewConDet'>
-           {/* <img src='https://images.unsplash.com/photo-1686594094819-0685648e8925?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60' alt="profile" /> */}
+           <img src='https://images.unsplash.com/photo-1686594094819-0685648e8925?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60' alt="profile" />
             <div className='ArtistImgViewConDetNames'>
               <h2>{product?.displayName}</h2>
-              <h4>America</h4>
+              <h4>{product?.country}</h4>
             </div>
            </div>
-            <button>Follow</button>
+           <div className='btn'>
+           <button>Follow</button>
+           </div>
            </div>
            <div className='ArtistIamgeViewStory'>
            <h2>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            {artistInfo?.displayName}
            </h2>
-           </div>
+           </div> */}
            </div>
         </div>
      

@@ -1,55 +1,55 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../Styles/Artist.css'
-import { FaFacebook, FaHeart, FaInstagram, FaLocationArrow, FaTwitter, FaTwitterSquare } from 'react-icons/fa';
+import {  FaInstagram} from 'react-icons/fa';
+  import ArtistsFetchCol from '../customHooks/ArtistsFetchCol';
+ import { IoLocationOutline,  IoLogoInstagram,  IoMailOutline } from 'react-icons/io5';
+ const Artists = () => {
+  const {artist} = ArtistsFetchCol('profileUpdate')
+    return(
+<section className='artistmainCon'>
+{/* <div class="header">
+  <hr></hr>
+  <h1>Chania</h1>
+</div> */}
 
-export class Artist extends Component {
-  render() {
-    return (
-      <Artists />
-    )
-  }
-}
-
-
-const Artists = () => {
+{artist.map((artistProf)=>{
   return(
-<section className='artistHomeContainer'>
-    <div className='artistHomeContent'>
-    <div className='artist' >
-            <h1>Artists</h1>
-            {/* <h2>
-            We have a wide range of artists from all over the world. <br/>
-            </h2> */}
-        </div>
-      
-      <div className='Artistsection' id='Artistsection'>        
-      <div className='Artistscollectionbox'>
-              <a href=''>
-              <img src={require('../images/Rafiki Profile.JPG')} alt=""/>
-              </a>
-              <div className='ArtistscollectInfo'>
-              <div>
-              <h1>Rafaki Famili</h1>
-              <h2>Canvas Painter</h2>
-              <div>
-              <div className='ArtistscollectIcon'>
-               <FaLocationArrow />
-                <p>Houston Texas</p>                
-                </div>
-               </div> 
-                            
-              </div>               
-              </div>
-              <a href="/artistprofile">
-                  <button class="btn1">View Profile</button>
-              </a>                                             
-          </div>   
-  
- 
-                                                 
-      </div>
+    <>
+     <div class="header">
+ </div>
+
+<div className="row">
+  <div className="col-3 col-s-3 menu1">
+        <img src={artistProf.profImage} alt='profileimage'/>
+   </div>
+
+  <div className="col-6 col-s-9">
+     <p>{artistProf.desc}</p>
+  </div>
+
+  <div className="col-3 col-s-12">
+    <div className="aside">
+    <div className=" ">
+       <h2>{artistProf.displayName}</h2>
+      <h2 className='oilineicons'><IoMailOutline/>
+      {artistProf.email}
+      </h2>
+      <h2 className='oilineicons'><IoLocationOutline/>
+      {artistProf.country}
+      </h2>
+      <h2><a href={artistProf.insta} target='blank' className='oilineicons'><IoLogoInstagram/>Follow</a></h2>
+   </div>
     </div>
+  </div>
+</div>
+
+ 
+    </>
+  )
+})}
+
+ 
    </section>
   )
 }
-export default Artist
+export default Artists

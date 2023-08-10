@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { getAuth,  GoogleAuthProvider,signInWithPopup } from "firebase/auth";
-     const signWithGoogle = ()=>{
+  import { getAuth,  GoogleAuthProvider,signInWithPopup } from "firebase/auth";
+      const signWithGoogle = ()=>{
+      // const navigate = useNavigate()
       const auth = getAuth();
       const provider = new GoogleAuthProvider();
       signInWithPopup(auth, provider)

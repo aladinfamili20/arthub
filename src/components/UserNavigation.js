@@ -10,11 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from "../redux/slice/authSlice";
 import { auth } from "../firebase/config";
 import { AdminOnlyLink } from "./adminOnlyRoute/AdminOnlyRoute";
- 
-  
-
- 
-
+import { ProfileOnlyLink } from "./admin/profile/ProfileOnlyRoute";
+    
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [displayName, setdisplayName] = useState("");
@@ -103,29 +100,20 @@ const Header = () => {
 <li><a href='/' className='navName'>Home</a></li>
 <li className='services'>
 <a href='/artist' className='navName'>Artist</a>
-<ul className='dropdown'>
-<li><a href="/">Peter Wu</a></li>
-<li><a href="/">Danny Chu</a></li>
-<li><a href="/">Peter Wu</a></li>
-<li><a href="/">Delton Gerdes</a></li>
-<li><a href="/artistprofile">Rafiki Famili</a></li>
-</ul> 
+
 </li>
 
 <li className='services' id='navDrop'>
 <a href='/gallery' className='navName'>Artworks</a>
-<ul className='dropdown'>
-<li><a href="/">Painting</a></li>
-<li><a href="/">Crafts</a></li>   
-<li><a href="/">Painting</a></li>
-<li><a href="/">Crafts</a></li>
-</ul>
+
 </li>
 <li className='services'>
-<a href='/gallery' className='navName'>Services</a>
+<a 
+href='' 
+className='navName'>Services</a>
 <ul className='dropdown'>
 <li><a href="/subscription">Art Subscription</a></li>
-<li><a href="/">For Business</a></li>
+{/* <li><a href="/">For Business</a></li> */}
 </ul> 
 </li>   
  {/* <AdimRoute>
@@ -140,14 +128,15 @@ const Header = () => {
         <p>{cartTotalQuantity}</p>
        </Link>
 </div>
+<ProfileOnlyLink>
+<li><a href="artistprofile" className='navName'>Profile</a></li>  
+</ProfileOnlyLink>
  <li className='services' id='profileNav'>           
 <div id='profileIconInfo'>
-  <a href='/profile' className='navName' id='profTitle'>
-  <h3>Hi: {displayName}</h3> 
-   </a> 
+   <h3>Hi: {displayName}</h3> 
 </div>
 <ul className='dropdown'>
-<li><a onClick={logoutUser} className='logOut'><IoLogOut/> Log out</a></li>
+<li onClick={logoutUser} ><h3  className='logOut'><IoLogOut/> Log out</h3></li>
 </ul>
 </li>            
          

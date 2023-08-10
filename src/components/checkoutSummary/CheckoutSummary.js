@@ -8,6 +8,7 @@ import {
 } from "../../redux/slice/cartSlice";
 import Card from "../card/Card";
 import styles from "./CheckoutSummary.module.scss";
+import  "./CheckSum.css";
 
 const CheckoutSummary = () => {
   const cartItems = useSelector(selectCartItems);
@@ -15,8 +16,8 @@ const CheckoutSummary = () => {
   const cartTotalQuantity = useSelector(selectCartTotalQuantity);
 
   return (
-    <div>
-      <h3>Checkout Summary</h3>
+    <div className="checkSum">
+      <h1>Checkout Summary</h1>
       <div>
         {cartItems.lenght === 0 ? (
           <>
@@ -30,19 +31,27 @@ const CheckoutSummary = () => {
             <p>
               <b>{`Cart item(s): ${cartTotalQuantity}`}</b>
             </p>
-            <div className={styles.text}>
+            <div className='sumText'>
               <h4>Subtotal:</h4>
-              <h3>{cartTotalAmount.toFixed(2)}</h3>
+              <h2>{cartTotalAmount.toFixed(2)}</h2>
             </div>
             {cartItems.map((item, index) => {
-              const { id, name, price, cartQuantity } = item;
+              const { id, name, price, cartQuantity, shipfee } = item;
               return (
-                <Card key={id} cardClass={styles.card}>
-                  <h4>Product: {name}</h4>
+                <>
+                <div className="sumTextCont">
+                <Card key={id} cardClass='sumText'>
+                <h4>Product: {name}</h4>
                   <p>Quantity: {cartQuantity}</p>
                   <p>Unit price: {price}</p>
                   <p>Set price: {price * cartQuantity}</p>
+                  <p>Shipping fee: {shipfee}</p>    
                 </Card>
+                <hr/> 
+                </div>
+                </>
+                 
+               
               );
             })}
           </div>

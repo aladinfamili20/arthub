@@ -1,0 +1,46 @@
+.checkSum h3{
+    font-size: 50px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+}
+ 
+
+.sumText {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    margin: 10px;
+}
+
+.sumTextCont hr{
+    width: 100%;
+    background-color: #494949;
+}
+
+.sumText h4{
+    font-size: 20px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.sumText h2{
+    font-size: 40px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;    
+    color: #494949;
+    font-family: 'Courier New', Courier, monospace;
+}
+ 
+
+.sumText p{
+    text-align: center;
+    padding: 5px;
+  }

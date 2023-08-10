@@ -10,7 +10,7 @@ import {
 import  "../../components/product/Product.css";
 import spinnerImg from "../../assets/spinner.jpg";
 import { FaCogs } from "react-icons/fa";
-import HomeProdList from "./HomeProdList";
+import HomeProdList from "./HomeProd";
 
 const HomeProduct = () => {
   const { data, isLoading } = useFetchCollection("posts");
@@ -38,13 +38,15 @@ const HomeProduct = () => {
 
   return (
     <section>
-    <div className='product'>
-      
+       <div className="roomIllusion">
+        <h2>
+          New Arrivals
+        </h2>
+      </div>
      <div className='productContent'>
       <HomeProdList products={products}/>
     </div>
-    </div>
-  </section>
+   </section>
   );
 };
 

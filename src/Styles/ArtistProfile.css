@@ -39,7 +39,7 @@
         align-items: center;    
         color: #494949;
         font-family: 'Courier New', Courier, monospace;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
     }
 
     .ArtistProfile h2{

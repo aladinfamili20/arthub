@@ -5,6 +5,8 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import styles from "./CheckoutForm.module.scss";
+import   "./CheckoutForm.css";
+
 import Card from "../card/Card";
 import CheckoutSummary from "../checkoutSummary/CheckoutSummary";
 import spinnerImg from "../../assets/spinner.jpg";
@@ -117,22 +119,21 @@ const CheckoutForm = () => {
 
   return (
     <section>
-      <div className={`container ${styles.checkout}`}>
-        <h2>Checkout</h2>
-        <form onSubmit={handleSubmit}>
+      <div className='checkout-form'>
+         <form onSubmit={handleSubmit} className="checkoutForm">
           <div>
-            <Card cardClass={styles.card}>
+            <Card cardClass='cardSum'>
               <CheckoutSummary />
-            </Card>
+            </Card> 
           </div>
-          <div>
-            <Card cardClass={`${styles.card} ${styles.pay}`}>
+          <div className="stripecont">
+            <Card  >
               <h3>Stripe Checkout</h3>
               <PaymentElement id={styles["payment-element"]} />
               <button
                 disabled={isLoading || !stripe || !elements}
                 id="submit"
-                className={styles.button}
+                className='btn1'
               >
                 <span id="button-text">
                   {isLoading ? (

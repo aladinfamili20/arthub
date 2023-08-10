@@ -42,7 +42,7 @@ const ProductList = ({ products }) => {
   return (
     <div className={styles["product-list"]} id="product">
       <div className={styles.top}>
-        <div className={styles.icons}>
+        {/* <div className={styles.icons}>
           <BsFillGridFill
             size={22}
             color="#494949"
@@ -52,15 +52,14 @@ const ProductList = ({ products }) => {
           <p>
             <b>{filteredProducts.length}</b> Products found.
           </p>
-        </div>
+        </div> */}
         {/* Search Icon */}
         <div>
           <Search value={search} onChange={(e) => setSearch(e.target.value)} />
         </div>
         {/* Sort Products */}
         <div className={styles.sort}>
-          <label>Sort by:</label>
-          <select value={sort} onChange={(e) => setSort(e.target.value)}>
+           <select value={sort} onChange={(e) => setSort(e.target.value)}>
             <option value="latest">Latest</option>
             <option value="lowest-price">Lowest Price</option>
             <option value="highest-price">Highest Price</option>
@@ -83,14 +82,14 @@ const ProductList = ({ products }) => {
               );
             })}
           </>
-        )}
-        <Pagination
+        )}         
+      </div>
+      <Pagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           productsPerPage={productsPerPage}
           totalProducts={filteredProducts.length}
         />
-      </div>
     </div>
   );
 };

@@ -80,8 +80,9 @@ const Cart = () => {
               <thead>
                 <tr>
                   <th>s/n</th>
-                  <th>Product</th>
+                   <th>Product</th>
                   <th>Price</th>
+                  <th>Ship Fee</th>
                   <th>Quantity</th>
                   <th>Total</th>
                   <th>Action</th>
@@ -89,14 +90,12 @@ const Cart = () => {
               </thead>
               <tbody>
                 {cartItems.map((cart, index) => {
-                  const { id, name, price, image, cartQuantity } = cart;
+                  const { id, name, price, image, shipfee, cartQuantity } = cart;
                   return (
                     <tr key={id}>
                       <td>{index + 1}</td>
-                      <td>
-                        <p>
-                          <b>{name}</b>
-                        </p>
+                       <td>
+                         
                         <img
                           src={image}
                           alt={name}
@@ -105,7 +104,10 @@ const Cart = () => {
                       </td>
                       <td>{price}</td>
                       <td>
-                        <div className='checkoutCount'>
+                         {shipfee}
+                      </td>
+                      <td>
+                      <div className='checkoutCount'>
                           <button
                             className="btn1"
                             onClick={() => decreaseCart(cart)}
@@ -123,7 +125,8 @@ const Cart = () => {
                           </button>
                         </div>
                       </td>
-                      <td>{(price * cartQuantity).toFixed(2)}</td>
+                       <td>{(price + shipfee * cartQuantity).toFixed(2)}</td>
+
                       <td className={styles.icons}>
                         <FaTrashAlt
                           size={19}
@@ -156,8 +159,7 @@ const Cart = () => {
                   <p>Tax an shipping calculated at checkout</p>
                   <button
                     className="ChechoutButton"
-                    onClick={checkout}
-                  >
+                    onClick={checkout}>
                     Checkout
                   </button>
                 </Card>

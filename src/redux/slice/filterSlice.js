@@ -52,18 +52,86 @@ const filterSlice = createSlice({
 
       state.filteredProducts = tempProducts;
     },
-    FILTER_BY_CATEGORY(state, action) {
-      const { products, category } = action.payload;
+    FILTER_BY_MEDIUM(state, action) {
+      const { products, medium } = action.payload;
       let tempProducts = [];
-      if (category === "All") {
+      if (medium === "All") {
         tempProducts = products;
       } else {
         tempProducts = products.filter(
-          (product) => product.category === category
+          (product) => product.medium === medium
         );
       }
       state.filteredProducts = tempProducts;
     },
+
+    // Filter by size
+    FILTER_BY_SIZE(state, action) {
+      const { products, size } = action.payload;
+      let tempProducts = [];
+      if (size === "All") {
+        tempProducts = products;
+      } else {
+        tempProducts = products.filter(
+          (product) => product.size === size
+        );
+      }
+      state.filteredProducts = tempProducts;
+    },
+
+    FILTER_BY_RARITY(state, action) {
+      const { products, rarity } = action.payload;
+      let tempProducts = [];
+      if (rarity === "All") {
+        tempProducts = products;
+      } else {
+        tempProducts = products.filter(
+          (product) => product.rarity === rarity
+        );
+      }
+      state.filteredProducts = tempProducts;
+    },
+
+    FILTER_BY_STYLE(state, action) {
+      const { products, style } = action.payload;
+      let tempProducts = [];
+      if (style === "All") {
+        tempProducts = products;
+      } else {
+        tempProducts = products.filter(
+          (product) => product.style === style
+        );
+      }
+      state.filteredProducts = tempProducts;
+    },
+// Frame
+    FILTER_BY_FRAME(state, action) {
+      const { products, frame } = action.payload;
+      let tempProducts = [];
+      if (frame === "All") {
+        tempProducts = products;
+      } else {
+        tempProducts = products.filter(
+          (product) => product.frame === frame
+        );
+      }
+      state.filteredProducts = tempProducts;
+    },
+
+    FILTER_BY_LOCATION(state, action) {
+      const { products, country } = action.payload;
+      let tempProducts = [];
+      if (country === "All") {
+        tempProducts = products;
+      } else {
+        tempProducts = products.filter(
+          (product) => product.country === country
+        );
+      }
+      state.filteredProducts = tempProducts;
+    },
+
+
     FILTER_BY_DIAMOND(state, action) {
       const { products, subscription } = action.payload;
       let tempProducts = [];
@@ -77,15 +145,18 @@ const filterSlice = createSlice({
       state.filteredProducts = tempProducts;
     },
     FILTER_BY_BRAND(state, action) {
-      const { products, brand } = action.payload;
+      const { products, displayName } = action.payload;
       let tempProducts = [];
-      if (brand === "All") {
+      if (displayName === "All") {
         tempProducts = products;
       } else {
-        tempProducts = products.filter((product) => product.brand === brand);
+        tempProducts = products.filter((product) => product.displayName === displayName);
       }
       state.filteredProducts = tempProducts;
     },
+
+     
+
     FILTER_BY_PRICE(state, action) {
       const { products, price } = action.payload;
       let tempProducts = [];
@@ -99,11 +170,16 @@ const filterSlice = createSlice({
 export const {
   FILTER_BY_SEARCH,
   SORT_PRODUCTS,
-  FILTER_BY_CATEGORY,
+  FILTER_BY_MEDIUM,
+  FILTER_BY_SIZE,
   FILTER_BY_BRAND,
   FILTER_BY_PRICE,
   FILTER_BY_DIAMOND,
-} = filterSlice.actions;
+  FILTER_BY_RARITY,
+  FILTER_BY_STYLE,
+  FILTER_BY_FRAME,
+  FILTER_BY_LOCATION,
+ } = filterSlice.actions;
 
 export const selectFilteredProducts = (state) => state.filter.filteredProducts;
 

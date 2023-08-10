@@ -88,40 +88,28 @@ const Header = () => {
 <label for='checkbox_toggle' className='hamburger'>&#9776;</label>
 {/* navigation menu */}
 <div className='menu'>
-<li><a href='/' className='navName'>Home</a></li>
+<li><a href='/' className='navName' id="active1">Home</a></li>
 <li className='services'>
 <a href='/artist' className='navName'>Artist</a>
-<ul className='dropdown'>
-<li><a href="/">Peter Wu</a></li>
-<li><a href="/">Danny Chu</a></li>
-<li><a href="/">Peter Wu</a></li>
-<li><a href="/">Delton Gerdes</a></li>
-<li><a href="/artistprofile">Rafiki Famili</a></li>
-</ul> 
+ 
 </li>
 
 <li className='services' id='navDrop'>
-<a href='/gallery' className='navName'>Artworks</a>
-<ul className='dropdown'>
-<li><a href="/">Painting</a></li>
-<li><a href="/">Crafts</a></li>   
-<li><a href="/">Painting</a></li>
-<li><a href="/">Crafts</a></li>
-</ul>
+<a href='/gallery' className='navName'>Artworks</a>        
 </li>
 <li className='services'>
 <a href='/gallery' className='navName'>Services</a>
 <ul className='dropdown'>
 <li><a href="/subscription">Art Subscription</a></li>
-<li><a href="/">For Business</a></li>
-</ul> 
+ </ul> 
 </li>   
  {/* <AdimRoute>
  <li><a href="/adminpage" className='navName'>Admin</a></li>  
  </AdimRoute> */}
  
 <div onClick={toggleMenu} className="" > {cart}</div>
-<li className='Login'><a href='/login' >Log in</a></li>
+
+<li className="logbutton"><a href="/login">Login</a></li>
    </div>  
 </ul>
 

@@ -13,7 +13,7 @@ const Footer = ()=>{
                         <a href="#">Jobs</a>
                         <a href="#">About us</a>                        
                         <a href="#">Privacy Policy</a>
-                        <a href="#">Delivety information</a>
+                        {/* <a href="#">Delivety information</a> */}
                                           
                     </div>
                         <div class="social-media">
@@ -27,23 +27,23 @@ const Footer = ()=>{
                     </div>        
                      
         
-                    <div class="col">
+                    {/* <div class="col">
                         <h4>Partnership</h4>
                         <a href="#">Business</a>
                         <a href="#">Individual</a>                                               
                                           
-                    </div>
+                    </div> */}
         
                     <div class="col">
                         <h4>My Account</h4>
-                        <a href="#">Sign In</a>
-                        <a href="#">View Cart</a>
-                        <a href="#">My Wishlists</a>
+                        <a href="/login">Sign In</a>
+                        <a href="/cart">View Cart</a>
+                        {/* <a href="#">My Wishlists</a>
                         <a href="#">Track My Order</a>
-                        <a href="#">Help</a>
+                        <a href="#">Help</a> */}
                     </div>
         
-                    <div class="col install">
+                    {/* <div class="col install">
                         <h4>Download the App</h4>
                         <p>From App Store or Google Play</p>
                         <div class="row">
@@ -52,7 +52,7 @@ const Footer = ()=>{
                             <p>Secure Payment Gateway</p> 
                             <img class="pay" src="/images/payments.png" alt=""/>
                         </div>
-                    </div>
+                    </div> */}
 
                  </div>
              </footer>

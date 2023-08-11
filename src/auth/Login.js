@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import '../Styles/Login.css'
 import { getAuth, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import {useNavigate} from 'react-router-dom'     
-import signWithGoogle from '../auth/Google' 
-import loginInWithFacebook from '../auth/Facebook';
-import loginWithYahoo from '../auth/Yahoo';
-import loginWithTwitter from '../auth/Twitter';
-import loginInWithApple from '../auth/Apple'
+// import signWithGoogle from '../auth/Google' 
+// import loginInWithFacebook from '../auth/Facebook';
+// import loginWithYahoo from '../auth/Yahoo';
+// import loginWithTwitter from '../auth/Twitter';
+import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthProvider,OAuthProvider } from "firebase/auth";
  
  const Login = ()=>{ 
     const navigate = useNavigate();
@@ -47,6 +47,81 @@ import loginInWithApple from '../auth/Apple'
         
       })
     }
+
+
+    // Facebook
+
+    const loginInWithFacebook = () => {
+      const auth = getAuth();
+      const provider = new FacebookAuthProvider();
+       signInWithPopup(auth, provider)
+      .then((result) => {
+          const user = result.user;             
+          console.log(user)         
+        }).catch((error) => {        
+         console.log(error)
+        });
+      }
+
+      // Twitter
+
+      const loginWithTwitter = () => {
+        const provider = new TwitterAuthProvider();
+        const auth = getAuth();
+        signInWithPopup(auth, provider)
+        .then((result) => {
+          const credential = TwitterAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          const secret = credential.secret;  
+          // The signed-in user info.
+          const user = result.user;
+          // IdP data available using getAdditionalUserInfo(result)
+          console.log(user)
+          // ...
+        }).catch((error) => {
+          // Handle Errors here.
+          console.log(error)
+          const errorCode = error.code;       
+        });
+    }
+
+
+    const signWithGoogle = ()=>{
+      // const navigate = useNavigate()
+      const auth = getAuth();
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+         const user = result.user       
+        //  navigate('/profile') 
+      }).catch((error) => {
+           const errorCode = error.code;
+        });
+    }
+
+
+    // Yahoo
+
+    const loginWithYahoo = () => {
+      const auth = getAuth();
+  
+      const provider = new OAuthProvider('yahoo.com');
+      signInWithPopup(auth, provider)
+    .then((result) => {
+      // IdP data available in result.additionalUserInfo.profile
+      // ...
+  
+      // Yahoo OAuth access token and ID token can be retrieved by calling:
+      const credential = OAuthProvider.credentialFromResult(result);
+      const accessToken = credential.accessToken;
+      const idToken = credential.idToken;
+    })
+    .catch((error) => {
+      // Handle error.
+      console.log(error)
+    });
+  }
  
       return (
       <div className='loginMainContainer'>

@@ -152,3 +152,37 @@
     transform: scale(1.1);
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
  }
+
+
+ @media screen and (max-width: 700px) {
+  .table-container table  {
+      width: 100%;   
+   }            
+}
+
+
+ 
+
+/* Adjust table styles for responsiveness */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+   text-align: center;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  th, td {
+    padding: 5px;
+    overflow-x: auto;
+
+  }
+}

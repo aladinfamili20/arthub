@@ -2,7 +2,7 @@ import React from 'react'
 import '../Styles/Artist.css'
 import {  FaInstagram} from 'react-icons/fa';
   import ArtistsFetchCol from '../customHooks/ArtistsFetchCol';
- import { IoLocationOutline,  IoLogoInstagram,  IoMailOutline } from 'react-icons/io5';
+ import { IoLocationOutline,  IoLogoFacebook,  IoLogoInstagram,  IoLogoTwitter,  IoMailOutline } from 'react-icons/io5';
  const Artists = () => {
   const {artist} = ArtistsFetchCol('profileUpdate')
     return(
@@ -38,6 +38,9 @@ import {  FaInstagram} from 'react-icons/fa';
       {artistProf.country}
       </h2>
       <h2><a href={artistProf.insta} target='blank' className='oilineicons'><IoLogoInstagram/>Follow</a></h2>
+      <h2><a href={artistProf.twitter} target='blank' className='oilineicons'><IoLogoTwitter/>Follow</a></h2>
+      <h2><a href={artistProf.facebook} target='blank' className='oilineicons'><IoLogoFacebook/>Follow</a></h2>
+
    </div>
     </div>
   </div>

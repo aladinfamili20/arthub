@@ -22,7 +22,7 @@ li {
 
 .navName h2{
     cursor: pointer;
-    user-select:none ;
+    -webkit-user-select:none ;
     -webkit-user-drag: none;
     font-size: 10px;
     font-weight: 700;
@@ -138,7 +138,7 @@ input[type=checkbox] {
     display: none;
     font-size: 24px;
     color: rgb(0, 0, 0);
-    user-select: none;
+    -webkit-user-select: none;
 }
 
 /* APPLYING MEDIA QUERIES */
@@ -291,3 +291,14 @@ nav h3{
     width: 20px;
 }
  
+.profileIconInfo {
+    display: flex;
+ }
+
+.profileIconInfo h1{
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 10px;
+    font-family: 'Courier New', Courier, monospace;
+
+}

@@ -3,12 +3,14 @@
     width: 100%;
     max-width: 500px;
     padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
   }
   form {
     label {
       display: block;
       font-size: 1.4rem;
       font-weight: 500;
+      font-family: 'Courier New', Courier, monospace;
     }
     input[type="text"],
     input[type="number"],
@@ -26,6 +28,7 @@
       border: 1px solid #777;
       border-radius: 3px;
       outline: none;
+      font-family: 'Courier New', Courier, monospace;
     }
   }
 }

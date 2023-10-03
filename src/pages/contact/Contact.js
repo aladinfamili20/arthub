@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import Card from "../../components/card/Card";
 import styles from "./Contact.module.scss";
-import { FaPhoneAlt, FaEnvelope, FaTwitter } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
@@ -44,7 +44,7 @@ const Contact = () => {
                 name="user_name"
                 placeholder="Full Name"
                 required
-              />
+               />
               <label>Email</label>
               <input
                 type="email"
@@ -61,7 +61,7 @@ const Contact = () => {
               />
               <label>Message</label>
               <textarea name="message" cols="30" rows="10"></textarea>
-              <button className="--btn --btn-primary">Send Message</button>
+              <button className="btn1" style={{color: '#494949'}}>Send Message</button>
             </Card>
           </form>
 
@@ -72,20 +72,20 @@ const Contact = () => {
               <div className={styles.icons}>
                 <span>
                   <FaPhoneAlt />
-                  <p>+234 705 141 6545</p>
+                  <p>+ (1281) - 891 - 3797</p>
                 </span>
                 <span>
                   <FaEnvelope />
-                  <p>Support@eshop.com</p>
+                  <p>arthub.dei@gmail.com</p>
                 </span>
                 <span>
                   <GoLocation />
-                  <p>Abuja, Nigeria</p>
+                  <p>Houston TX, USA</p>
                 </span>
-                <span>
+                {/* <span>
                   <FaTwitter />
                   <p>@ZinoTrust</p>
-                </span>
+                </span> */}
               </div>
             </Card>
           </div>

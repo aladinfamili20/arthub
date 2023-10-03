@@ -92,11 +92,11 @@
        font-weight: 700;
   }
  
-  small{
-     font-size: 15px;
-    color: #494949;
-    font-family: 'Courier New', Courier, monospace;
-  }
+  .loginInfo  {
+      display: flex;
+     flex-wrap: wrap;
+     flex-direction: column;
+     }
   
   .error{
     color: red;

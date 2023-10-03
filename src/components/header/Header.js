@@ -158,9 +158,9 @@ const Header = () => {
  <li><a href="/adminpage" className='navName'>Admin</a></li>  
  </AdimRoute> */}
 
-  <AdminOnlyLink>
+  {/* <AdminOnlyLink>
  <li><a href="/admin/home" className='navName'>Admin</a></li>  
- </AdminOnlyLink>
+ </AdminOnlyLink> */}
 
 <div onClick={toggleMenu} > {cart}</div>
 <hr></hr>

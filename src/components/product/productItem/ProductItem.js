@@ -10,7 +10,7 @@ import styles from "./ProductItem.module.scss";
 import  "./ProductItem.css";
 import { IoBasketSharp } from "react-icons/io5";
 
-const ProductItem = ({ product, year, id, name, price, desc, image,medium,displayName,artSize }) => {
+const ProductItem = ({ product, year, id, name, price, lastName, image,medium,displayName,artSize }) => {
   const dispatch = useDispatch();
   const shortenText = (text, n) => {
     if (text.length > n) {
@@ -28,7 +28,7 @@ const ProductItem = ({ product, year, id, name, price, desc, image,medium,displa
   return (
      <>
      
-     <div className='artwork' key={id}  >
+     <div className='artwork' key={id} id="artsection" >
     <div className='artcollectionbox'>         
        <div >    
   <div 
@@ -45,7 +45,7 @@ const ProductItem = ({ product, year, id, name, price, desc, image,medium,displa
     </div>   
     <div className='artcollectInfo'>
     <div>           
-    <h1>{displayName}</h1>
+    <h1>{displayName} {lastName}</h1>
    <div>
    <b> {name}, </b>
    <b> {year} </b>

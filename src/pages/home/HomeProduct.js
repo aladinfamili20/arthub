@@ -8,8 +8,8 @@ import {
 } from "../../redux/slice/productSlice";
 // import styles from "./Product.module.scss";
 import  "../../components/product/Product.css";
-import spinnerImg from "../../assets/spinner.jpg";
-import { FaCogs } from "react-icons/fa";
+// import spinnerImg from "../../assets/spinner.jpg";
+// import { FaCogs } from "react-icons/fa";
 import HomeProdList from "./HomeProd";
 
 const HomeProduct = () => {

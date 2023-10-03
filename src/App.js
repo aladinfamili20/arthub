@@ -37,6 +37,11 @@ import AddProduct from "./components/admin/addProduct/AddProduct";
 import AddArtwork from "./components/admin/addProduct/AddArtwork";
 import EditProfile from "./screens/EditProfile";
 import ArtistProfile from "./screens/ArtistProfile";
+import Registration from "./auth/Signup";
+import PrivacyPolicy from "./screens/PrivacyPolicy";
+import AboutUs from "./screens/AboutUs";
+import ArtistOrders from "./pages/Artist/ArtistOrders";
+import ArtistOrderDetail from "./pages/Artist/ArtistOrderDetail";
  
 function App() {
   const getuser = getAuth()
@@ -61,6 +66,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/signup" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/reset" element={<Reset />} />
@@ -80,6 +86,9 @@ function App() {
           <Route path="/uploadartwork" element={<UploadArtwork />} />
            <Route path="/artworks" element={<Artwork />} />
           <Route path="/review-product/:id" element={<ReviewProducts />} />
+
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/aboutus" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/artistprofile" element={<ArtistProfile />} />
@@ -87,9 +96,13 @@ function App() {
           <Route path="/add-product" element={<AddProduct />} />
           <Route path='/profile' element={
           <PrivateRoutes><Profile/></PrivateRoutes>}/>
+          <Route path='/artistorderdetail/:id' element={
+          <PrivateRoutes><ArtistOrderDetail/></PrivateRoutes>}/>
             <Route path="/subscription" element={<Subscription />} />
             <Route path="/addpost" element={<PrivateRoutes><AddPost /></PrivateRoutes>
           } /> 
+          <Route path="/artistorders" element={<PrivateRoutes><ArtistOrders /></PrivateRoutes>
+          } />
             <Route path="/editprofile" element={<PrivateRoutes><EditProfile /></PrivateRoutes>
             } /> 
          </Routes>

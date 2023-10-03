@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import {
   deleteObject,
   getDownloadURL,
@@ -94,6 +94,8 @@ const initialState = {
   certificate:"",
   artSize:'',
   shipfee: '',
+  displayName: "",
+  lastName: "",
  };
 
 
@@ -101,8 +103,7 @@ const AddProduct = () => {
   const { id } = useParams();
   const {user} = useAuth()
    const [percent, setPercent] = useState(0);
-   const [displayName, setDisplayName] = useState(null)
-   const products = useSelector(selectProducts);
+    const products = useSelector(selectProducts);
   const productEdit = products.find((item) => item.id === id);
   console.log(productEdit);
 
@@ -114,6 +115,7 @@ const AddProduct = () => {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const [data, setData] = useState([]);
 
   function detectForm(id, f1, f2) {
     if (id === "ADD") {
@@ -121,14 +123,25 @@ const AddProduct = () => {
     }
     return f2;
   }
+  
+
   useEffect(() => {
     onAuthStateChanged(auth, (user)=>{
-      if(user){
-        const uid = user.uid;
-        setDisplayName(user.displayName)
+      if (user){
+        const uid =  user.uid;
+        console.log(uid)
+        const artistDocRef = doc(db, 'users', uid);
+        const fetchArtist = async () => {
+          const docSnap = await getDoc(artistDocRef);
+          setData([{...docSnap.data(), id: docSnap.id}]);
+          console.log(data.displayName)
+        };
+        fetchArtist();
+        
       }
-    })
+    })      
   },[])
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -141,10 +154,8 @@ const AddProduct = () => {
 const handleImageChange = (e) => {
   const file = e.target.files[0];
   // console.log(file);
-
   const storageRef = ref(storage, `artwork/${Date.now()}${file.name}`);
   const uploadTask = uploadBytesResumable(storageRef, file);
-
   uploadTask.on(
     "state_changed",
     (snapshot) => {
@@ -194,7 +205,8 @@ const handleImageChange = (e) => {
         orientation:product.orientation,
         time: product.time,
         size: product.size,
-        displayName:displayName,
+        displayName:product.displayName,
+        lastName:product.lastName,
         rarity:product.rarity,
         country:product.country,
         sign:product.sign,
@@ -212,7 +224,7 @@ const handleImageChange = (e) => {
       setProduct({ ...initialState });
 
       toast.success("Product uploaded successfully.");
-      navigate("/profile");
+      navigate("/artistprofile");
     } catch (error) {
       setIsLoading(false);
       console.log(error.message);
@@ -244,7 +256,8 @@ const handleImageChange = (e) => {
         orientation:product.orientation,
         time: product.time,
         size: product.size,
-        displayName:displayName,
+        displayName:product.displayName,
+        lastName:product.lastName,
         rarity:product.rarity,
         country:product.country,
         sign:product.sign,
@@ -280,6 +293,8 @@ onChange={(e)=>setImage(e.target.value)}
 onChange={handleChange}
  multiple accept='image/png, image/jpg'
 id='fileuplaod'/> */}
+
+  
  <div className='addPost_container'>
   {/* {product.image && (<div className='artBox'onClick={File}>               
 <img src={window.URL.createObjectURL(blob)} alt='signupimg'  />
@@ -301,13 +316,15 @@ id='fileuplaod'/> */}
   } */}
 
      
-  <input
+<input
     type="file"
     accept="image/*"
     placeholder="Product Image"
     name="image"
      onChange={(e) => handleImageChange(e)}
+     className="image"
   />
+  
              {product.image === "" ? null : (
                 <input
                   type="text"
@@ -326,6 +343,14 @@ id='fileuplaod'/> */}
  
  <div className='AddPostInpCon'>
   <div className='addPostInpCon1'>
+
+   <input type="text"
+  placeholder=" * First Name"
+  required
+  name="displayName"
+  value={product.displayName}
+  onChange={(e) => handleInputChange(e)}
+className='input' />            
 
   <input type="text"
   placeholder=" * Title of the artwork"
@@ -416,7 +441,13 @@ className='input' />
 
   </div>
   <div className='addPostInpCon2'>
-
+  <input type="text"
+  placeholder=" * Last Name"
+  required
+  name="lastName"
+  value={product.lastName}
+  onChange={(e) => handleInputChange(e)}
+className='input' />  
 
   <input type="number"
   placeholder=" * Price ($USD)"

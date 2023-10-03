@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import {collection , where, query, getDocs, getDoc, doc, orderBy, deleteDoc} from "firebase/firestore";
-import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth'
+import React, { useEffect,  } from 'react'
+import { doc,deleteDoc} from "firebase/firestore";
  import '../../Styles/AddPost.css'
 import { Link } from 'react-router-dom';
 import { db, storage } from '../../firebase/config';
@@ -41,7 +40,7 @@ const confirmDelete = (id, image) => {
       width: "320px",
       borderRadius: "3px",
       titleColor: "#494949",
-      okButtonBackground: "#f5f5f5",
+      okButtonBackground: "#494949",
       cssAnimationStyle: "zoom",
     }
   );
@@ -88,7 +87,7 @@ const deleteProduct = async (id, image) => {
       <Link to={`/addArtwork/${id}`}>
       <FaEdit className='editIcon'/>
       </Link>
-      <FaTrash className='trash' 
+      <FaTrash className='editIcon' 
        onClick={() => confirmDelete(id, image)}
       />      
        </div>

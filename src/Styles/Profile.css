@@ -2,12 +2,12 @@
 .artProfileContainer{
     margin-top: 20px;
     margin-bottom: 20px;
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
 }
 .artProfileContainer {
     width: 85%;
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     gap: 10;
     justify-content: space-between;
@@ -18,8 +18,10 @@
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
-    flex-direction: row;
- }
+    align-items: center;
+    display: block;
+    flex-direction: column;
+  }
 
 .settingsH1a h1{
     font-size: 50px;
@@ -43,9 +45,9 @@
 
 .profileContainer1 img{
     width: 100px;
-     height: 100px;
+    height: 100px;
     object-fit: cover;
-     margin: 20px
+    margin: 20px
  }
  .bioContainer{
     width: 100%;
@@ -232,15 +234,14 @@
     margin-right: 20px;
   }
 
-  #cover, #profile:hover{
+  /* #cover, #profile:hover{
     cursor: pointer;
-    opacity: 0.5;
-   }
+    } */
  
 
    #profile img{
-    width: 150px;
-    height: 200px;
+    width: 350px;
+    height: 300px;
    }
 
    input{
@@ -379,6 +380,7 @@
     cursor: pointer;
     padding: 10px;  
     transition: 0.5s; 
+    margin-left: 40px;
     }
 
     .editProf h1{
@@ -424,4 +426,16 @@
         
  
 
-     
+       @media screen and (max-width: 700px) {
+        #profile1 img {
+            width: 100%;         
+        }            
+      }
+
+      @media screen and (max-width: 700px) {
+        .editProf  {
+           justify-content: center;          
+           margin-top:-8vw !important;
+           align-items: center;
+         }            
+      }

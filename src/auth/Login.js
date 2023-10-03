@@ -50,40 +50,11 @@ import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthPro
 
 
     // Facebook
-
-    const loginInWithFacebook = () => {
-      const auth = getAuth();
-      const provider = new FacebookAuthProvider();
-       signInWithPopup(auth, provider)
-      .then((result) => {
-          const user = result.user;             
-          console.log(user)         
-        }).catch((error) => {        
-         console.log(error)
-        });
-      }
+ 
 
       // Twitter
 
-      const loginWithTwitter = () => {
-        const provider = new TwitterAuthProvider();
-        const auth = getAuth();
-        signInWithPopup(auth, provider)
-        .then((result) => {
-          const credential = TwitterAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          const secret = credential.secret;  
-          // The signed-in user info.
-          const user = result.user;
-          // IdP data available using getAdditionalUserInfo(result)
-          console.log(user)
-          // ...
-        }).catch((error) => {
-          // Handle Errors here.
-          console.log(error)
-          const errorCode = error.code;       
-        });
-    }
+    
 
 
     const signWithGoogle = ()=>{
@@ -132,31 +103,20 @@ import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthPro
         <div className='LoginInfo'>
                 <h1>Log In</h1>
                 <div className='LoginInfoConetents'>
-      {/* <form> 
+      <form> 
       <input type='email' value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='Email'
       className='LoginInput' 
       />
       <input type='password' value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='Password' className='LoginInput' 
         id='password'/>
-      </form> */}
+      </form>
        
-      {/* <button className='LoginButton'
+      <button className='LoginButton'
       type='submit'
       onClick={onLogin}              
-      >Log in</button>    */}
+      >Log in</button>   
       {/* <p>Log in with:</p> */}
-      <div className='ServiceLogins'>
-      {/* <div> */}
-      <div className='faceTweet'>                  
-      <div  className='SocialButtons'
-      onClick={loginInWithFacebook}><img src={require('../images/Logos/Facebook.png')} alt='facebook logo'/> <h4> Continue with Facebook</h4>
-      </div>
-      <div className='SocialButtons' 
-      onClick={loginWithTwitter}> <img src={require('../images/Logos/Twitter.png')} alt='facebook logo'/><h4> Continue with Twitter</h4>
-      </div> 
-      </div>
-      {/* </div> */}
-            
+      {/* <div className='ServiceLogins'>             
       <div>
       <div className='faceTweet'>
       <div 
@@ -169,12 +129,10 @@ import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthPro
       </div>
       </div>
       </div>  
-
-       <div>
-      
+       <div>      
       </div>     
-      </div>              
-      {/* <small>Don't have account? <a href='/Signup' className='sgnupin'>Sign up</a></small> */}
+      </div>               */}
+      <small>Don't have account? <a href='/Signup' className='sgnupin'>Sign up</a></small>
    <div>
    <small>By signing up, you agree to our Terms, Data Policy and Cookies Policy.</small>  
    </div>

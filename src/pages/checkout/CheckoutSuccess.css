@@ -1,0 +1,51 @@
+/* PaymentConfirmation.css */
+.payment-confirmation {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #494949;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .payment-confirmation h1 {
+    color: #333;
+  }
+  
+  .confirmation-details {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: auto;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .back-button {
+    padding: 10px 20px;
+    background-color: #494949;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .back-button:hover {
+    background-color: #ccc;
+    font-family: 'Courier New', Courier, monospace;
+    color: #494949;
+  }
+  

@@ -1,6 +1,6 @@
 import React from "react"
 import '../Styles/HomeScreen.css'
-import { FaFacebook, FaHeart, FaInstagram, FaTwitter, FaTwitterSquare } from 'react-icons/fa';
+import { FaFacebook,  FaInstagram, FaTwitter,  } from 'react-icons/fa';
 
 const Footer = ()=>{
     return (
@@ -10,9 +10,9 @@ const Footer = ()=>{
                     <div class="col">
                     <div class="col">
                         <h4>About</h4>
-                        <a href="#">Jobs</a>
-                        <a href="#">About us</a>                        
-                        <a href="#">Privacy Policy</a>
+                        <a href="/contact">Contact</a>
+                        <a href="/aboutus">About us</a>                        
+                        <a href="/privacypolicy">Privacy Policy</a>
                         {/* <a href="#">Delivety information</a> */}
                                           
                     </div>
@@ -34,14 +34,14 @@ const Footer = ()=>{
                                           
                     </div> */}
         
-                    <div class="col">
+                    {/* <div class="col">
                         <h4>My Account</h4>
                         <a href="/login">Sign In</a>
                         <a href="/cart">View Cart</a>
-                        {/* <a href="#">My Wishlists</a>
+                        <a href="#">My Wishlists</a>
                         <a href="#">Track My Order</a>
-                        <a href="#">Help</a> */}
-                    </div>
+                        <a href="#">Help</a>
+                    </div> */}
         
                     {/* <div class="col install">
                         <h4>Download the App</h4>

@@ -5,7 +5,7 @@ import { selectEmail, selectUserName } from '../redux/slice/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { CountryDropdown } from 'react-country-region-selector'
 import { auth, db, storage } from "../firebase/config";
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
   import {
    getDownloadURL,
   ref,
@@ -16,7 +16,7 @@ import { useAuth } from '../auth/AuthContext';
 import { toast } from 'react-toastify';
  const initialState = 
     {
-    firstName: "",
+    displayName: "",
     lastName: "",
     bio:"",
     email: "",
@@ -24,6 +24,9 @@ import { toast } from 'react-toastify';
     country:"",
     insta:"",
     profImage: "",
+    twitter: "",
+    facebook: "",
+     
     }
 
  
@@ -33,18 +36,27 @@ import { toast } from 'react-toastify';
  
     const [desc, setDesc] = useState('')
     const [uploadProgress, setUploadProgress] = useState(0);
-    const [displayName, setDisplayName] = useState(null)
-    const {user} = useAuth() 
+    const [data, setData] = useState([]);
+     const {user} = useAuth() 
     const [profile, setProfile ] = useState ({
         ...initialState
     })
+    
+
+
     useEffect(() => {
       onAuthStateChanged(auth, (user)=>{
-        if(user){
-          const uid = user.uid;
-          setDisplayName(user.displayName)
+        if (user){
+          const uid =  user.uid;
+          console.log(uid)
+          const artistDocRef = doc(db, 'users', uid);
+          const fetchArtist = async () => {
+            const docSnap = await getDoc(artistDocRef);
+            setData([{...docSnap.data(), id: docSnap.id}]);
+          };
+          fetchArtist();
         }
-      })
+      })      
     },[])
 
     const navigate = useNavigate()
@@ -90,19 +102,22 @@ import { toast } from 'react-toastify';
             const ref = doc(db, 'profileUpdate', user.uid)
             const docRef =  await setDoc(ref, 
                 {
-                firstName:profile.firstName,
-                lastName:profile.lastName,
+                 lastName:profile.lastName,
                 profImage: profile.profImage,
                 email: profile.email,
                 desc:desc,
                 insta: profile.insta,
-                displayName:displayName,
+                twitter:profile.twitter,
+                facebook:profile.facebook,
+                displayName:profile.displayName,
                 createdAt: serverTimestamp(),
                 country:profile.country,
                 profID:user.uid,
                 phone_number:profile.phone_number,
                 })
-                navigate('/artistprofile')
+
+                 
+                navigate('/profile')
                 setProfile({...initialState})
                 console.log(docRef)
          }
@@ -151,7 +166,15 @@ import { toast } from 'react-toastify';
     
         </div>            
             <div className='profInfoDet'>
-            <h3>{userName}</h3>
+            {
+          data.map((user, index)=>{
+            return(
+              <div key={index}>
+                <h3>{user.displayName}</h3>
+              </div>
+            )
+          })
+        }
 {/*  
             <div onClick={File} >
             <h2>Change photo</h2>
@@ -183,14 +206,14 @@ import { toast } from 'react-toastify';
         onSubmit={updateProfile}
         action='' >
             <div   >
-            {/* <div className='editprofdets '>
+            <div className='editprofdets '>
             <label htmlFor="">First Name:</label><br></br>
-            <input type="text" required placeholder="First Name" name='firstName' value={profile.firstName}  onChange={(e)=>handleInputChange(e)} /><br></br>
-            </div> */}
-             {/* <div className='editprofdets '>
+            <input type="text" required placeholder="First Name" name='displayName' value={profile.displayName}  onChange={(e)=>handleInputChange(e)} /><br></br>
+            </div>
+             <div className='editprofdets '>
              <label htmlFor="">Last Name:</label><br />
             <input type="text" placeholder="Last name" name='lastName' value={profile.lastName} onChange={(e)=>handleInputChange(e)} /><br></br>
-             </div>               */}
+             </div>              
             <div className='editprofdets '>
             <label htmlFor="">Select Country:</label><br></br>
 
@@ -222,6 +245,16 @@ handleInputChange({
     <div className='editprofdets '>
     <label htmlFor="">Instagram:</label><br></br>
     <input type="text"   placeholder='Instagram URL or Link' name='insta' value={profile.insta}  onChange={(e)=>handleInputChange(e)} /><br></br>
+    </div>
+
+    <div className='editprofdets '>
+    <label htmlFor="">Twitter:</label><br></br>
+    <input type="text"   placeholder='Twitter URL or Link' name='twitter' value={profile.twitter}  onChange={(e)=>handleInputChange(e)} /><br></br>
+    </div>
+
+    <div className='editprofdets '>
+    <label htmlFor="">Facebook:</label><br></br>
+    <input type="text"   placeholder='Facebook URL or Link' name='facebook' value={profile.facebook}  onChange={(e)=>handleInputChange(e)} /><br></br>
     </div>
 
            <div className='editprofdets ' >

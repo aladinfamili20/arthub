@@ -22,17 +22,20 @@ import { selectShippingAddress } from "../../redux/slice/checkoutSlice";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
-
-const CheckoutForm = () => {
+import ArtistsFetchCol from "../../customHooks/ArtistsFetchCol";
+ const CheckoutForm = () => {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-
+  const {artist} = ArtistsFetchCol('profileUpdate')
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const userID = useSelector(selectUserID);
+  const customerUserID = useSelector(selectUserID);
+  const userId = artist.profID
+  console.log(userId)
   const userEmail = useSelector(selectEmail);
   const cartItems = useSelector(selectCartItems);
   const cartTotalAmount = useSelector(selectCartTotalAmount);
@@ -52,19 +55,23 @@ const CheckoutForm = () => {
     }
   }, [stripe]);
 
-  // Save order to Order History
+  // S、、ave order to Order History
+  console.log('artistIfo', artist)
   const saveOrder = () => {
     const today = new Date();
     const date = today.toDateString();
     const time = today.toLocaleTimeString();
+     
     const orderConfig = {
-      userID,
+      //omerUserID,
+      userId, 
       userEmail,
       orderDate: date,
       orderTime: time,
       orderAmount: cartTotalAmount,
       orderStatus: "Order Placed...",
       cartItems,
+      artistUid:artist,
       shippingAddress,
       createdAt: Timestamp.now().toDate(),
     };

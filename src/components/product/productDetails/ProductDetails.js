@@ -9,10 +9,12 @@ import {
   DECREASE_CART,
   selectCartItems,
 } from "../../../redux/slice/cartSlice";
+import Card from "../../card/Card";
 import '../../../Styles/signup.css'
 import useFetchCollection from '../../../customHooks/useFetchCollection';
 import useFetchDocument from '../../../customHooks/useFetchDocument';
 import UseFetchArtistProfDoc from '../../../customHooks/UseFetchArtistProfDoc';
+import StarsRating from 'react-star-rate';
  const Registration =()=>{ 
 const {id} = useParams()
 const [product, setProduct] = useState(null);
@@ -59,10 +61,10 @@ const decreaseCart = (product) => {
 <div className='upInfo'>
 <div className='imageInfo'>
 <div className='imageInfoView'>    
-<h1>{product?.displayName}</h1>
+<h1>{product?.displayName} {product?.lastName}</h1>
 <div className='detNameInfo'>
-<h1>{product?.name},</h1>
-<h1>{product?.year}</h1>
+<h2><b>{product?.name},</b></h2>
+<h2><b>{product?.year}</b></h2> 
 </div>
 <h2>{product?.rarity}</h2>
 <h2>{product?.artSize}</h2> 
@@ -160,6 +162,42 @@ const decreaseCart = (product) => {
            </h2>
            </div> */}
            </div>
+
+           <Card cardClass='reviewcard'>
+          <h1>Product Reviews</h1>
+          <div>
+            {filteredReviews.length === 0 ? (
+              <p>There are no reviews for this product yet.</p>
+            ) : (
+              <>
+                {filteredReviews.map((item, index) => {
+                  const { rate, review, reviewDate, userName, image } = item;
+                  return (
+                    <div key={index} className='reviewcontainer'>
+                       <div className='reviewcont'>
+                       <h1>
+                        <b>{userName}</b>
+                      </h1>
+                      
+                      <h2>
+                        <b>{reviewDate}</b>
+                      </h2>
+                      <StarsRating value={rate} className="rating" />                      
+                      <p>{review}</p>
+                      <img src={image}
+                      style={{width: '50%', 
+                      marginTop: '20px',marginBottom: '20px', backgroundClip: '#f5f5f5', height: '50%'}}  alt='productreviewimage'/>
+                       </div>
+                      
+                      <hr style={{width: '100%', marginTop: '20px',marginBottom: '20px', backgroundClip: '#f5f5f5'}}></hr>
+                      
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </div>
+        </Card>
         </div>
      
 </div>

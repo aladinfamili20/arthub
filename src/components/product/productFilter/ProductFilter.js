@@ -17,9 +17,7 @@ import {
 } from "../../../redux/slice/productSlice";
 import styles from "./ProductFilter.module.scss";
 import   "./ProductFilter.css";
-import { useAuth } from "../../../auth/AuthContext";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../../firebase/config";
+
 
 const ProductFilter = () => {
   const [medium, setMedium] = useState("All");

@@ -62,10 +62,19 @@
 }
 
 @media screen and (max-width: 600px) {
-  .content {
-    width: 80%;
+  .slider {
+    width: 100%;
+   }
+}
+
+@media (max-width: 768px) {
+  th, td {
+    padding: 5px;
+    overflow-x: auto;
+
   }
 }
+
 
 .content > * {
   color: #fff;

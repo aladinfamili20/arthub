@@ -21,13 +21,22 @@ const useFetchCollection = (collectionName) => {
         fetchArtist();
         const fetchData = async () => {
           const timestamp = ('timestamp', 'desc')
-            const citiesRef = collection(db, collectionName);
+          const citiesRef = collection(db, collectionName);
           const querySnapshot = query(citiesRef, 
             where("userID", "==", uid));  
           orderBy(timestamp);
           const snapshot = await getDocs(querySnapshot);
-          console.log(snapshot)
-          const documents = snapshot.docs.map((doc) => ({
+          const artistOrders = []
+          snapshot.docs.forEach(doc => {
+            const orderDoc = doc.data()
+            console.log(doc)
+            const orderSellerId = orderDoc.cartItems[0].userID
+            if (orderSellerId === uid){
+              artistOrders.push(doc)
+            }
+          })
+
+          const documents = artistOrders.map((doc) => ({
            id: doc.id,
               ...doc.data(),
              }));

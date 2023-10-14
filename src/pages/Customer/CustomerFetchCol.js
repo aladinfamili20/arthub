@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
  import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../firebase/config";
 
-const CustomerFetchCol = (collectionName) => {
+const useFetchCollection = (collectionName) => {
   const [isLoading, setIsLoading] = useState(false);
   const [custumerOrder, setCustumerOrder]=useState([]) 
 
@@ -22,11 +22,7 @@ const CustomerFetchCol = (collectionName) => {
         const fetchData = async () => {
           const timestamp = ('timestamp', 'desc')
             const citiesRef = collection(db, collectionName);
-            console.log("!!!!!!!")
-            console.log(citiesRef)
           const querySnapshot = query(citiesRef, 
-            // so userID here is all the users'id?
-            // 
             where("userID", "==", uid));  
           orderBy(timestamp);
           const snapshot = await getDocs(querySnapshot);
@@ -45,4 +41,4 @@ const CustomerFetchCol = (collectionName) => {
   return { custumerOrder, isLoading };
 };
 
-export default CustomerFetchCol;
+export default useFetchCollection;

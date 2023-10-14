@@ -30,7 +30,7 @@ import {  FaInstagram} from 'react-icons/fa';
   <div className="col-3 col-s-12">
     <div className="aside">
     <div className=" ">
-       <h2>{artistProf.displayName}</h2>
+       <h2>{artistProf.displayName} {artistProf.lastName}</h2>
       <h2 className='oilineicons'><IoMailOutline/>
       {artistProf.email}
       </h2>

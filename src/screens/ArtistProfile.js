@@ -124,10 +124,9 @@ import { db } from '../firebase/config';
          <ul>
             <li><a href='/addArtwork/ADD'>Upload <FaPlus/></a></li>
          </ul>
-{/* 
          <ul>
-            <li><a href='/artistorders'>Orders <FaList/></a></li>
-         </ul> */}
+            <li><a href='/artistorders'> View orders <FaList/></a></li>
+         </ul>
        </nav>
       </div>
    <Artwork/>

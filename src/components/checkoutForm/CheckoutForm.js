@@ -22,20 +22,17 @@ import { selectShippingAddress } from "../../redux/slice/checkoutSlice";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
-import ArtistsFetchCol from "../../customHooks/ArtistsFetchCol";
- const CheckoutForm = () => {
+
+const CheckoutForm = () => {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-  const {artist} = ArtistsFetchCol('profileUpdate')
-  
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const customerUserID = useSelector(selectUserID);
-  const userId = artist.profID
-  console.log(userId)
+  const userID = useSelector(selectUserID);
   const userEmail = useSelector(selectEmail);
   const cartItems = useSelector(selectCartItems);
   const cartTotalAmount = useSelector(selectCartTotalAmount);
@@ -55,23 +52,19 @@ import ArtistsFetchCol from "../../customHooks/ArtistsFetchCol";
     }
   }, [stripe]);
 
-  // S、、ave order to Order History
-  console.log('artistIfo', artist)
+  // Save order to Order History
   const saveOrder = () => {
     const today = new Date();
     const date = today.toDateString();
     const time = today.toLocaleTimeString();
-     
     const orderConfig = {
-      //omerUserID,
-      userId, 
+      userID,
       userEmail,
       orderDate: date,
       orderTime: time,
       orderAmount: cartTotalAmount,
       orderStatus: "Order Placed...",
       cartItems,
-      artistUid:artist,
       shippingAddress,
       createdAt: Timestamp.now().toDate(),
     };
@@ -133,14 +126,16 @@ import ArtistsFetchCol from "../../customHooks/ArtistsFetchCol";
               <CheckoutSummary />
             </Card> 
           </div>
-          <div className="stripecont">
-            <Card  >
+          <div 
+          className="stripecont"
+          >
+      
               <h3>Stripe Checkout</h3>
               <PaymentElement id={styles["payment-element"]} />
               <button
                 disabled={isLoading || !stripe || !elements}
                 id="submit"
-                className='btn1'
+                // className='btn1'
               >
                 <span id="button-text">
                   {isLoading ? (
@@ -156,7 +151,7 @@ import ArtistsFetchCol from "../../customHooks/ArtistsFetchCol";
               </button>
               {/* Show any error or success messages */}
               {message && <div id={styles["payment-message"]}>{message}</div>}
-            </Card>
+          
           </div>
         </form>
       </div>

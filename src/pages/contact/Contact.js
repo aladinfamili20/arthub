@@ -5,7 +5,7 @@ import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
-
+ 
 const Contact = () => {
   const form = useRef();
 
@@ -14,12 +14,7 @@ const Contact = () => {
     console.log(form.current);
 
     emailjs
-      .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        "template_7xyhwen",
-        form.current,
-        "user_hKs2aRfLoozcqA28UpUyz"
-      )
+      .sendForm('service_emqiy41', 'template_vq8dhdp', form.current, 'D_3m2B6B_JKSC3A54')
       .then(
         (result) => {
           toast.success("Message sent successfully");
@@ -76,7 +71,7 @@ const Contact = () => {
                 </span>
                 <span>
                   <FaEnvelope />
-                  <p>arthub.dei@gmail.com</p>
+                  <p>contact@art-hub.us</p>
                 </span>
                 <span>
                   <GoLocation />

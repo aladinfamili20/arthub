@@ -138,7 +138,7 @@ const Header = () => {
         <p>{cartTotalQuantity}</p>
        </Link>
 </div>
-<ProfileOnlyLink allowedEmails={['aladinfamili22@gmail.com','sam2@gmail.com',"landthecreative@gmail.com","aladinfamili20@gmail.com"]}>
+<ProfileOnlyLink allowedEmails={['aladinfamili22@gmail.com','sam2@gmail.com',"landthecreative@gmail.com","aladinfamili20@gmail.com", "testemail1@gmail.com"]}>
 <li><a href="artistprofile" className='navName'>Manage</a></li>  
 </ProfileOnlyLink>
 {/* <li><a href="/profile" className='navName'>Profile</a></li>   */}

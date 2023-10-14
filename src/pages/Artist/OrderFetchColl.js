@@ -6,7 +6,7 @@ import { auth, db } from "../../firebase/config";
 
 const useFetchCollection = (collectionName) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [custumerOrder, setCustumerOrder]=useState([]) 
+  const [artistOrders, setartistOrders]=useState([]) 
 
   useEffect(() => {
     onAuthStateChanged(auth, (user)=>{
@@ -16,29 +16,38 @@ const useFetchCollection = (collectionName) => {
         const artistDocRef = doc(db, 'orders', uid);
         const fetchArtist = async () => {
           const docSnap = await getDoc(artistDocRef);
-          setCustumerOrder([{...docSnap.data(), id: docSnap.id}]);
+          setartistOrders([{...docSnap.data(), id: docSnap.id}]);
         };
         fetchArtist();
         const fetchData = async () => {
           const timestamp = ('timestamp', 'desc')
-            const citiesRef = collection(db, collectionName);
+          const citiesRef = collection(db, collectionName);
           const querySnapshot = query(citiesRef, 
             where("userID", "==", uid));  
           orderBy(timestamp);
           const snapshot = await getDocs(querySnapshot);
-          console.log(snapshot)
-          const documents = snapshot.docs.map((doc) => ({
+          const artistOrders = []
+          snapshot.docs.forEach(doc => {
+            const orderDoc = doc.data()
+            console.log(doc)
+            const orderSellerId = orderDoc.cartItems[0].userID
+            if (orderSellerId === uid){
+              artistOrders.push(doc)
+            }
+          })
+
+          const documents = artistOrders.map((doc) => ({
            id: doc.id,
               ...doc.data(),
              }));
-             setCustumerOrder(documents);
+             setartistOrders(documents);
         };    
         fetchData();
       }
     })      
   },[]) 
 
-  return { custumerOrder, isLoading };
+  return { artistOrders, isLoading };
 };
 
 export default useFetchCollection;

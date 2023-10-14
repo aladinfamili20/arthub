@@ -6,13 +6,13 @@ import { useNavigate } from "react-router-dom";
 import OrderFetchColl from "./OrderFetchColl";
 import Loader from "../../components/loader/Loader";
 const ArtistOrders = () => {
-  const { custumerOrder, isLoading } = OrderFetchColl("orders");
+  const { artistOrders, isLoading } = OrderFetchColl("orders");
   const orders = useSelector(selectOrderHistory);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    dispatch(STORE_ORDERS(custumerOrder));
-  }, [dispatch, custumerOrder]);
+    dispatch(STORE_ORDERS(artistOrders));
+  }, [dispatch, artistOrders]);
 
   const handleClick = (id) => {
     navigate(`/artistorderdetail/${id}`);
@@ -20,7 +20,7 @@ const ArtistOrders = () => {
   return (
     <>
       <div className={styles.order}>
-        <h2>Your Order History</h2>
+        <h2>Your Sell History</h2>
         <p>
           Open an order to <b>Change order status</b>
         </p>

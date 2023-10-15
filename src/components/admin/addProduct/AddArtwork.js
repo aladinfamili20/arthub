@@ -102,6 +102,7 @@ const initialState = {
 const AddProduct = () => {
   const { id } = useParams();
   const {user} = useAuth()
+  const [displayName, setDisplayName] = useState(null)
    const [percent, setPercent] = useState(0);
     const products = useSelector(selectProducts);
   const productEdit = products.find((item) => item.id === id);
@@ -127,19 +128,10 @@ const AddProduct = () => {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user)=>{
-      if (user){
-        const uid =  user.uid;
-        console.log(uid)
-        const artistDocRef = doc(db, 'users', uid);
-        const fetchArtist = async () => {
-          const docSnap = await getDoc(artistDocRef);
-          setData([{...docSnap.data(), id: docSnap.id}]);
-          console.log(data.displayName)
-        };
-        fetchArtist();
-        
+      if (user){        
+         setDisplayName(user.displayName)                 
       }
-    })      
+     })      
   },[])
 
 
@@ -205,8 +197,7 @@ const handleImageChange = (e) => {
         orientation:product.orientation,
         time: product.time,
         size: product.size,
-        displayName:product.displayName,
-        lastName:product.lastName,
+        displayName:displayName,        
         rarity:product.rarity,
         country:product.country,
         sign:product.sign,
@@ -256,8 +247,7 @@ const handleImageChange = (e) => {
         orientation:product.orientation,
         time: product.time,
         size: product.size,
-        displayName:product.displayName,
-        lastName:product.lastName,
+        displayName:displayName,       
         rarity:product.rarity,
         country:product.country,
         sign:product.sign,
@@ -314,8 +304,6 @@ id='fileuplaod'/> */}
 </div>
      )
   } */}
-
-     
 <input
     type="file"
     accept="image/*"
@@ -336,6 +324,8 @@ id='fileuplaod'/> */}
                   style={{display:'none'}}
                 />
               )}
+     
+ 
 
 <div className='artInputs'>
   
@@ -344,13 +334,7 @@ id='fileuplaod'/> */}
  <div className='AddPostInpCon'>
   <div className='addPostInpCon1'>
 
-   <input type="text"
-  placeholder=" * First Name"
-  required
-  name="displayName"
-  value={product.displayName}
-  onChange={(e) => handleInputChange(e)}
-className='input' />            
+            
 
   <input type="text"
   placeholder=" * Title of the artwork"
@@ -441,13 +425,7 @@ className='input' />
 
   </div>
   <div className='addPostInpCon2'>
-  <input type="text"
-  placeholder=" * Last Name"
-  required
-  name="lastName"
-  value={product.lastName}
-  onChange={(e) => handleInputChange(e)}
-className='input' />  
+ 
 
   <input type="number"
   placeholder=" * Price ($USD)"
@@ -556,13 +534,14 @@ value={product.desc} className="input" >
  </div>                                                                 
  <div className='sumbit'
 //  onClick={addProduct}
- >              
-   <button className="btn">
-   <h1>
+ >       
+<button className="btn">
+<h1>
       {detectForm(id, 'Submit', 'Edit')}         
      </h1>
-   </button>
-    {/* <p> {percent} "% done"</p> */}
+</button>       
+     
+     {/* <p> {percent} "% done"</p> */}
     <p> {uploadProgress} "% done"</p>
  
   </div>

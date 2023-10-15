@@ -138,7 +138,7 @@ const Header = () => {
         <p>{cartTotalQuantity}</p>
        </Link>
 </div>
-<ProfileOnlyLink allowedEmails={['aladinfamili22@gmail.com','sam2@gmail.com',"landthecreative@gmail.com","aladinfamili20@gmail.com", "testemail1@gmail.com"]}>
+<ProfileOnlyLink allowedEmails={['aladinfamili22@gmail.com','sam2@gmail.com',"landthecreative@gmail.com","aladinfamili20@gmail.com"]}>
 <li><a href="artistprofile" className='navName'>Manage</a></li>  
 </ProfileOnlyLink>
 {/* <li><a href="/profile" className='navName'>Profile</a></li>   */}
@@ -146,16 +146,12 @@ const Header = () => {
  
  <li className='services' id='profileNav'>           
 <div  > 
-   <a href="/profile"><h3>{
-          userName.map((user, index)=>{
-            return(
-              <div key={index} className='profileIconInfo'>
+   <a href="/profile"><h3> 
+   <div className='profileIconInfo'>
                 <h1>Hi:</h1>
-                <h1>{user.displayName} {user.lastName}</h1>
+                <h1>{displayName}</h1>
               </div>
-            )
-          })
-        }</h3> </a>
+    </h3> </a>
 </div>
 <ul className='dropdown'>
 <li onClick={logoutUser} ><h3  className='logOut'><IoLogOut/> Log out</h3></li>

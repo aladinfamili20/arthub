@@ -32,7 +32,7 @@ const ProductItem = ({ product, year, id, name, price,rarity, lastName, image,me
     <div className='artcollectionbox'>         
        <div >    
   <div 
-  // id='myDIV'
+  //  className='myDIV'
   >
   <Link to={`/product-details/${id}`}>
    <img src={image} alt=""/>  
@@ -45,7 +45,7 @@ const ProductItem = ({ product, year, id, name, price,rarity, lastName, image,me
     </div>   
     <div className='artcollectInfo'>
     <div>           
-    <h1>{displayName} {lastName}</h1>
+    <h1>{displayName}</h1>
    <div>
    <b> {name}, </b>
    <b> {year} </b>

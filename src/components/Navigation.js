@@ -73,7 +73,7 @@ const Header = () => {
 {/* Logo */}
 <div className='logoHolder'>
 <a href='/'>
-<img src={require('../images/Logo.png')} width={200}  height={50} alt='Art-Hub Logo' />
+<img src={require('../images/ArthubLogoblackBac.png')} width={'100%'}  height={50} alt='Art-Hub Logo' />
 </a>
 </div>
 {/* sereach bar */}

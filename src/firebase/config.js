@@ -7,7 +7,7 @@ import { getStorage } from "firebase/storage";
 export const firebaseConfig = {
   apiKey: "AIzaSyAcHuNI3RRkPjT7toju0vyLFCrEzEFoG5o",
   authDomain: "kwetu-store.firebaseapp.com",
-  // authDomain: "auth.art-hub.us",
+  // authDomain: "localhost",
 
   projectId: "kwetu-store",
   storageBucket: "kwetu-store.appspot.com",

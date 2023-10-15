@@ -61,7 +61,7 @@ const decreaseCart = (product) => {
 <div className='upInfo'>
 <div className='imageInfo'>
 <div className='imageInfoView'>    
-<h1>{product?.displayName} {product?.lastName}</h1>
+<h1>{product?.displayName}</h1>
 <div className='detNameInfo'>
 <h2><b>{product?.name},</b></h2>
 <h2><b>{product?.year}</b></h2> 

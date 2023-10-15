@@ -1,7 +1,6 @@
-import { collection, doc, getDoc, getDocs, onSnapshot, orderBy, query, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs,  orderBy, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
- import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../firebase/config";
 
 const useFetchCollection = (collectionName) => {

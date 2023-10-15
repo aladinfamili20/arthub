@@ -7,7 +7,7 @@ import {
 } from "../../redux/slice/cartSlice";
 // import Card from "../../card/Card";
 // import styles from "./ProductItem.module.scss";
-// import  "./ProductItem.css";
+import  "../../components/product/productItem/ProductItem.css";
 import { IoBasketSharp } from "react-icons/io5";
 
 const EditorialItem = ({ product, year, id, name, price, desc, image,medium,displayName,artSize }) => {
@@ -32,7 +32,8 @@ const EditorialItem = ({ product, year, id, name, price, desc, image,medium,disp
     <div className='artcollectionbox'>         
        <div >    
   <div 
-  // id='myDIV'
+   // id=''
+  //  className="myDIV1"
   >
   <Link to={`/product-details/${id}`}>
    <img src={image} alt=""/>  

@@ -67,6 +67,7 @@ import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthPro
          const user = result.user       
         //  navigate('/profile') 
       }).catch((error) => {
+        console.log("Error", error);
            const errorCode = error.code;
         });
     }
@@ -116,7 +117,7 @@ import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthPro
       onClick={onLogin}              
       >Log in</button>   
       {/* <p>Log in with:</p> */}
-      {/* <div className='ServiceLogins'>             
+      <div className='ServiceLogins'>             
       <div>
       <div className='faceTweet'>
       <div 
@@ -131,7 +132,7 @@ import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthPro
       </div>  
        <div>      
       </div>     
-      </div>               */}
+      </div>              
       <small>Don't have account? <a href='/Signup' className='sgnupin'>Sign up</a></small>
    <div>
    <small>By signing up, you agree to our Terms, Data Policy and Cookies Policy.</small>  

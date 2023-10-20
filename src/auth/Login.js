@@ -6,24 +6,25 @@ import {useNavigate} from 'react-router-dom'
 // import loginInWithFacebook from '../auth/Facebook';
 // import loginWithYahoo from '../auth/Yahoo';
 // import loginWithTwitter from '../auth/Twitter';
-import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthProvider,OAuthProvider } from "firebase/auth";
+import {  GoogleAuthProvider,signInWithPopup,
+  // FacebookAuthProvider,TwitterAuthProvider,
+  OAuthProvider } from "firebase/auth";
  
  const Login = ()=>{ 
     const navigate = useNavigate();
     const [email, setEmail]=useState('')
     const [password, setPassword]=useState('')
-    const [username, setUsername]=useState('')
+    // const [username, setUsername]=useState('')
     const [displayName, setDisplayName] = useState('');
-    const auth = getAuth();
+    // const auth = getAuth();
     // const authUser = auth.currentUser;
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+    // const [user, setUser] = useState(null);
+    // const [loading, setLoading] = useState(true);
     // const [photoURL, setPhotoURL] = useState('');
 
     // logos
 
-    const Facebook = ''
-    const onLogin =(e)=>{
+     const onLogin =(e)=>{
       const auth = getAuth();
       e.preventDefault();
       const authUser = auth.currentUser;
@@ -65,10 +66,11 @@ import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthPro
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
          const user = result.user       
-        //  navigate('/profile') 
+         navigate('/profile') 
       }).catch((error) => {
         console.log("Error", error);
            const errorCode = error.code;
+           
         });
     }
 
@@ -88,6 +90,7 @@ import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthPro
       const credential = OAuthProvider.credentialFromResult(result);
       const accessToken = credential.accessToken;
       const idToken = credential.idToken;
+      navigate('/profile') 
     })
     .catch((error) => {
       // Handle error.
@@ -116,7 +119,7 @@ import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthPro
       type='submit'
       onClick={onLogin}              
       >Log in</button>   
-      {/* <p>Log in with:</p> */}
+      <p>Or log in with:</p>
       <div className='ServiceLogins'>             
       <div>
       <div className='faceTweet'>
@@ -128,6 +131,16 @@ import {  GoogleAuthProvider,signInWithPopup,FacebookAuthProvider,TwitterAuthPro
       onClick={loginWithYahoo}>
        <img src={require('../images/Logos/Yahoo.png')} alt='facebook logo'/><h4> Continue with Yahoo</h4>
       </div>
+
+      {/* <div className='SocialButtons'
+      onClick={loginInWithFacebook}>
+       <img src={require('../images/Logos/Facebook.png')} alt='facebook logo'/><h4> Continue with Facebook</h4>
+      </div> */}
+
+      {/* <div className='SocialButtons'
+      onClick={loginWithTwitter}>
+       <img src={require('../images/Logos/Twitter.png')} alt='facebook logo'/><h4> Continue with Twitter</h4>
+      </div> */}
       </div>
       </div>  
        <div>      

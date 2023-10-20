@@ -304,6 +304,12 @@ id='fileuplaod'/> */}
 </div>
      )
   } */}
+ 
+     
+ 
+
+<div className='artInputs'>
+  
 <input
     type="file"
     accept="image/*"
@@ -324,12 +330,6 @@ id='fileuplaod'/> */}
                   style={{display:'none'}}
                 />
               )}
-     
- 
-
-<div className='artInputs'>
-  
-
  
  <div className='AddPostInpCon'>
   <div className='addPostInpCon1'>

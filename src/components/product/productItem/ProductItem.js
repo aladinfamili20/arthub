@@ -35,7 +35,7 @@ const ProductItem = ({ product, year, id, name, price,rarity, lastName, image,me
   //  className='myDIV'
   >
   <Link to={`/product-details/${id}`}>
-   <img src={image} alt=""/>  
+   <img src={image} alt="" onContextMenu="return false;" />  
    </Link>  
     </div>     
     <div className="hide">

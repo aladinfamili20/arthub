@@ -66,7 +66,7 @@ const CheckoutDeatil = () => {
 <div className='imageInfoView'>    
 <form className='shippingCon'>
   <div className='shipingContSec1'>
-  <h2>Billing Address</h2>
+  <h2>Shipping Address</h2>
    <input type="text" id="name" name="name" placeholder='First Name' required className='shippingContInput' value={shippingAddress.name} onChange={(e) => handleShipping(e)} ></input>
    
    <input type="text" id="address" value={shippingAddress.line1} placeholder='Address 1' name="line1" required className='shippingContInput' onChange={(e)=> handleShipping(e)}></input>

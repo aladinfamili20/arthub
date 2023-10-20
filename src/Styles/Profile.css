@@ -439,3 +439,30 @@
            align-items: center;
          }            
       }
+
+      .ProfileContainerInformations{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logOut h2{
+        font-size: 20px;
+        font-weight: 700;
+        justify-content: center;
+        align-items: center;    
+        color: #494949;
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #f62c2c;
+        color: #f5f5f5;
+        padding: 10px;
+        }
+
+        .logOut h2:hover{
+          cursor: pointer;
+          transition: 0.5s; 
+          transform: scale(1.1);
+          background-color: #494944;
+          color: #f5f5f5;
+        }

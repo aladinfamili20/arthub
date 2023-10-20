@@ -126,6 +126,7 @@ const Header = () => {
 <li><a href="/subscription">Subscription</a></li>
   </ul> 
 </li>   
+
  {/* <AdimRoute>
  <li><a href="/adminpage" className='navName'>Admin</a></li>  
  </AdimRoute> */}
@@ -138,13 +139,16 @@ const Header = () => {
         <p>{cartTotalQuantity}</p>
        </Link>
 </div>
+ 
 <ProfileOnlyLink allowedEmails={['aladinfamili22@gmail.com','sam2@gmail.com',"landthecreative@gmail.com","aladinfamili20@gmail.com"]}>
-<li><a href="artistprofile" className='navName'>Manage</a></li>  
+<li><a href="artistprofile" className='navName'>Manage</a></li>   
 </ProfileOnlyLink>
+<li><a href="/profile" className='navName'>Hi:{displayName}</a></li>  
+
 {/* <li><a href="/profile" className='navName'>Profile</a></li>   */}
 
  
- <li className='services' id='profileNav'>           
+ {/* <li className='services' id='profileNav'>           
 <div  > 
    <a href="/profile"><h3> 
    <div className='profileIconInfo'>
@@ -154,9 +158,9 @@ const Header = () => {
     </h3> </a>
 </div>
 <ul className='dropdown'>
-<li onClick={logoutUser} ><h3  className='logOut'><IoLogOut/> Log out</h3></li>
+ 
 </ul>
-</li>                     
+</li>                      */}
   </div>  
 </ul> 
 </div>

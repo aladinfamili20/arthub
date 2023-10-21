@@ -125,7 +125,7 @@ const Cart = () => {
                           </button>
                         </div>
                       </td>
-                       <td>{(price + shipfee * cartQuantity).toFixed(2)}</td>
+                       <td>{( shipfee + price * cartQuantity).toFixed(2)}</td>
 
                       <td className={styles.icons}>
                         <FaTrashAlt

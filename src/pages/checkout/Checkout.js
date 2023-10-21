@@ -39,7 +39,7 @@ const Checkout = () => {
   useEffect(() => {
     // http://localhost:4242/create-payment-intent
     // Create PaymentIntent as soon as the page loads
-    fetch("http://art-hub.us/create-payment-intent", {
+    fetch("https://art-hub.us/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -50,11 +50,12 @@ const Checkout = () => {
         description,
       }),
     })
-      .then((res) => {
+      .then(async (res) => {
         if (res.ok) {
           return res.json();
         }
-        return res.json().then((json) => Promise.reject(json));
+        const json = await res.json();
+        return await Promise.reject(json);
       })
       .then((data) => {
         setClientSecret(data.clientSecret);
@@ -62,8 +63,8 @@ const Checkout = () => {
       .catch((error) => {
         setMessage("Failed to initialize checkout");
         toast.error("Something went wrong!!!");
-      });
-  }, []);
+       });
+  }, [billingAddress, cartItems, customerEmail, description, shippingAddress]);
 
   const appearance = {
     theme: "stripe",

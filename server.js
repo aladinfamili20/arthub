@@ -3,10 +3,12 @@ const express = require("express");
 const cors = require("cors");
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 const app = express();
+// 
+
 app.use(cors({
-  origin: 'https://art-hub.us',
+  origin: 'https://art-hub.us/',
 }));
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 const path = require("path");
 if (process.env.NODE_ENV === "production") {
@@ -28,7 +30,9 @@ const calculateOrderAmount = (items) => {
   return totalAmount * 100;
 };
 app.post("/create-payment-intent", async (req, res) => {
-  const { items, shipping, description } = req.body;
+  const { items, 
+    // shipping, description 
+  } = req.body;
    const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(items),
     currency: "usd",

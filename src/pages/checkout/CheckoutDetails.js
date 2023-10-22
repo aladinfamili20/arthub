@@ -67,21 +67,22 @@ const CheckoutDeatil = () => {
 <form className='shippingCon'>
   <div className='shipingContSec1'>
   <h2>Shipping Address</h2>
-   <input type="text" id="name" name="name" placeholder='First Name' required className='shippingContInput' value={shippingAddress.name} onChange={(e) => handleShipping(e)} ></input>
+   <input type="text" id="name" name="name" placeholder='First Name' required className='shippingContInput' value={shippingAddress.name} autoComplete='' onChange={(e) => handleShipping(e)} ></input>
    
-   <input type="text" id="address" value={shippingAddress.line1} placeholder='Address 1' name="line1" required className='shippingContInput' onChange={(e)=> handleShipping(e)}></input>
+   <input type="text" id="address" value={shippingAddress.line1} placeholder='Address 1' name="line1" required className='shippingContInput'autoComplete onChange={(e)=> handleShipping(e)}></input>
 
-   <input type="text" id="address" value={shippingAddress.line2}  placeholder='Address 2' name="line2" required className='shippingContInput' onChange={(e)=> handleShipping(e)}></input>
+   <input type="text" id="address" value={shippingAddress.line2}  placeholder='Address 2' name="line2" required className='shippingContInput'autoComplete onChange={(e)=> handleShipping(e)}></input>
 
-   <input type="text" id="city" name="city" placeholder='City' required className='shippingContInput' value={shippingAddress.city} onChange={(e)=> handleShipping(e)}></input>
+   <input type="text" id="city" name="city" placeholder='City' required className='shippingContInput' value={shippingAddress.city}autoComplete onChange={(e)=> handleShipping(e)}></input>
 
   </div>
   <div className='shipingContSec2'>  
-  <input type="text" id="name" name="lastName" placeholder='Last Name' required className='shippingContInput' value={shippingAddress.name} onChange={(e) => handleShipping(e)} ></input>
-   <input type="text" id="state" placeholder='State' name="state" required className='shippingContInput'  value={shippingAddress.state} onChange={(e) => handleShipping(e)}></input>
+  <input type="text" id="name" name="lastName" placeholder='Last Name' required className='shippingContInput' value={shippingAddress.name}autoComplete onChange={(e) => handleShipping(e)} ></input>
+   <input type="text" id="state" placeholder='State' name="state" required className='shippingContInput'  value={shippingAddress.state}autoComplete onChange={(e) => handleShipping(e)}></input>
 
-   <input type="text" id="zip" name="zip" placeholder='Zip code' required className='shippingContInput' value={shippingAddress.postal_code} onChange={(e) => handleShipping(e)}></input>
+   <input type="text" id="zip" name="zip" placeholder='Zip code' required className='shippingContInput' value={shippingAddress.postal_code} autoComplete onChange={(e) => handleShipping(e)}></input>
    <CountryDropdown
+   autoComplete
    className='shippingContInput'
    valueType="short"
    value={shippingAddress.country}
@@ -103,22 +104,23 @@ const CheckoutDeatil = () => {
     
   <div className='shipingContSec1'>
     <h2>Billing Address</h2>
-    <input type="text" id="name" name="firstName" placeholder='First Name' required className='shippingContInput' value={shippingAddress.name} onChange={(e) => handleBilling(e)} ></input>
+    <input type="text" id="name" name="firstName" placeholder='First Name'autoComplete required className='shippingContInput' value={shippingAddress.name} onChange={(e) => handleBilling(e)} ></input>
 
-   <input type="text" id="address" value={shippingAddress.line1} placeholder='Address 1' name="line1" required className='shippingContInput' onChange={(e)=> handleBilling(e)}></input>
+   <input type="text" id="address" value={shippingAddress.line1}autoComplete placeholder='Address 1' name="line1" required className='shippingContInput' onChange={(e)=> handleBilling(e)}></input>
 
    <input type="text" id="address" value={shippingAddress.line2}  placeholder='Address 2' name="line2" required className='shippingContInput' onChange={(e)=> handleBilling(e)}></input>
 
-   <input type="text" id="city" name="city" placeholder='City' required className='shippingContInput' value={shippingAddress.city} onChange={(e)=> handleBilling(e)}></input>
+   <input type="text" id="city" name="city" placeholder='City'autoComplete required className='shippingContInput' value={shippingAddress.city} onChange={(e)=> handleBilling(e)}></input>
 
   </div>
   <div className='shipingContSec2'>  
-  <input type="text" id="name" name="lastName" placeholder='Last Name' required className='shippingContInput' value={shippingAddress.name} onChange={(e) => handleBilling(e)} ></input>
-   <input type="text" id="state" placeholder='State' name="state" required className='shippingContInput'  value={shippingAddress.state} onChange={(e) => handleBilling(e)}></input>
+  <input type="text" id="name" name="lastName" placeholder='Last Name'autoComplete required className='shippingContInput' value={shippingAddress.name} onChange={(e) => handleBilling(e)} ></input>
+   <input type="text" id="state" placeholder='State' name="state"autoComplete required className='shippingContInput'  value={shippingAddress.state} onChange={(e) => handleBilling(e)}></input>
 
-   <input type="text" id="zip" name="zip" placeholder='Zip code' required className='shippingContInput' value={shippingAddress.postal_code} onChange={(e) => handleBilling(e)}></input>
+   <input type="text" id="zip" name="zip" placeholder='Zip code'autoComplete required className='shippingContInput' value={shippingAddress.postal_code} onChange={(e) => handleBilling(e)}></input>
 
    <CountryDropdown
+   autoComplete
    className='shippingContInput'
    valueType="short"
    value={shippingAddress.country}

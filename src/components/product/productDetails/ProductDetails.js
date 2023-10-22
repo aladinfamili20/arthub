@@ -71,7 +71,8 @@ const decreaseCart = (product) => {
 
 <h3 className=''>{`$${product?.price}`}</h3>
 <h2 className=''>Shipping fee {`$${product?.shipfee}`}</h2>
-<div className='count'>
+
+{/* <div className='count'>
                   {isCartAdded < 0 ? null : (
 <>
   <button
@@ -91,7 +92,7 @@ const decreaseCart = (product) => {
   </button>
 </>
  )}
-                </div>
+ </div> */}
 
 <a>
  <button className='btn'

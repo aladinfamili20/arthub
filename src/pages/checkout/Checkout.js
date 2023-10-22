@@ -37,8 +37,7 @@ const Checkout = () => {
   const description = `ArtHub payment: email: ${customerEmail}, Amount: ${totalAmount}`;
 
   useEffect(() => {
-    // http://localhost:4242/create-payment-intent
-    // Create PaymentIntent as soon as the page loads
+    // Use the correct URL for your backend API
     fetch("https://art-hub.us/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -63,7 +62,8 @@ const Checkout = () => {
       .catch((error) => {
         setMessage("Failed to initialize checkout");
         toast.error("Something went wrong!!!");
-       });
+         console.log(error, "Payment failled.")
+      });
   }, [billingAddress, cartItems, customerEmail, description, shippingAddress]);
 
   const appearance = {

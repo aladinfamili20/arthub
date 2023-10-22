@@ -1,9 +1,10 @@
 .slider {
   width: 100%;
-  height: 70vh;
+  height: 90vh;
   position: relative;
   overflow: hidden;
   background-color: var(--color-dark);
+   object-fit: contain;
 }
 
 .slide {

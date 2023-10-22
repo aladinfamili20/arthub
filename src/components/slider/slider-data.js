@@ -1,17 +1,19 @@
 export const sliderData = [
   {
-    image: "https://i.pinimg.com/originals/4f/93/a3/4f93a334178a787701d2b440f8f7837b.jpg",
+    image: "https://i.postimg.cc/DyG7dxXd/i-Stock-1183183791.jpg",
     // heading: "Shoes Villa",
     // desc: "Up to 30% off on all onsale proucts.",
   },
   {
-    image: "https://i.postimg.cc/Hnhv9r2X/62.jpg",
+    // https://i.postimg.cc/NF1PL2KT/Hindi-Art-for-Busniness-Leaders.jpg"
+     
+    image: "https://i.postimg.cc/NF1PL2KT/Hindi-Art-for-Busniness-Leaders.jpg",
     // heading: "Women Fashion",
     // desc: "Up to 30% off on all onsale proucts.",
   },
   
   {
-    image: "https://i.postimg.cc/MKBgmYCG/sweetprayers.png",
+    image: "https://i.postimg.cc/Hnhv9r2X/62.jpg",
     // heading: "Awesome Gadgets",
     // desc: "Up to 30% off on all onsale proucts.",
   },

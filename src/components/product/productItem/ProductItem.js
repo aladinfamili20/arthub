@@ -8,6 +8,7 @@ import {
 import Card from "../../card/Card";
 import styles from "./ProductItem.module.scss";
 import  "./ProductItem.css";
+import '../../../Styles/Artworks.css'
 import { IoBasketSharp } from "react-icons/io5";
 
 const ProductItem = ({ product, year, id, name, price,rarity, lastName, image,medium,displayName,artSize }) => {
@@ -38,25 +39,24 @@ const ProductItem = ({ product, year, id, name, price,rarity, lastName, image,me
    <img src={image} alt="" onContextMenu="return false;" />  
    </Link>  
     </div>     
-    <div className="hide">
+    {/* <div className="hide">
    <div><h1>{rarity}</h1></div>
   <div><h1>{medium}</h1></div>
-  </div>
+  </div> */}
     </div>   
     <div className='artcollectInfo'>
     <div>           
     <h1>{displayName}</h1>
-   <div>
-   <b> {name}, </b>
-   <b> {year} </b>
+   <div className="NameComp">
+   <h2> {name}, </h2>
+   <h2> {year} </h2>
    </div>
     {/* <p>{medium}</p> */}
     <p>{shortenText(artSize)}</p>     
      <b>${price}</b> 
     </div>
     <div className='artcollectIcon'    
-    onClick={()=>addToCart(product)}
-    ><IoBasketSharp size={24}  /></div>
+    onClick={()=>addToCart(product)}><IoBasketSharp size={24} /></div>
     </div> 
       </div>           
       </div>

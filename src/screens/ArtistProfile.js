@@ -54,7 +54,6 @@ import { db } from '../firebase/config';
       fetchData();
     }
   })    
-    
 },[]) 
  
           return (

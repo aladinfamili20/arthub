@@ -11,13 +11,15 @@ import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from "../redux/slice/authSlice";
 import { auth, db } from "../firebase/config";
 import { AdminOnlyLink } from "./adminOnlyRoute/AdminOnlyRoute";
 import ProfileOnlyLink from "./admin/profile/ProfileOnlyRoute";
-import { doc, getDoc } from "firebase/firestore";
+import {collection , where, query, getDocs, getDoc, doc, orderBy, } from "firebase/firestore";
       
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [displayName, setdisplayName] = useState("");
   const [userName, SetUserName] = useState([]);
   const [scrollPage, setScrollPage] = useState(false);
+  const [artist, setArtist] = useState([''])
+  console.log(artist,"Artist Id")
   const cartTotalQuantity = useSelector(selectCartTotalQuantity);
   useEffect(() => {
     dispatch(CALCULATE_TOTAL_QUANTITY());
@@ -61,7 +63,7 @@ const Header = () => {
     onAuthStateChanged(auth, (user)=>{
       if (user){
         const uid =  user.uid;
-        console.log(uid)
+        // console.log(uid)
         const artistDocRef = doc(db, 'users', uid);
         const fetchArtist = async () => {
           const docSnap = await getDoc(artistDocRef);
@@ -71,6 +73,23 @@ const Header = () => {
       }
     })      
   },[])
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'profileUpdate'));
+        const documents = [];
+        querySnapshot.forEach((doc) => {
+          documents.push({ id: doc.id, ...doc.data() });
+        });
+        setArtist(documents);
+      } catch (error) {
+        console.error('Error fetching data:', error, );
+      }
+    };
+    fetchData();
+  }, []);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -89,6 +108,42 @@ const Header = () => {
       });
   };
  
+ 
+
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user)=>{
+  //     if (user){
+  //       const uid =  user.uid;
+  //       // console.log(uid)
+  //       const artistDocRef = doc(db, 'users', uid);
+  //       const fetchArtist = async () => {
+  //         const docSnap = await getDoc(artistDocRef);
+  //         setArtist([{...docSnap.data(), id: docSnap.id}]);
+           
+  //       };
+  //       fetchArtist();
+  //       const fetchData = async () => {
+  //         const timestamp = ('timestamp', 'desc')
+  //           const citiesRef = collection(db, 'profileUpdate');
+  //         const querySnapshot = query(citiesRef, 
+  //           where("profID", "==", uid));  
+           
+  //         orderBy(timestamp);
+  //         const snapshot = await getDocs(querySnapshot);
+  //         console.log(snapshot)
+  //         const documents = snapshot.docs.map((doc) => ({
+  //          id: doc.id,
+  //             ...doc.data(),
+  //            }));
+  //            setArtist(documents);
+  //       };    
+  //       fetchData();
+  //     }
+  //   })    
+  // },[]) 
+
+
+
   return (
   <>
   <div className="homeScreen">
@@ -133,6 +188,7 @@ const Header = () => {
   <AdminOnlyLink>
  <li><a href="/admin/home" className='navName'>Admin</a></li>  
  </AdminOnlyLink>
+ 
  <div onClick={toggleMenu} className="NavCartIcont">
         <Link to="/cart">
          <IoBasketSharp className='NavCartIcon'/>
@@ -140,10 +196,26 @@ const Header = () => {
        </Link>
 </div>
  
-<ProfileOnlyLink allowedEmails={['aladinfamili22@gmail.com','sam2@gmail.com',"landthecreative@gmail.com","aladinfamili20@gmail.com"]}>
+  
+{/* {artist.map((artistDatas)=>
+ (
+    <div key={artistDatas.id}>
+    <h1>{artistDatas.artistName}</h1>
+    </div>
+  )
+ )} */}
+ {/* <ProfileOnlyLink allowedEmails={[array]}>
 <li><a href="artistprofile" className='navName'>Manage</a></li>   
-</ProfileOnlyLink>
+</ProfileOnlyLink> */}
+
+ {/* <ProfileOnlyLink allowIds={[artist.uid]}>
+<li><a href="artistprofile" className='navName'>Manage</a></li>   
+</ProfileOnlyLink> */}
+<li><a href="artistprofile" className='navName'>Manage</a></li>   
+
 <li><a href="/profile" className='navName'>Hi:{displayName}</a></li>  
+
+
 
 {/* <li><a href="/profile" className='navName'>Profile</a></li>   */}
 

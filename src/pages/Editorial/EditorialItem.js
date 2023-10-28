@@ -39,17 +39,17 @@ const EditorialItem = ({ product, year, id, name, price, desc, image,medium,disp
    <img src={image} alt=""/>  
    </Link>  
     </div>     
-    <div className="hide">
+    {/* <div className="hide">
    <div><h1>Unique</h1></div>
   <div><h1>{medium}</h1></div>
-  </div>
+  </div> */}
     </div>   
     <div className='artcollectInfo'>
     <div>           
     <h1>{displayName}</h1>
-   <div>
-   <b> {name}, </b>
-   <b> {year} </b>
+   <div className="NameComp">
+   <h2> {name}, </h2>
+   <h2> {year} </h2>
    </div>
     {/* <p>{medium}</p> */}
     <p>{shortenText(artSize)}</p>     

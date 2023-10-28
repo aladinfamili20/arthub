@@ -94,6 +94,7 @@ onClick={RegisterHandler}
 
  
 <small>Already have an account? <a href='/login' className='sgnupin'>Sign In</a></small>
+<small>Artist Signing Up <a href='/register' className='sgnupin'>Artist sign Up</a></small>
 <div>
 <small>By signing up, you agree to our <a href='privacypolicy' style={{textDecoration: 'underline'}}>Privacy and Policy</a>.</small>   
 </div>

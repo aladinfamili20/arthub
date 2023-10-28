@@ -1,10 +1,10 @@
 // import { useState } from "react";
 // import styles from "./auth.module.scss";
-// import registerImg from "../../assets/register.png";
+// // import registerImg from "../../assets/register.png";
 // import Card from "../../components/card/Card";
 // import { Link, useNavigate } from "react-router-dom";
 // import { createUserWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../../firebase/config";
+// import { artAuth } from "../../firebase/ArtistDatabase";
 // import Loader from "../../components/loader/Loader";
 // import { toast } from "react-toastify";
 
@@ -23,7 +23,7 @@
 //     }
 //     setIsLoading(true);
 
-//     createUserWithEmailAndPassword(auth, email, password)
+//     createUserWithEmailAndPassword(artAuth, email, password)
 //       .then((userCredential) => {
 //         const user = userCredential.user;
 //         console.log(user);
@@ -78,9 +78,9 @@
 //             </span>
 //           </div>
 //         </Card>
-//         <div className={styles.img}>
+//         {/* <div className={styles.img}>
 //           <img src={registerImg} alt="Register" width="400" />
-//         </div>
+//         </div> */}
 //       </section>
 //     </>
 //   );

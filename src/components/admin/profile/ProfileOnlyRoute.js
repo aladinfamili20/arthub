@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { selectEmail } from "../../../redux/slice/authSlice";
+import { selectUserID } from "../../../redux/slice/authSlice";
 
-const ProfileOnlyLink = ({ children, allowedEmails }) => {
-  const userEmail = useSelector(selectEmail);
-
-  if (allowedEmails.includes(userEmail)) {
+const ProfileOnlyLink = ({ children, allowIds }) => {
+  const userIndentification = useSelector(selectUserID);
+   if (allowIds.includes(userIndentification)) 
+   {
     return children;
   }
 

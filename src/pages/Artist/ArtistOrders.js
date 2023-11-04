@@ -1,88 +1,50 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
- import {selectOrderHistory,STORE_ORDERS,} from "../../redux/slice/orderSlice";
- import styles from "../Artist/ArtistOrders.module.scss";
-import OrderFetchColl from "./OrderFetchColl";
-import Loader from "../../components/loader/Loader";
-const ArtistOrders = () => {
-  const { artistOrders, isLoading } = OrderFetchColl("orders");
-  const orders = useSelector(selectOrderHistory);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+import { useEffect, useState } from 'react';
+import { useAuth } from '../../auth/AuthContext'; // Initialize Firebase and get the user.
+import { getDatabase, ref, query, equalTo, onValue } from 'firebase/database';
+
+function ArtistProfile() {
+  const user = useAuth(); // Custom hook to get the authenticated user.
+  const [soldArtworks, setSoldArtworks] = useState([]);
+  
   useEffect(() => {
-    dispatch(STORE_ORDERS(artistOrders));
-  }, [dispatch, artistOrders]);
+    if (user) {
+      // Fetch the sold artworks for the artist based on their UID.
+      const artistUID = user.uid;
+      const db = getDatabase();
+      const artworksRef = ref(db, 'orders');
+      const soldArtworksQuery = query(artworksRef, equalTo('artistUID', artistUID), equalTo('status', 'sold'));
 
-  const handleClick = (id) => {
-    navigate(`/artistorderdetail/${id}`);
-  };
+      // Listen for changes to the artworks and filter for the sold ones.
+      const soldArtworksCallback = (snapshot) => {
+        const soldArtworksForArtist = [];
+        const data = snapshot.val();
+
+        for (const key in data) {
+          soldArtworksForArtist.push(data[key]);
+        }
+
+        setSoldArtworks(soldArtworksForArtist);
+      };
+
+      const soldArtworksRef = onValue(soldArtworksQuery, soldArtworksCallback);
+
+      // Cleanup the listener when the component unmounts.
+      return () => {
+        soldArtworksRef();
+      };
+    }
+  }, [user]);
+
   return (
-    <>
-      <div className={styles.order}>
-        <h2>Your Sell History</h2>
-        <p>
-          Open an order to <b>Change order status</b>
-        </p>
-        <br />
-        <>
-          {isLoading && <Loader/>}
-          <div className={styles.table}>
-            {orders.length === 0 ? (
-              <p>No order found</p>
-            ) : (
-              <table>
-                <thead>
-                  <tr>
-                    <th>s/n</th>
-                    <th>Date</th>
-                    <th>Order ID</th>
-                    <th>Order Amount</th>
-                    <th>Order Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {orders.map((order, index) => {
-                    const {
-                      id,
-                      orderDate,
-                      orderTime,
-                      orderAmount,
-                      orderStatus,
-                    } = order;
-                    return (
-                      <tr key={id} onClick={() => handleClick(id)}>
-                        <td>{index + 1}</td>
-                        <td>
-                          {orderDate} at {orderTime}
-                        </td>
-                        <td>{id}</td>
-                        <td>
-                          {"$"}
-                          {orderAmount}
-                        </td>
-                        <td>
-                          <p
-                            className={
-                              orderStatus !== "Delivered"
-                                ? `${styles.pending}`
-                                : `${styles.delivered}`
-                            }
-                          >
-                            {orderStatus}
-                          </p>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            )}
-          </div>
-        </>
-      </div>
-    </>
+    <div>
+      <h1>My Sold Artworks</h1>
+      <ul>
+        {soldArtworks.map((artwork) => (
+          <li key={artwork.key}>{artwork.title}</li>
+        ))}
+      </ul>
+    </div>
   );
-};
+}
 
-export default ArtistOrders;
+export default ArtistProfile;

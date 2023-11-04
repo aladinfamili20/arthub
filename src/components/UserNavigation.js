@@ -19,7 +19,7 @@ const Header = () => {
   const [userName, SetUserName] = useState([]);
   const [scrollPage, setScrollPage] = useState(false);
   const [artist, setArtist] = useState([''])
-  console.log(artist,"Artist Id")
+  // console.log(artist,"Artist Id")
   const cartTotalQuantity = useSelector(selectCartTotalQuantity);
   useEffect(() => {
     dispatch(CALCULATE_TOTAL_QUANTITY());

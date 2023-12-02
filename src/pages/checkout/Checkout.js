@@ -15,33 +15,33 @@ import {
 } from "../../redux/slice/checkoutSlice";
 import { toast } from "react-toastify";
 import CheckoutForm from "../../components/checkoutForm/CheckoutForm";
-
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
-
 const Checkout = () => {
   const [message, setMessage] = useState("Initializing checkout...");
   const [clientSecret, setClientSecret] = useState("");
-
   const cartItems = useSelector(selectCartItems);
   const totalAmount = useSelector(selectCartTotalAmount);
   const customerEmail = useSelector(selectEmail);
   const shippingAddress = useSelector(selectShippingAddress);
   const billingAddress = useSelector(selectBillingAddress);
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(CALCULATE_SUBTOTAL());
     dispatch(CALCULATE_TOTAL_QUANTITY());
   }, [dispatch, cartItems]);
-
-  const description = `ArtHub payment: email: ${customerEmail}, Amount: ${totalAmount}`;
-
+  const description = `ArtHub payment: email: ${customerEmail}, Amount: ${totalAmount}`;  
+  const apiUrl = 'https://art-hub.us/create-payment-intent' 
   useEffect(() => {
-    // http://localhost:4242/create-payment-intent
-    // Create PaymentIntent as soon as the page loads
-    fetch("https://art-hub.us/create-payment-intent", {
+    // http://localhost:4242/create-payment-intent  
+   
+
+    fetch(
+      apiUrl
+      // 'http://localhost:4242/create-payment-intent'
+      , {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      mode: 'cors',
       body: JSON.stringify({
         items: cartItems,
         userEmail: customerEmail,
@@ -49,22 +49,27 @@ const Checkout = () => {
         billing: billingAddress,
         description,
       }),
+ 
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
+    
+      .then((response) => {
+        console.log(response); // Log the response here
+        if (!response.ok) {
+          throw new Error(`${response.status} - ${response.statusText}`);
         }
-        return res.json().then((json) => Promise.reject(json));
+        return response.json();
       })
       .then((data) => {
         setClientSecret(data.clientSecret);
       })
       .catch((error) => {
         setMessage("Failed to initialize checkout");
-        toast.error("Something went wrong!!!");
+        console.error("Something went wrong", error);
       });
+    
+      
   }, []);
-
+ 
   const appearance = {
     theme: "stripe",
   };
@@ -76,7 +81,7 @@ const Checkout = () => {
   return (
     <>
       <section>
-        <div className="container">{!clientSecret && <h3>{message}</h3>}</div>
+        <div className="CheckoutContainer">{!clientSecret && <h3>{message}</h3>}</div>
       </section>
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>

@@ -47,8 +47,8 @@ const CheckoutDeatil = () => {
 
   const handleSubmit = (e)=>{
     e.preventDefault()
-    console.log(billingAddress)
-    console.log(shippingAddress)
+    // console.log(billingAddress)
+    // console.log(shippingAddress)
     dispatch(SAVE_SHIPPING_ADDRESS(shippingAddress))
     dispatch(SAVE_BILLING_ADDRESS(billingAddress))
     navigate('/checkout')

@@ -6,17 +6,14 @@ const app = express();
 // 
 
 app.use(cors({
-  origin: 'https://art-hub.us/create-payment-intent',
+  origin: 'https://www.art-hub.us',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
 }));
 app.use(cors());
 app.use(express.json());
 const path = require("path");
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "build", "index.html"));
-  });
-}
+ 
 app.get("/", (req, res) => {
   res.send("Welcome to Art-Hub website.");
 });
@@ -29,18 +26,33 @@ const calculateOrderAmount = (items) => {
   });
   return totalAmount * 100;
 };
+ 
 app.post("/create-payment-intent", async (req, res) => {
-  const { items, 
-    // shipping, description 
-  } = req.body;
-   const paymentIntent = await stripe.paymentIntents.create({
-    amount: calculateOrderAmount(items),
-    currency: "usd",
-    payment_method_types: ['card'],
-   });
-  res.send({
-    clientSecret: paymentIntent.client_secret,
-  });
+  try {
+    const { items } = req.body;
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: calculateOrderAmount(items),
+      currency: "usd",
+      payment_method_types: ['card'],
+    });
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (error) {
+    console.error("Error creating payment intent:", error);
+    res.status(500).json({ error: "Failed to create payment intent" });
+  }
 });
-const PORT = process.env.PORT || 443;
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, 'build')));
+  app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+}
+
+const PORT = process.env.PORT || 4242;
 app.listen(PORT, () => console.log(`Node server listening on port ${PORT}`));
+
+ 
+

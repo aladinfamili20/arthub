@@ -11,7 +11,7 @@ const useFetchCollection = (collectionName) => {
     onAuthStateChanged(auth, (user)=>{
       if (user){
         const uid =  user.uid;
-        console.log(uid)
+        // console.log(uid)
         const artistDocRef = doc(db, 'orders', uid);
         const fetchArtist = async () => {
           const docSnap = await getDoc(artistDocRef);
@@ -25,7 +25,7 @@ const useFetchCollection = (collectionName) => {
             where("userID", "==", uid));  
           orderBy(timestamp);
           const snapshot = await getDocs(querySnapshot);
-          console.log(snapshot)
+          // console.log(snapshot)
           const documents = snapshot.docs.map((doc) => ({
            id: doc.id,
               ...doc.data(),

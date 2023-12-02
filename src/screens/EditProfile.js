@@ -25,15 +25,10 @@ import { toast } from 'react-toastify';
     insta:"",
     profImage: "",
     twitter: "",
-    facebook: "",
-     
-    }
-
- 
-
+    facebook: "",     
+    } 
    const EditProfile = () => {
-     const userName = useSelector(selectUserName);
- 
+     const userName = useSelector(selectUserName); 
     const [desc, setDesc] = useState('')
     const [uploadProgress, setUploadProgress] = useState(0);
     const [data, setData] = useState([]);
@@ -42,8 +37,6 @@ import { toast } from 'react-toastify';
         ...initialState
     })
     
-
-
     useEffect(() => {
       onAuthStateChanged(auth, (user)=>{
         if (user){
@@ -58,7 +51,6 @@ import { toast } from 'react-toastify';
         }
       })      
     },[])
-
     const navigate = useNavigate()
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -67,11 +59,9 @@ import { toast } from 'react-toastify';
       // function handleChange(event) {
       //   setImage(event.target.files[0]);
       //   } 
-
         const handleImageChange = (e) => {
           const file = e.target.files[0];
-          // console.log(file);
-        
+          // console.log(file);        
           const storageRef = ref(storage, `editProf/${Date.now()}${file.name}`);
           const uploadTask = uploadBytesResumable(storageRef, file);
           uploadTask.on(
@@ -91,18 +81,14 @@ import { toast } from 'react-toastify';
               });
             }
           );
-        };
-             
-
-
-
+        };             
     const updateProfile = async(e)=>{
          try{
             e.preventDefault()
             const ref = doc(db, 'profileUpdate', user.uid)
             const docRef =  await setDoc(ref, 
                 {
-                 lastName:profile.lastName,
+                lastName:profile.lastName,
                 profImage: profile.profImage,
                 email: profile.email,
                 desc:desc,
@@ -114,9 +100,7 @@ import { toast } from 'react-toastify';
                 country:profile.country,
                 profID:user.uid,
                 phone_number:profile.phone_number,
-                })
-
-                 
+                })                 
                 navigate('/profile')
                 setProfile({...initialState})
                 console.log(docRef)

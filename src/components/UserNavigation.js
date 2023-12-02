@@ -169,16 +169,16 @@ const Header = () => {
 <div className='menu'>
 <li><a href='/' className='navName'>Home</a></li>
 <li className='services'>
-<a href='/artist' className='navName'>Artist</a>
+{/* <a href='/artist' className='navName'>Artist</a> */}
 </li>
 <li className='services' id='navDrop'>
-<a href='/gallery' className='navName'>Artworks</a>
+{/* <a href='/gallery' className='navName'>Artworks</a> */}
 </li>
 <li className='services'>
 <a 
  className='navName'>Services</a>
 <ul className='dropdown'>
-<li><a href="/subscription">Subscription</a></li>
+{/* <li><a href="/subscription">Subscription</a></li> */}
   </ul> 
 </li>   
 
@@ -211,7 +211,7 @@ const Header = () => {
  {/* <ProfileOnlyLink allowIds={[artist.uid]}>
 <li><a href="artistprofile" className='navName'>Manage</a></li>   
 </ProfileOnlyLink> */}
-<li><a href="artistprofile" className='navName'>Manage</a></li>   
+{/* <li><a href="artistprofile" className='navName'>Manage</a></li>    */}
 
 <li><a href="/profile" className='navName'>Hi:{displayName}</a></li>  
 

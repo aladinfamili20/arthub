@@ -22,6 +22,7 @@ const categories = [
   { id: 4, name: "Phone" },
 ];
 
+// Inital Staties for firebase database
 const initialState = {
   name: "",
   imageURL: "",

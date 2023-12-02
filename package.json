@@ -58,8 +58,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://www.art-hub.us/",
-  "devDependencies": {
+  "homepage": "https://art-hub.us/",
+   "devDependencies": {
     "node-polyfill-webpack-plugin": "^2.0.1"
   }
 }

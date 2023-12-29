@@ -37,9 +37,7 @@ const calculateOrderAmount = (items) => {
   return totalAmount * 100;
 }; 
  app.post("/create-payment-intent", async (req, res) => {
-  try {
-    console.log("Incoming Request Body:", req.body); // Log the incoming request body
-
+ 
     // Your existing code...
     const { items, shipping, description } = req.body;
 
@@ -68,10 +66,7 @@ const calculateOrderAmount = (items) => {
     res.send({
       clientSecret: paymentIntent.client_secret,
     });
-  } catch (error) {
-    console.error("Server Error:", error); // Log the error
-    res.status(500).json({ error: "Internal Server Error" });
-  }
+  
 });
 
  

@@ -19,8 +19,7 @@ import { IoLogOut } from 'react-icons/io5';
   const logoutUser = () => {
     signOut(auth)
       .then(() => {
-        toast.success("Logout successfully.");
-        navigate("/");
+         navigate("/");
       })
       .catch((error) => {
         toast.error(error.message);

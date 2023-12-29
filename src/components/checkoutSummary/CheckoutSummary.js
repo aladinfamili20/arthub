@@ -39,7 +39,7 @@ const CheckoutSummary = () => {
               const { id, name, price, cartQuantity, shipfee } = item;
               return (
                 <>
-                <div className="sumTextCont">
+                <div className="sumTextCont" key={index}>
                 <Card key={id} cardClass='sumText'>
                 <h4>Product: {name}</h4>
                   <p>Quantity: {cartQuantity}</p>

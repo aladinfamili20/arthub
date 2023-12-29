@@ -16,14 +16,18 @@ import {collection , where, query, getDocs, getDoc, doc, orderBy, } from "fireba
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [displayName, setdisplayName] = useState("");
-  const [userName, SetUserName] = useState([]);
-  const [scrollPage, setScrollPage] = useState(false);
+   const [scrollPage, setScrollPage] = useState(false);
   const [artist, setArtist] = useState([''])
   // console.log(artist,"Artist Id")
   const cartTotalQuantity = useSelector(selectCartTotalQuantity);
   useEffect(() => {
     dispatch(CALCULATE_TOTAL_QUANTITY());
 }, []);
+const allowArtistList = Object.keys(artist).map(function(name){
+  var obj = {};
+  obj[name] = artist[name].id
+  return obj[name]
+ })
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const fixNavbar = () => {
@@ -59,20 +63,7 @@ const Header = () => {
     });
   }, [dispatch, displayName]);
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user)=>{
-      if (user){
-        const uid =  user.uid;
-        // console.log(uid)
-        const artistDocRef = doc(db, 'users', uid);
-        const fetchArtist = async () => {
-          const docSnap = await getDoc(artistDocRef);
-          SetUserName([{...docSnap.data(), id: docSnap.id}]);
-        };
-        fetchArtist();
-      }
-    })      
-  },[])
+  
 
 
   useEffect(() => {
@@ -97,52 +88,11 @@ const Header = () => {
   const hideMenu = () => {
     setShowMenu(false);
   };
-  const logoutUser = () => {
-    signOut(auth)
-      .then(() => {
-        toast.success("Logout successfully.");
-        navigate("/");
-      })
-      .catch((error) => {
-        toast.error(error.message);
-      });
-  };
+  
  
  
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user)=>{
-  //     if (user){
-  //       const uid =  user.uid;
-  //       // console.log(uid)
-  //       const artistDocRef = doc(db, 'users', uid);
-  //       const fetchArtist = async () => {
-  //         const docSnap = await getDoc(artistDocRef);
-  //         setArtist([{...docSnap.data(), id: docSnap.id}]);
-           
-  //       };
-  //       fetchArtist();
-  //       const fetchData = async () => {
-  //         const timestamp = ('timestamp', 'desc')
-  //           const citiesRef = collection(db, 'profileUpdate');
-  //         const querySnapshot = query(citiesRef, 
-  //           where("profID", "==", uid));  
-           
-  //         orderBy(timestamp);
-  //         const snapshot = await getDocs(querySnapshot);
-  //         console.log(snapshot)
-  //         const documents = snapshot.docs.map((doc) => ({
-  //          id: doc.id,
-  //             ...doc.data(),
-  //            }));
-  //            setArtist(documents);
-  //       };    
-  //       fetchData();
-  //     }
-  //   })    
-  // },[]) 
-
-
+  
 
   return (
   <>
@@ -169,22 +119,20 @@ const Header = () => {
 <div className='menu'>
 <li><a href='/' className='navName'>Home</a></li>
 <li className='services'>
-{/* <a href='/artist' className='navName'>Artist</a> */}
+<a href='/artist' className='navName'>Artist</a>
 </li>
 <li className='services' id='navDrop'>
-{/* <a href='/gallery' className='navName'>Artworks</a> */}
+<a href='/gallery' className='navName'>Artworks</a>
 </li>
 <li className='services'>
 <a 
  className='navName'>Services</a>
 <ul className='dropdown'>
-{/* <li><a href="/subscription">Subscription</a></li> */}
+<li><a href="/subscription">Subscription</a></li>
   </ul> 
 </li>   
 
- {/* <AdimRoute>
- <li><a href="/adminpage" className='navName'>Admin</a></li>  
- </AdimRoute> */}
+ 
   <AdminOnlyLink>
  <li><a href="/admin/home" className='navName'>Admin</a></li>  
  </AdminOnlyLink>
@@ -196,43 +144,13 @@ const Header = () => {
        </Link>
 </div>
  
-  
-{/* {artist.map((artistDatas)=>
- (
-    <div key={artistDatas.id}>
-    <h1>{artistDatas.artistName}</h1>
-    </div>
-  )
- )} */}
- {/* <ProfileOnlyLink allowedEmails={[array]}>
+ <ProfileOnlyLink allowIds={allowArtistList}>
 <li><a href="artistprofile" className='navName'>Manage</a></li>   
-</ProfileOnlyLink> */}
-
- {/* <ProfileOnlyLink allowIds={[artist.uid]}>
-<li><a href="artistprofile" className='navName'>Manage</a></li>   
-</ProfileOnlyLink> */}
-{/* <li><a href="artistprofile" className='navName'>Manage</a></li>    */}
+</ProfileOnlyLink>
+ 
 
 <li><a href="/profile" className='navName'>Hi:{displayName}</a></li>  
-
-
-
-{/* <li><a href="/profile" className='navName'>Profile</a></li>   */}
-
  
- {/* <li className='services' id='profileNav'>           
-<div  > 
-   <a href="/profile"><h3> 
-   <div className='profileIconInfo'>
-                <h1>Hi:</h1>
-                <h1>{displayName}</h1>
-              </div>
-    </h3> </a>
-</div>
-<ul className='dropdown'>
- 
-</ul>
-</li>                      */}
   </div>  
 </ul> 
 </div>

@@ -6,9 +6,7 @@ import { getStorage } from "firebase/storage";
 // Your web app's Firebase configuration
 export const firebaseConfig = {
   apiKey: "AIzaSyAcHuNI3RRkPjT7toju0vyLFCrEzEFoG5o",
-  authDomain: "kwetu-store.firebaseapp.com",
-  // authDomain: "localhost",
-
+  authDomain: "kwetu-store.firebaseapp.com", 
   projectId: "kwetu-store",
   storageBucket: "kwetu-store.appspot.com",
   messagingSenderId: "214380482063",

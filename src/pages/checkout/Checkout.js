@@ -39,7 +39,7 @@ const Checkout = () => {
   useEffect(() => {
     // http://localhost:4242/create-payment-intent
     // Create PaymentIntent as soon as the page loads
-    fetch("https://arthub-d538edc66138.herokuapp.com/create-payment-intent", {
+    fetch("http://art-hub.us/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

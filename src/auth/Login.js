@@ -1,45 +1,22 @@
 import React, { useState } from 'react'
 import '../Styles/Login.css'
-import { getAuth, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
-import {useNavigate} from 'react-router-dom'     
-// import signWithGoogle from '../auth/Google' 
-// import loginInWithFacebook from '../auth/Facebook';
-// import loginWithYahoo from '../auth/Yahoo';
-// import loginWithTwitter from '../auth/Twitter';
-import {  GoogleAuthProvider,signInWithPopup,
-  // FacebookAuthProvider,TwitterAuthProvider,
-  OAuthProvider } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import {useNavigate} from 'react-router-dom'      
+import {  GoogleAuthProvider,signInWithPopup, OAuthProvider } from "firebase/auth";
  
  const Login = ()=>{ 
     const navigate = useNavigate();
     const [email, setEmail]=useState('')
-    const [password, setPassword]=useState('')
-    // const [username, setUsername]=useState('')
-    const [displayName, setDisplayName] = useState('');
-    // const auth = getAuth();
-    // const authUser = auth.currentUser;
-    // const [user, setUser] = useState(null);
-    // const [loading, setLoading] = useState(true);
-    // const [photoURL, setPhotoURL] = useState('');
-
-    // logos
-
+    const [password, setPassword]=useState('')   
      const onLogin =(e)=>{
       const auth = getAuth();
       e.preventDefault();
-      const authUser = auth.currentUser;
-       signInWithEmailAndPassword(auth, email, password, )
+        signInWithEmailAndPassword(auth, email, password, )
       .then((userCredential) => {
-        //Signed in 
-        const user = userCredential.user;
-        console.log(user)
-        // ...
-        updateProfile(authUser, {
-          displayName: displayName,
-        })
+         const user = userCredential.user;
+        console.log(user)        
         navigate('/profile')
-        // ...
-      })
+       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -48,19 +25,9 @@ import {  GoogleAuthProvider,signInWithPopup,
         
       })
     }
-
-
-    // Facebook
- 
-
-      // Twitter
-
-    
-
-
+  
     const signWithGoogle = ()=>{
-      // const navigate = useNavigate()
-      const auth = getAuth();
+       const auth = getAuth();
       const provider = new GoogleAuthProvider();
       signInWithPopup(auth, provider)
       .then((result) => {
@@ -96,14 +63,10 @@ import {  GoogleAuthProvider,signInWithPopup,
       // Handle error.
       console.log(error)
     });
-  }
- 
+  } 
       return (
       <div className='loginMainContainer'>
-        <section className='loginContainer'>
-        {/* <div className='upImg'>
-   <img src='https://images.unsplash.com/photo-1536849460588-696219a9e98d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80' alt='Netflix Logo' />
-   </div> */}
+        <section className='loginContainer'>        
         <div className='LoginInfo'>
                 <h1>Log In</h1>
                 <div className='LoginInfoConetents'>
@@ -111,7 +74,7 @@ import {  GoogleAuthProvider,signInWithPopup,
       <input type='email' value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='Email'
       className='LoginInput' 
       />
-      <input type='password' value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='Password' className='LoginInput' 
+      <input type='password' value={password}  onChange={(e)=>setPassword(e.target.value)} placeholder='Password' className='LoginInput' 
         id='password'/>
       </form>
        

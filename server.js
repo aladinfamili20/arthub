@@ -5,13 +5,14 @@ const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
 const app = express();
 app.use(express.json());
-const path = require("path"); 
+const path = require("path");
 app.use(cors({
   origin: ["http://art-hub.us", "http://www.art-hub.us", "https://art-hub.us", "https://www.art-hub.us"],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
-  if (process.env.NODE_ENV === "production") {
+app.use(cors())
+ if (process.env.NODE_ENV === "production") {
   app.use(express.static("build"));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "build", "index.html"));
@@ -62,7 +63,7 @@ const calculateOrderAmount = (items) => {
 
     console.log("Server Response:", paymentIntent); // Log the server response
 
-    res.send({
+    res.json({
       clientSecret: paymentIntent.client_secret,
     });
   

@@ -40,7 +40,7 @@ const Checkout = () => {
     // http://localhost:4242/create-payment-intent
     // Create PaymentIntent as soon as the page loads
     // const url = 'https://art-hub.us/create-payment-intent'
-    fetch(process.env.REACT_APP_WEBSITE_URL, {
+    fetch('https://arthub-psi.vercel.app/create-payment-intent', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

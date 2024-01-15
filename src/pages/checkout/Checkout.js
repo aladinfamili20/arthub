@@ -39,7 +39,8 @@ const Checkout = () => {
   useEffect(() => {
     // http://localhost:4242/create-payment-intent
     // Create PaymentIntent as soon as the page loads
-    fetch("https://art-hub.us/create-payment-intent", {
+    // const url = 'https://art-hub.us/create-payment-intent'
+    fetch(process.env.REACT_APP_WEBSITE_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -80,7 +81,7 @@ const Checkout = () => {
   return (
     <>
       <section>
-        <div className="CheckoutContainer">{!clientSecret && <h3>{message}</h3>}</div>
+        <div className="CheckoutCont">{!clientSecret && <h3>{message}</h3>}</div>
       </section>
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>

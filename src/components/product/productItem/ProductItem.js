@@ -51,12 +51,11 @@ const ProductItem = ({ product, year, id, name, price,rarity, lastName, image,me
    <h2> {name}, </h2>
    <h2> {year} </h2>
    </div>
-    {/* <p>{medium}</p> */}
-    <p>{shortenText(artSize)}</p>     
-     <b>${price}</b> 
+     {/* <p>{shortenText(artSize)}</p>     
+     <b>${price}</b>  */}
     </div>
-    <div className='artcollectIcon'    
-    onClick={()=>addToCart(product)}><IoBasketSharp size={24} /></div>
+    {/* <div className='artcollectIcon'    
+    onClick={()=>addToCart(product)}><IoBasketSharp size={24} /></div> */}
     </div> 
       </div>           
       </div>

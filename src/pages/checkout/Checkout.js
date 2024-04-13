@@ -35,34 +35,45 @@ const Checkout = () => {
   }, [dispatch, cartItems]);
 
   const description = `ArtHub payment: email: ${customerEmail}, Amount: ${totalAmount}`;
-
-  useEffect(() => {
-    // http://localhost:4242/create-payment-intent
-    // Create PaymentIntent as soon as the page loads
-    fetch("https://arthub-psi.vercel.app/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        items: cartItems,
-        userEmail: customerEmail,
-        shipping: shippingAddress,
-        billing: billingAddress,
-        description,
-      }),
-    })
-    .then(async (res) => {
-      console.log("Server Response Status:", res.status); // Log the server response status
-    
-      if (res.ok) {
-        return res.json();
+  const urls = [
+    "https://art-hub.us/create-payment-intent",
+    "http://art-hub.us/create-payment-intent",
+    "http://www.art-hub.us/create-payment-intent",
+    "https://www.art-hub.us/create-payment-intent",
+  ];
+  
+  // Find the first URL that returns a successful response
+  const fetchUrl = async () => {
+    for (const url of urls) {
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            items: cartItems,
+            userEmail: customerEmail,
+            shipping: shippingAddress,
+            billing: billingAddress,
+            description,
+          }),
+        });
+  
+        if (response.ok) {
+          return response.json();
+        }
+      } catch (error) {
+        console.error("Error during fetch:", error);
       }
-      const json = await res.json();
-      console.log("Server Error Response:", json); // Log the server error response
-      return await Promise.reject(json);
-    })    
-    .then((data) => {
-      setClientSecret(data.clientSecret);
-    })
+    }
+  
+    throw new Error("All fetch attempts failed");
+  };
+  
+  useEffect(() => {
+    fetchUrl()
+      .then((data) => {
+        setClientSecret(data.clientSecret);
+      })
       .catch((error) => {
         setMessage("Failed to initialize checkout");
         console.log("Something went wrong!!!", error);

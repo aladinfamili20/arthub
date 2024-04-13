@@ -11,8 +11,7 @@ app.use(cors({
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
-app.use(cors())
- if (process.env.NODE_ENV === "production") {
+  if (process.env.NODE_ENV === "production") {
   app.use(express.static("build"));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "build", "index.html"));
@@ -62,7 +61,7 @@ const calculateOrderAmount = (items) => {
      })
 
     console.log("Server Response:", paymentIntent); // Log the server response
-
+    res.setHeader('Content-Type', 'application/json');
     res.json({
       clientSecret: paymentIntent.client_secret,
     });

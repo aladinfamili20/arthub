@@ -69,8 +69,8 @@ const decreaseCart = (product) => {
 <h2>{product?.rarity}</h2>
 <h2>{product?.artSize}</h2> 
 
-<h3 className=''>{`$${product?.price}`}</h3>
-<h2 className=''>Shipping fee {`$${product?.shipfee}`}</h2>
+{/* <h3 className=''>{`$${product?.price}`}</h3> */}
+{/* <h2 className=''>Shipping fee {`$${product?.shipfee}`}</h2> */}
 
 {/* <div className='count'>
                   {isCartAdded < 0 ? null : (
@@ -94,11 +94,11 @@ const decreaseCart = (product) => {
  )}
  </div> */}
 
-<a>
+{/* <a>
  <button className='btn'
   onClick={() => addToCart(product)}
  >Add to Cart</button>
- </a>
+ </a> */}
  
 <div>
 <p>
@@ -164,41 +164,41 @@ const decreaseCart = (product) => {
            </div> */}
            </div>
 
-           <Card cardClass='reviewcard'>
+           {/* <Card cardClass='reviewcard'>
           <h1>Product Reviews</h1>
           <div>
             {filteredReviews.length === 0 ? (
               <p>There are no reviews for this product yet.</p>
             ) : (
               <>
-                {filteredReviews.map((item, index) => {
-                  const { rate, review, reviewDate, userName, image } = item;
-                  return (
-                    <div key={index} className='reviewcontainer'>
-                       <div className='reviewcont'>
-                       <h1>
-                        <b>{userName}</b>
-                      </h1>
-                      
-                      <h2>
-                        <b>{reviewDate}</b>
-                      </h2>
-                      <StarsRating value={rate} className="rating" />                      
-                      <p>{review}</p>
-                      <img src={image}
-                      style={{width: '50%', 
-                      marginTop: '20px',marginBottom: '20px', backgroundClip: '#f5f5f5', height: '50%'}}  alt='productreviewimage'/>
-                       </div>
-                      
-                      <hr style={{width: '100%', marginTop: '20px',marginBottom: '20px', backgroundClip: '#f5f5f5'}}></hr>
-                      
-                    </div>
-                  );
-                })}
-              </>
+  {filteredReviews.map((item, index) => {
+    const { rate, review, reviewDate, userName, image } = item;
+    return (
+      <div key={index} className='reviewcontainer'>
+         <div className='reviewcont'>
+         <h1>
+          <b>{userName}</b>
+        </h1>
+        
+        <h2>
+          <b>{reviewDate}</b>
+        </h2>
+        <StarsRating value={rate} className="rating" />        
+        <p>{review}</p>
+        <img src={image}
+        style={{width: '50%', 
+        marginTop: '20px',marginBottom: '20px', backgroundClip: '#f5f5f5', height: '50%'}}  alt='productreviewimage'/>
+         </div>
+        
+        <hr style={{width: '100%', marginTop: '20px',marginBottom: '20px', backgroundClip: '#f5f5f5'}}></hr>
+        
+      </div>
+    );
+  })}
+</>
             )}
           </div>
-        </Card>
+        </Card> */}
         </div>
      
 </div>

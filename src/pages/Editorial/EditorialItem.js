@@ -51,13 +51,12 @@ const EditorialItem = ({ product, year, id, name, price, desc, image,medium,disp
    <h2> {name}, </h2>
    <h2> {year} </h2>
    </div>
-    {/* <p>{medium}</p> */}
-    <p>{shortenText(artSize)}</p>     
-     <b>${price}</b> 
+     {/* <p>{shortenText(artSize)}</p>     
+     <b>${price}</b>  */}
     </div>
-    <div className='artcollectIcon'    
+    {/* <div className='artcollectIcon'    
     onClick={()=>addToCart(product)}
-    ><IoBasketSharp size={24}  /></div>
+    ><IoBasketSharp size={24}  /></div> */}
     </div> 
       </div>           
       </div>

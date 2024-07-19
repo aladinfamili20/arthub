@@ -1,6 +1,6 @@
 export const sliderData = [
   {
-    image: "https://i.postimg.cc/DyG7dxXd/i-Stock-1183183791.jpg",
+    image: "https://i.postimg.cc/vTQpCpfY/1.png",
     // heading: "Shoes Villa",
     // desc: "Up to 30% off on all onsale proucts.",
   },

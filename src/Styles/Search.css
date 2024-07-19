@@ -1,0 +1,98 @@
+.search {
+    width: '80%';
+    margin: auto;
+    text-align: center;
+    }
+   
+  
+.searchBar {
+    width: 600px;
+    height: 40px;
+    /* background-color: #ccc; */
+    border: none;
+    padding: 10;
+    margin-left: 20px;
+    border-radius: 50px;
+    color: none;
+    border: 1px solid #f5f5f5;
+ }
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid #009bff; */
+    border-radius: 50px;
+    color: #ffffff;
+ }
+
+ .displayName:hover{
+    cursor: pointer;
+ }
+
+.searchIcon {
+    font-size: 40px;
+    background-color: #494949;
+    padding: 10px;
+     border-radius: 20px;
+     margin-left: 10px;
+}
+.searchIcon:hover{
+    cursor: pointer;
+}
+.divider{
+    border:  1px solid #ccc;
+}
+
+.searchMainContainer {
+     flex-direction: column;
+}
+.searchInfo {
+    display: flex;
+    background-color: #f5f5f5;
+ }
+ .displayName h2{
+    font-weight: bold;
+    margin-top: 7px;
+   }
+
+.searchInfo p{
+    margin-right: 60px;
+}
+
+.listC li {
+    border: 1px solid #009bff;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: auto;
+    margin-right: 10px;
+    height: 45px;
+ }
+ .serchedusers{
+    background-color: #f5f5f5;
+  }
+
+.profileImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 5px;
+     
+}
+.profileImage:hover{
+    cursor: pointer;
+}
+.headerProfileDets {
+    display: flex;
+    align-items: center;
+}
+
+.NavCartIcon {
+    font-size: 30px;
+    margin-right: 10px;
+    color: #000;
+}
+.NavCartIcon:hover{
+    cursor: pointer;
+}

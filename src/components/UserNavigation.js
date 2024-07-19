@@ -12,6 +12,8 @@ import { auth, db } from "../firebase/config";
 import { AdminOnlyLink } from "./adminOnlyRoute/AdminOnlyRoute";
 import ProfileOnlyLink from "./admin/profile/ProfileOnlyRoute";
 import {collection , where, query, getDocs, getDoc, doc, orderBy, } from "firebase/firestore";
+import Search from "./search/Search";
+import SearchFuction from "./SearchFuction";
       
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -107,8 +109,10 @@ const allowArtistList = Object.keys(artist).map(function(name){
 </div>
 {/* sereach bar */}
 {/* <div className='searchBar'>
-<input type='text' placeholder='Search by artirst, style, tag and more' />
+<input type='text' placeholder='Search by artirst' />
 </div> */}
+
+ <SearchFuction/>
 <div>
 {/* navigation menu */}
 <ul className='nav-links'>
@@ -119,7 +123,7 @@ const allowArtistList = Object.keys(artist).map(function(name){
 <div className='menu'>
 <li><a href='/' className='navName'>Home</a></li>
 <li className='services'>
-<a href='/artist' className='navName'>Artist</a>
+<a href='/artisthub' className='navName'>Artists</a>
 </li>
 <li className='services' id='navDrop'>
 <a href='/gallery' className='navName'>Artworks</a>

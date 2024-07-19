@@ -42,7 +42,8 @@ import PrivacyPolicy from "./screens/PrivacyPolicy";
 import AboutUs from "./screens/AboutUs";
 import ArtistOrders from "./pages/Artist/ArtistOrders";
 import ArtistOrderDetail from "./pages/Artist/ArtistOrderDetail";
- 
+import ArtistHub from "./screens/ArtistHub";
+  
 function App() {
   const getuser = getAuth()
   const [users, setUser] = useState({});
@@ -75,7 +76,8 @@ function App() {
             path="/admin/*"
             element={
               <AdminOnlyRoute><Admin /> </AdminOnlyRoute>}/>
-          <Route path="/artist" element={<Artist />} />
+          <Route path="/artist/:profID" element={<Artist />} />
+          <Route path="/artisthub" element={<ArtistHub />} />
           <Route path="/product-details/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout-details" element={<CheckoutDetails />} />
@@ -86,11 +88,10 @@ function App() {
           <Route path="/uploadartwork" element={<UploadArtwork />} />
            <Route path="/artworks" element={<Artwork />} />
           <Route path="/review-product/:id" element={<ReviewProducts />} />
-
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/gallery" element={<Gallery />} />
+           <Route path="*" element={<NotFound />} />
+           <Route path="/gallery" element={<Gallery />} />
           <Route path="/artistprofile" element={<ArtistProfile />} />
           <Route path="/addArtwork/:id" element={<AddArtwork />} />
           <Route path="/add-product" element={<AddProduct />} />

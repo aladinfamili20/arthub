@@ -1,27 +1,26 @@
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { db } from "../firebase/config";
 import { useAuth } from "../auth/AuthContext";
- const ArtistsFetchCol = (collectionName) => {
-    const [artist, setArtist] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const {user} = useAuth()
+
+const ArtistsFetchCol = (collectionName, profID) => {
+  const [artist, setArtist] = useState(null); // Change to a single artist object
+  const [isLoading, setIsLoading] = useState(false);
 
   const getCollection = () => {
-     setIsLoading(true);
+    setIsLoading(true);
     try {
       const docRef = collection(db, collectionName);
-      const q = query(docRef, orderBy("createdAt", "desc"));
+      const q = query(docRef, where("profID", "==", profID));
       onSnapshot(q, (snapshot) => {
-        // console.log(snapshot.docs);
-        const allData = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          user:user.uid,
-          ...doc.data(),
-        }));
-        // console.log(allData);
-        setArtist(allData);
+        if (!snapshot.empty) {
+          const doc = snapshot.docs[0];
+          setArtist({ id: doc.id, ...doc.data() });
+        } else {
+          setArtist(null);
+          toast.error("No matching artist found.");
+        }
         setIsLoading(false);
       });
     } catch (error) {
@@ -32,7 +31,7 @@ import { useAuth } from "../auth/AuthContext";
 
   useEffect(() => {
     getCollection();
-  }, []);
+  }, [profID]); // Re-fetch data when profID changes
 
   return { artist, isLoading };
 };

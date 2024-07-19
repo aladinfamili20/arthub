@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from "../redux/slice/authSlice";
 import { auth } from "../firebase/config";
 import { AdminOnlyLink } from "./adminOnlyRoute/AdminOnlyRoute";
+import SearchFuction from "./SearchFuction";
  
   
 
@@ -80,6 +81,7 @@ const Header = () => {
 {/* <div className='searchBar'>
 <input type='text' placeholder='Search by artirst, style, tag and more' />
 </div> */}
+<SearchFuction/>
 <div>
 {/* navigation menu */}
 <ul className='nav-links'>

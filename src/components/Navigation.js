@@ -92,7 +92,7 @@ const Header = () => {
 <div className='menu'>
 <li><a href='/' className='navName' id="active1">Home</a></li>
 <li className='services'>
-<a href='/artist' className='navName'>Artist</a>
+<a href='/artisthub' className='navName'>Artist</a>
  
 </li>
 

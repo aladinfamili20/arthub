@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ProductList.module.scss";
-import { BsFillGridFill } from "react-icons/bs";
-import { FaListAlt } from "react-icons/fa";
 import Search from "../../search/Search";
 import ProductItem from "../productItem/ProductItem";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +18,7 @@ const ProductList = ({ products }) => {
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(9);
+  const [productsPerPage] = useState(20);
   // Get Current Products
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -54,11 +52,18 @@ const ProductList = ({ products }) => {
           </p>
         </div> */}
         {/* Search Icon */}
-        <div>
+
+
+
+
+        {/* <div>
           <Search value={search} onChange={(e) => setSearch(e.target.value)} />
-        </div>
+        </div> */}
+
+
+
         {/* Sort Products */}
-        <div className={styles.sort}>
+        {/* <div className={styles.sort}>
            <select value={sort} onChange={(e) => setSort(e.target.value)}>
             <option value="latest">Latest</option>
             <option value="lowest-price">Lowest Price</option>
@@ -66,7 +71,7 @@ const ProductList = ({ products }) => {
             <option value="a-z">A - Z</option>
             <option value="z-a">Z - A</option>
           </select>
-        </div>
+        </div> */}
       </div>
 
       <div className={grid ? `${styles.grid}` : `${styles.list}`}>
@@ -84,12 +89,12 @@ const ProductList = ({ products }) => {
           </>
         )}         
       </div>
-      <Pagination
+      {/* <Pagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           productsPerPage={productsPerPage}
           totalProducts={filteredProducts.length}
-        />
+        /> */}
     </div>
   );
 };

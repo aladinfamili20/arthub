@@ -6,7 +6,7 @@
    
   
 .searchBar {
-    width: 600px;
+    width: 400px;
     height: 40px;
     /* background-color: #ccc; */
     border: none;
@@ -51,8 +51,8 @@
     background-color: #f5f5f5;
  }
  .displayName h2{
-    font-weight: bold;
-    margin-top: 7px;
+     margin-top: 7px;
+    font-size: 20px;
    }
 
 .searchInfo p{

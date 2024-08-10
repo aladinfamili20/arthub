@@ -1,21 +1,19 @@
 import React, { useState } from "react";
 import '../Styles/Search.css';
 import { collection, getDocs, query, where } from "firebase/firestore";
- import { IoAddCircleOutline, IoSearch } from 'react-icons/io5';
-import { useAuth } from '../auth/AuthContext';
-import { Link, useNavigate } from "react-router-dom";
+ import {  IoSearch } from 'react-icons/io5';
+ import {  useNavigate } from "react-router-dom";
 import { db } from "../firebase/config";
 
 const SearchFuction = () => {
-  const { user } = useAuth();
-  const [searchQuery, setSearchQuery] = useState('');
+   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const navigateToProfile = (profID) => {
-    console.log('Navigating to Profile screen with user ID:', profID);
-    navigate(`/artist/${profID}`);
+  const navigateToProfile = (userID) => {
+    console.log('Navigating to Profile screen with user ID:', userID);
+    navigate(`/artist/${userID}`);
   };
 
   const handleSearch = async () => {
@@ -24,12 +22,12 @@ const SearchFuction = () => {
 
       // Perform a Firestore query to search for users by displayName
       const displayNameQuery = query(
-        collection(db, "profileUpdate"),
+        collection(db, "artistHubUsers"),
         where("displayName", ">=", searchQuery),
         where("displayName", "<=", searchQuery + '\uf8ff')
       );
       const lastNameQuery = query(
-        collection(db, "profileUpdate"),
+        collection(db, "artistHubUsers"),
         where("lastName", ">=", searchQuery),
         where("lastName", "<=", searchQuery + '\uf8ff')
       );
@@ -46,7 +44,7 @@ const SearchFuction = () => {
 
       lastNameSnapshot.forEach((doc) => {
         const user = doc.data();
-        if (!results.find((u) => u.profID === user.profID)) {
+        if (!results.find((u) => u.userID === user.userID)) {
           results.push(user);
         }
       });
@@ -79,10 +77,10 @@ const SearchFuction = () => {
           searchResults.map((item) => (
             <React.Fragment key={item.displayName}>
               <div className="searchInfo">
-                <div onClick={() => navigateToProfile(item.profID)}>
-                  <img src={item.profImage} className="profileImage" alt="Profileimg" />
+                <div onClick={() => navigateToProfile(item.userID)}>
+                  <img src={item.profImg} className="profileImage" alt="Profileimg" />
                 </div>
-                <div onClick={() => navigateToProfile(item.profID)}>
+                <div onClick={() => navigateToProfile(item.userID)}>
                 <div className="displayName">
                   <h2>{item.displayName} {item.lastName}
                   <p>Artist</p>
@@ -91,7 +89,7 @@ const SearchFuction = () => {
                 </div>
                 </div>
               </div>
-              <div className="divider"></div>
+              {/* <div className="divider"></div> */}
             </React.Fragment>
           ))
         )}

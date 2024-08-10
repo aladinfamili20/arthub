@@ -5,12 +5,11 @@ import {
   ADD_TO_CART,
   CALCULATE_TOTAL_QUANTITY,
 } from "../../../redux/slice/cartSlice";
-import Card from "../../card/Card";
-import styles from "./ProductItem.module.scss";
+ 
 import  "./ProductItem.css";
+// importing the style file for ProductItem
 import '../../../Styles/Artworks.css'
-import { IoBasketSharp } from "react-icons/io5";
-
+ 
 const ProductItem = ({ product, year, id, name, price,rarity, lastName, image,medium,displayName,artSize }) => {
   const dispatch = useDispatch();
   const shortenText = (text, n) => {

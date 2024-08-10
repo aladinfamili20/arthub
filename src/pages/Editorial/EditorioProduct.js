@@ -6,16 +6,12 @@ import {
   selectProducts,
   STORE_PRODUCTS,
 } from "../../redux/slice/productSlice";
-// import styles from "./Product.module.scss";
 import  "../../components/product/Product.css";
-import spinnerImg from "../../assets/spinner.jpg";
-import { FaCogs } from "react-icons/fa";
- import EditorialList from "./EditorialList";
+import EditorialList from "./EditorialList";
 
 const EditorioProduct = () => {
   const { data, isLoading } = useFetchCollection("posts");
-  // const [showFilter, setShowFilter] = useState(false);
-  const products = useSelector(selectProducts);
+   const products = useSelector(selectProducts);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,17 +28,21 @@ const EditorioProduct = () => {
     );
   }, [dispatch, data]);
 
-  // const toggleFilter = () => {
-  //   setShowFilter(!showFilter);
-  // };
+   
 
   return (
     <section>
     <div className='product'>
       
-     <div className='productContent'>
+     {isLoading ? (
+      <><h2>Loading...</h2></>
+     ) : (
+      <>
+      <div className='productContent'>
       <EditorialList products={products}/>
     </div>
+      </>
+     )}
     </div>
   </section>
   );

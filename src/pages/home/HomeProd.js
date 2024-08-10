@@ -10,11 +10,10 @@ import {
   selectFilteredProducts,
   SORT_PRODUCTS,
 } from "../../redux/slice/filterSlice";
-import Pagination from "../../components/pagination/Pagination";
+ 
 
 const HomeProdList = ({ products }) => {
-  const [grid, setGrid] = useState(true);
-  const [search, setSearch] = useState("");
+   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("latest");
   const filteredProducts = useSelector(selectFilteredProducts);
 
@@ -41,7 +40,7 @@ const HomeProdList = ({ products }) => {
 
   return (
     <div className={styles["product-list"]} id="product">
-      <div className={grid ? `${styles.grid}` : `${styles.list}`}>
+      <div className={styles.grid}>
         {products.lenght === 0 ? (
           <p>No product found.</p>
         ) : (
@@ -49,7 +48,7 @@ const HomeProdList = ({ products }) => {
             {currentProducts.map((product) => {
               return (
                 <div key={product.id}>
-                  <ProductItem {...product} grid={grid} product={product} />
+                  <ProductItem {...product}  product={product} />
                 </div>
               );
             })}
@@ -57,12 +56,7 @@ const HomeProdList = ({ products }) => {
         )}
          
       </div>
-      {/* <Pagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          productsPerPage={productsPerPage}
-          totalProducts={filteredProducts.length}
-        /> */}
+      
     </div>
   );
 };

@@ -4,10 +4,8 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import Footer from './components/Footer';
 import Login from './auth/Login';
 import Gallery from './screens/Gallery';
-import Artist from './screens/Artist';
-import AddPost from './screens/AddPost';
-import Subscription from './Subscription/Subscription';
-
+import Artist from './screens/ArtistPage';
+  
 import "react-toastify/dist/ReactToastify.css";
 // Pages
 import { Home, Contact,  Register, Reset, Admin } from "./pages";
@@ -43,10 +41,10 @@ import AboutUs from "./screens/AboutUs";
 import ArtistOrders from "./pages/Artist/ArtistOrders";
 import ArtistOrderDetail from "./pages/Artist/ArtistOrderDetail";
 import ArtistHub from "./screens/ArtistHub";
+import ArtistPage from "./screens/ArtistPage";
   
 function App() {
-  const getuser = getAuth()
-  const [users, setUser] = useState({});
+   const [users, setUser] = useState({});
   const [loading, setLoading] = useState(true);
    useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -76,7 +74,7 @@ function App() {
             path="/admin/*"
             element={
               <AdminOnlyRoute><Admin /> </AdminOnlyRoute>}/>
-          <Route path="/artist/:profID" element={<Artist />} />
+          <Route path="/artist/:userID" element={<ArtistPage />} />
           <Route path="/artisthub" element={<ArtistHub />} />
           <Route path="/product-details/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
@@ -99,9 +97,7 @@ function App() {
           <PrivateRoutes><Profile/></PrivateRoutes>}/>
           <Route path='/artistorderdetail/:id' element={
           <PrivateRoutes><ArtistOrderDetail/></PrivateRoutes>}/>
-            <Route path="/subscription" element={<Subscription />} />
-            <Route path="/addpost" element={<PrivateRoutes><AddPost /></PrivateRoutes>
-          } /> 
+           
           <Route path="/artistorders" element={<PrivateRoutes><ArtistOrders /></PrivateRoutes>
           } />
             <Route path="/editprofile" element={<PrivateRoutes><EditProfile /></PrivateRoutes>

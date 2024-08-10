@@ -1,18 +1,34 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
+
+This is a big project, with over 50 files, please take your time to review the CSS files to make sure you are edting on the right file. While creating this project, I never thought I would work with anyone, and due to that reason, I wrote the code based on my preferences.
+
+To save changes, Ctrl + S.
+
+The code is moslly written badly, and I apologize for that.
+
+I will sugest that you start working on the home page, and then move on to the more necessary pages.
+
+There are some files that shares the same CSS file, keep in mind that.
+
+The home page can be found in src/pages/home. From there on, you can hover on a CSS import press the Ctrl key and it will direct you to that file.
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start:frontend`
+
+Once you run the script above, a new tab will automatically open on based on you default browser.
+
+Every change you make in the code, will be automatically update once you save them.
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+Change will update automatically once saved.
 
 ### `npm test`
 
@@ -24,10 +40,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Use the script above to run a build, but only if neccessary.
 
 ### `npm run eject`
 

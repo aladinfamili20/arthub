@@ -10,7 +10,8 @@ const Editorial = () => {
       <h2>
         Room Illusions
       </h2>
-      </div>  
+      </div>  1
+      {/* The last slide in the home page */}
       <Slider/>
    </section>
   );

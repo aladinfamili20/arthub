@@ -1,61 +1,39 @@
-import React from 'react'
-import '../Styles/Artist.css'
-import {  FaInstagram} from 'react-icons/fa';
-  import ArtistsFetchCol from '../customHooks/ArtistsFetchCol';
- import { IoLocationOutline,  IoLogoFacebook,  IoLogoInstagram,  IoLogoTwitter,  IoMailOutline } from 'react-icons/io5';
-import ArtistHubFetchCol from '../customHooks/ArtistHubFetchCol';
+import React from "react";
+// hover over the CSS impost and press the Ctrl key to got to the CSS file for this page.
+import "../Styles/ArtistsHub.css";
+import ArtistHubFetchCol from "../customHooks/ArtistHubFetchCol";
+import { useNavigate } from "react-router-dom";
 const ArtistHub = () => {
-    const {artistHub} = ArtistHubFetchCol('profileUpdate')
+  const navigate = useNavigate();
+
+  const navigateToProfile = (userID) => {
+    console.log("Navigating to Profile screen with user ID:", userID);
+    navigate(`/artist/${userID}`);
+  };
+  const { artistHub } = ArtistHubFetchCol("artistHubUsers");
 
   return (
-    <section className='artistmainCon'>
-{/* <div class="header">
-  <hr></hr>
-  <h1>Chania</h1>
-</div> */}
 
-{artistHub.map((artistProf)=>{
-  return(
-    <>
-     <div class="header">
- </div>
+    // Change will update automatically once saved.
+    <div className="ArtHubContainer">
+      <div className="ArtHubSection1">
+        <div className="section1"></div>
 
-<div className="row">
-  <div className="col-3 col-s-3 menu1">
-        <img src={artistProf.profImage} alt='profileimage'/>
-   </div>
-
-  <div className="col-6 col-s-9">
-     <p>{artistProf.desc}</p>
-  </div>
-
-  <div className="col-3 col-s-12">
-    <div className="aside">
-    <div className=" ">
-       <h2>{artistProf.displayName} {artistProf.lastName}</h2>
-      <h2 className='oilineicons'><IoMailOutline/>
-      {artistProf.email}
-      </h2>
-      <h2 className='oilineicons'><IoLocationOutline/>
-      {artistProf.country}
-      </h2>
-      <h2><a href={artistProf.insta} target='blank' className='oilineicons'><IoLogoInstagram/>Follow</a></h2>
-      <h2><a href={artistProf.twitter} target='blank' className='oilineicons'><IoLogoTwitter/>Follow</a></h2>
-      <h2><a href={artistProf.facebook} target='blank' className='oilineicons'><IoLogoFacebook/>Follow</a></h2>
-
-   </div>
+        <div className="ArtHubSection2">
+          {artistHub.map((gall, index) => (
+            <>
+              <div className="ArtHubGrid" key={index}>
+                <div onClick={() => navigateToProfile(gall.userID)}>
+                  <img src={gall.profImg} alt="gallery" />
+                </div>
+                <h2>{gall.displayName}</h2>
+              </div>
+            </>
+          ))}
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  );
+};
 
- 
-    </>
-  )
-})}
-
- 
-   </section>
-  )
-}
-
-export default ArtistHub
+export default ArtistHub;

@@ -1,4 +1,8 @@
- .artwork {
+/* This file controll every style displaying the artworks
+from "Home" screen to "Artworks" changes made here will affect those pages.
+*/
+
+.artwork {
    display: flex;
   
  }

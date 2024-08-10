@@ -128,25 +128,25 @@ const allowArtistList = Object.keys(artist).map(function(name){
 <li className='services' id='navDrop'>
 <a href='/gallery' className='navName'>Artworks</a>
 </li>
-<li className='services'>
+{/* <li className='services'>
 <a 
  className='navName'>Services</a>
 <ul className='dropdown'>
 <li><a href="/subscription">Subscription</a></li>
   </ul> 
-</li>   
+</li>    */}
 
  
   <AdminOnlyLink>
  <li><a href="/admin/home" className='navName'>Admin</a></li>  
  </AdminOnlyLink>
  
- <div onClick={toggleMenu} className="NavCartIcont">
+ {/* <div onClick={toggleMenu} className="NavCartIcont">
         <Link to="/cart">
          <IoBasketSharp className='NavCartIcon'/>
         <p>{cartTotalQuantity}</p>
        </Link>
-</div>
+</div> */}
  
  <ProfileOnlyLink allowIds={allowArtistList}>
 <li><a href="artistprofile" className='navName'>Manage</a></li>   

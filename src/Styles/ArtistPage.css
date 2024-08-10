@@ -1,0 +1,34 @@
+.artistmainCon {     
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+  justify-content: center;
+ }
+
+.artistsContents{
+  display: flex;
+   gap: 20px;
+ }
+
+.artistsContents img {
+  width: 300px;
+  height: 300px;
+
+}
+
+.artitsArtworksContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 50px;
+     }
+
+   .artistConent img{
+    width: 400px;
+    height: 300px;
+   }
+  
+  .artistConent h2{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+  }

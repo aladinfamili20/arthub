@@ -20,7 +20,7 @@ const EditorialList = ({ products }) => {
   const filteredProducts = useSelector(selectFilteredProducts);
 
   // Pagination states
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(2);
   const [productsPerPage] = useState(8);
   // Get Current Products
   const indexOfLastProduct = currentPage * productsPerPage;

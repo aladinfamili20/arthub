@@ -41,13 +41,13 @@ const Product = () => {
   return (
     <section>
     <div className={`container1 ${styles.product}`}>
-        <aside
+        {/* <aside
           className={
             showFilter ? `${styles.filter} ${styles.show}` : `${styles.filter}`
           }
         >
           {isLoading ? null : <ProductFilter />}
-        </aside>
+        </aside> */}
         <div className={styles.content}>        
             <ProductList products={products} />
            <div className={styles.icon} onClick={toggleFilter}>

@@ -9,10 +9,8 @@ import '../Styles/Navigation.css'
 import { useDispatch, useSelector } from "react-redux";
 // import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddenLink";
  import { CALCULATE_TOTAL_QUANTITY, selectCartTotalQuantity } from "../redux/slice/cartSlice";
-import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from "../redux/slice/authSlice";
-import { auth } from "../firebase/config";
-import { AdminOnlyLink } from "./adminOnlyRoute/AdminOnlyRoute";
-import SearchFuction from "./SearchFuction";
+ import { auth } from "../firebase/config";
+ import SearchFuction from "./SearchFuction";
  
   
 
@@ -20,8 +18,7 @@ import SearchFuction from "./SearchFuction";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [displayName, setdisplayName] = useState("");
-  const [scrollPage, setScrollPage] = useState(false);
+   const [scrollPage, setScrollPage] = useState(false);
   const cartTotalQuantity = useSelector(selectCartTotalQuantity);
 
   useEffect(() => {
@@ -56,16 +53,16 @@ const Header = () => {
         toast.error(error.message);
       });
   };
-  const cart = (
-     <div className="NavCartIcont">
-        <span  >
-      <Link to="/cart">
-         <IoBasketSharp className='NavCartIcon'/>
-        <p>{cartTotalQuantity}</p>
-       </Link>
-    </span>
-     </div>
-  );
+  // const cart = (
+  //    <div className="NavCartIcont">
+  //       <span  >
+  //     <Link to="/cart">
+  //        <IoBasketSharp className='NavCartIcon'/>
+  //       <p>{cartTotalQuantity}</p>
+  //      </Link>
+  //   </span>
+  //    </div>
+  // );
   return (
   <>
   <div className="homeScreen">
@@ -77,10 +74,7 @@ const Header = () => {
 <img src={require('../images/ArthubLogoblackBac.png')} width={'100%'}  height={50} alt='Art-Hub Logo' />
 </a>
 </div>
-{/* sereach bar */}
-{/* <div className='searchBar'>
-<input type='text' placeholder='Search by artirst, style, tag and more' />
-</div> */}
+ 
 <SearchFuction/>
 <div>
 {/* navigation menu */}
@@ -99,18 +93,15 @@ const Header = () => {
 <li className='services' id='navDrop'>
 <a href='/gallery' className='navName'>Artworks</a>        
 </li>
-<li className='services'>
+{/* <li className='services'>
 <a href='/gallery' className='navName'>Services</a>
 <ul className='dropdown'>
 <li><a href="/subscription">Art Subscription</a></li>
  </ul> 
-</li>   
- {/* <AdimRoute>
- <li><a href="/adminpage" className='navName'>Admin</a></li>  
- </AdimRoute> */}
+</li>    */}
  
-<div onClick={toggleMenu} className="" > {cart}</div>
-
+ 
+ 
 <li className="logbutton"><a href="/login">Login</a></li>
    </div>  
 </ul>

@@ -32,6 +32,11 @@ const EditorioProduct = () => {
 
   return (
     <section>
+            <div className="roomIllusion">
+      <h2>
+        Collection
+      </h2>
+      </div>  
     <div className='product'>
       
      {isLoading ? (

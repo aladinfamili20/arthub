@@ -12,11 +12,6 @@ const Home = () => {
       <section>        
          {/* Redering new arrival artworks */}
       <HomeProduct/>     
-      <div className="roomIllusion">
-      <h2>
-        Collection
-      </h2>
-      </div>  
       {/* Rendering the rest of the artworks */}
       <Editorial/>
      </section>

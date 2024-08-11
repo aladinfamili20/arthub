@@ -1,6 +1,7 @@
 .roomIllusion{
     margin: auto;
     width: 98%;
+    text-align: center;
  }
 
 .roomIllusion h2{
@@ -9,6 +10,6 @@
     font-weight: normal;
     justify-content: center;
      color: #494949;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Times New Roman', sans-serif, monospace;
     margin-bottom: 40px;
  }

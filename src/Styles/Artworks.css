@@ -8,14 +8,27 @@ from "Home" screen to "Artworks" changes made here will affect those pages.
   height: 350px;
   margin-bottom: 30px; 
 }
- .artwork img{
-  width:100%;
-  height:300px;
- }
- .artcollectionbox {
+.artwork img {
+  max-width: 264px;
+  max-height: 264px;
+}
+.artworkImageBox {
+  width: 264px;
+  height: 264px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.artcollectionbox {
   margin-right: 7px;
   margin-left: 7px;
   margin-bottom: 20px;
+  display: flex;
+  width: 256px;
+  height: auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
  .artcollectionbox h1{
   color: #535353;

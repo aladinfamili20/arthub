@@ -32,7 +32,7 @@ const ProductItem = ({ product, year, id, name, price,rarity, lastName, image,me
     <div className='artcollectionbox'>         
        <div >    
   <div 
-  //  className='myDIV'
+   className='artworkImageBox'
   >
   <Link to={`/product-details/${id}`}>
    <img src={image} alt="" onContextMenu="return false;" />  

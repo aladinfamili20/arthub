@@ -33,7 +33,8 @@ const EditorialItem = ({ product, year, id, name, price, desc, image,medium,disp
        <div >    
   <div 
    // id=''
-  //  className="myDIV1"
+   className='artworkImageBox'
+
   >
   <Link to={`/product-details/${id}`}>
    <img src={image} alt=""/>  

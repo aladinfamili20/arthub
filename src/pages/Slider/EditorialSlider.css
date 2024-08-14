@@ -1,35 +1,8 @@
-.slider1 {
-    width: 100%;
-    height: 80vh;
-    position: relative;
-    overflow: hidden;
-    margin: auto;
-    width: 98%;
-   }
-  
-  .slide1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    opacity: 0;
-    transform: translateX(-50%);
-    transition: all 0.5s ease;
-  }
-  
-  @media screen and (min-width: 600px) {
-    .slide1 {
-      width: 100%;
-      height: 100%;
-      background-color: aquamarine;
-    }
-  }
-  
-  .slide1 img {
-    height: 100%;
-  }
-  
+ .roomIllusion .slider {
+    height: 800px;
+    margin-top: 0px;
+  } 
+
   .content {
     position: absolute;
     text-align: center;

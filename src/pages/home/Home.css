@@ -1,15 +1,13 @@
-.roomIllusion{
+/* .roomIllusion{
     margin: auto;
-    width: 98%;
-    text-align: center;
- }
+ } */
 
 .roomIllusion h2{
+    text-align: center;
     margin-bottom: 10px;
     font-size: 40px;
     font-weight: normal;
     justify-content: center;
-     color: #494949;
+    color: #494949;
     font-family: 'Times New Roman', sans-serif, monospace;
-    margin-bottom: 40px;
  }

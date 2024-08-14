@@ -39,7 +39,7 @@ const Slider = () => {
   }, [currentSlide, slideInterval, autoScroll]);
 
   return (
-    <div className="slider1">
+    <div className="slider">
       <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide} />
       <AiOutlineArrowRight className="arrow next" onClick={nextSlide} />
 
@@ -48,7 +48,7 @@ const Slider = () => {
         return (
           <div
             key={index}
-            className={index === currentSlide ? "slide current" : "slide1"}
+            className={index === currentSlide ? "slide current" : "slide"}
           >
             {index === currentSlide && (
               <>

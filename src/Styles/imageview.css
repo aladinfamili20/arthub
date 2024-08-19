@@ -98,12 +98,6 @@
     height: 30px;
      color: #494949;
     }
-
-    .aboutArtWork, .ArtistImgViewConProf {
-      width: 60%;
-      border: 1px solid #f5f5f5;
-      margin-top: 20px;
-       }
  
      .aboutArtWork h1{
       font-size: 20px;
@@ -114,43 +108,6 @@
       text-align: start;
       margin: 20px;
         }
-
-       .abtArtWork{
-         margin: 20px;
-       }
-
-       .abtArtWork{
-         
-        margin-top: 10px;
-         align-items: center;
-        }
- 
-        .abtArtWork h2{
-           font-weight: 700;
-          justify-content: center;
-          color: #494949;
-          font-family: 'Courier New', Courier, monospace;
-          text-align: start;
-           width: 100px;
-         }
-
-         .abtArtWork p{
-          font-weight: 700;
-         justify-content: center;
-         color: #494949;
-         font-family: 'Courier New', Courier, monospace;
-         text-align: start;
-          width: 100px;
-        }
-
-         .aboutArtWork h3 {
-          font-size: 15px;
-          color: #494949;
-          font-family: 'Courier New', Courier, monospace;
-          text-align: start;
-          margin-left: 50px;
-           }
-
            .abtArtDet{
             width: 500px;
              margin-left: 200px;

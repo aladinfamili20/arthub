@@ -24,7 +24,7 @@ const ArtistHub = () => {
             <>
               <div className="ArtHubGrid" key={index}>
                 <div onClick={() => navigateToProfile(gall.userID)}>
-                  <img src={gall.profImg} alt="gallery" />
+                  <img src={gall.artitsArtwork} alt="gallery" />
                 </div>
                 <h2>{gall.displayName}</h2>
               </div>

@@ -78,7 +78,7 @@ const SearchFuction = () => {
             <React.Fragment key={item.displayName}>
               <div className="searchInfo">
                 <div onClick={() => navigateToProfile(item.userID)}>
-                  <img src={item.profImg} className="profileImage" alt="Profileimg" />
+                  <img src={item.profImg} className="ArtistProfileImage" alt="Profileimg" />
                 </div>
                 <div onClick={() => navigateToProfile(item.userID)}>
                 <div className="displayName">

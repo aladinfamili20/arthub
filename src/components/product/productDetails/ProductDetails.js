@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
-import {  Link, useParams } from 'react-router-dom' 
- import { doc, getDoc } from 'firebase/firestore'
-import '../productDetails/ProductDetails.css'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "../productDetails/ProductDetails.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ADD_TO_CART,
@@ -10,69 +9,135 @@ import {
   selectCartItems,
 } from "../../../redux/slice/cartSlice";
 import Card from "../../card/Card";
-import '../../../Styles/signup.css'
-import useFetchCollection from '../../../customHooks/useFetchCollection';
-import useFetchDocument from '../../../customHooks/useFetchDocument';
-import UseFetchArtistProfDoc from '../../../customHooks/UseFetchArtistProfDoc';
-import StarsRating from 'react-star-rate';
- const Registration =()=>{ 
-const {id} = useParams()
-const [product, setProduct] = useState(null);
-const [artistInfo, setArtistInfo] = useState('');
+import "../../../Styles/signup.css";
+import useFetchCollection from "../../../customHooks/useFetchCollection";
+import useFetchDocument from "../../../customHooks/useFetchDocument";
+import UseFetchArtistProfDoc from "../../../customHooks/UseFetchArtistProfDoc";
+import StarsRating from "react-star-rate";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../../firebase/config";
+const Registration = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [artistInfo, setArtistInfo] = useState("");
 
-const dispatch = useDispatch();
-const cartItems = useSelector(selectCartItems);
-const { document } = useFetchDocument("posts", id);
-const { artist } = UseFetchArtistProfDoc("posts", id);
- const { data } = useFetchCollection("reviews");
-const filteredReviews = data.filter((review) => review.productID === id);
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+  const { document } = useFetchDocument("posts", id);
+  const { artist } = UseFetchArtistProfDoc("posts", id);
+  const { data } = useFetchCollection("reviews");
 
-const cart = cartItems.find((cart) => cart.id === id);
-const isCartAdded = cartItems.findIndex((cart) => {
-  return cart.id === id;
-});
+  const [showPopup, setShowPopup] = useState(false);
+  const [customerDisplayName, setCustomerDisplayName] = useState('');
+  const [customerEmail, setCustomerEmail] = useState('');
+  const [customerPhone, setCustomerPhone] = useState('');
+  const [customerMessage, setCustomerMessage] = useState('');
 
-useEffect(() => {
-  setProduct(document);
-}, [document]);
+  const filteredReviews = data.filter((review) => review.productID === id);
 
-useEffect(() => {
-  setArtistInfo(artist);
-}, [artist]);
+  const cart = cartItems.find((cart) => cart.id === id);
+  const isCartAdded = cartItems.findIndex((cart) => {
+    return cart.id === id;
+  });
+  useEffect(() => {
+    setProduct(document);
+  }, [document]);
 
-const addToCart = (product) => {
-  dispatch(ADD_TO_CART(product));
-  dispatch(CALCULATE_TOTAL_QUANTITY());
-};
+  useEffect(() => {
+    setArtistInfo(artist);
+  }, [artist]);
 
-const decreaseCart = (product) => {
-  dispatch(DECREASE_CART(product));
-  dispatch(CALCULATE_TOTAL_QUANTITY());
-};
+  const handleInputChange = (e) => {
+    setCustomerMessage(e.target.value);
+  };
+
+  const handleDisplayNameInputChange = (e) => {
+    setCustomerDisplayName(e.target.value);
+  };
+
+  const handleEmailInputChange = (e) => {
+    setCustomerEmail(e.target.value);
+  };
+
+  const handlePhoneInputChange = (e) => {
+    setCustomerPhone(e.target.value);
+  };
+
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const today = new Date();
+    const date = today.toDateString();
+    const hours = today.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    const time = today.toLocaleDateString();
+     try {
+      const inguireRef = addDoc(collection(db, "inquire"), {
+        customerDisplayName: customerDisplayName,
+        customerEmail: customerEmail,
+        customerPhone: customerPhone,
+        customerMessage: customerMessage,
+        product: product,
+        hourJoined: hours,
+        createdAt: today,
+        postTime: date,
+        dateJoined: time,
+      });
+      console.log("Inguire sumbitted successfully", inguireRef);
+      setShowPopup(false);
+    } catch (error) {
+      console.log("Error sumbiting inguire", error);
+    }
+  };
+
+  const openPopup = () => {
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
+  const addToCart = (product) => {
+    dispatch(ADD_TO_CART(product));
+    dispatch(CALCULATE_TOTAL_QUANTITY());
+  };
+
+  const decreaseCart = (product) => {
+    dispatch(DECREASE_CART(product));
+    dispatch(CALCULATE_TOTAL_QUANTITY());
+  };
 
   return (
     <main>
-<section>
-<div className='upContainer'>
-<div className='upContent'>
-<div className='upImg'>
-<img src={product?.image} alt="imagedetail" />
-</div>
-<div className='upInfo'>
-<div className='imageInfo'>
-<div className='imageInfoView'>    
-<h1>{product?.displayName}</h1>
-<div className='detNameInfo'>
-<h2><b>{product?.name}</b></h2>
-<h2><b>{product?.year}</b></h2> 
-</div>
-<h2>{product?.rarity}</h2>
-<h2>{product?.artSize}</h2> 
+      <section>
+        <div className="upContainer">
+          <div className="upContent">
+            <div className="upImg">
+              <img src={product?.image} alt="imagedetail" />
+            </div>
+            <div className="upInfo">
+              <div className="imageInfo">
+                <div className="imageInfoView">
+                  <h1>{product?.displayName}</h1>
+                  <div className="detNameInfo">
+                    <h2>
+                      <b>{product?.name}</b>
+                    </h2>
+                    <h2>
+                      <b>{product?.year}</b>
+                    </h2>
+                  </div>
+                  <h2>{product?.rarity}</h2>
+                  <h2>{product?.artSize}</h2>
 
-{/* <h3 className=''>{`$${product?.price}`}</h3> */}
-{/* <h2 className=''>Shipping fee {`$${product?.shipfee}`}</h2> */}
+                  {/* <h3 className=''>{`$${product?.price}`}</h3> */}
+                  {/* <h2 className=''>Shipping fee {`$${product?.shipfee}`}</h2> */}
 
-{/* <div className='count'>
+                  {/* <div className='count'>
                   {isCartAdded < 0 ? null : (
 <>
   <button
@@ -94,58 +159,100 @@ const decreaseCart = (product) => {
  )}
  </div> */}
 
-{/* <a>
+                  {/* <a>
  <button className='btn'
   onClick={() => addToCart(product)}
  >Add to Cart</button>
  </a> */}
- 
-<div>
-<p>
-   {product?.desc}
-   </p> 
-</div>
- </div>  
-</div>
-</div>
-</div>
-{/* <div className='hr'><hr></hr>  </div> */}
-<div className='aboutArtWork'>
-          <h1>About the work</h1>
-          <div className='abtArtWork'>
-           <div className='abtArtWorkinpt' >
-           <h2>Material:</h2> 
-           <h3>{product?.material} </h3> 
-           </div>                      
-           <div className='abtArtWorkinpt'>
-           <h2>Medium: </h2> 
-           <h3> {product?.medium}</h3> 
-           </div>
-              
-           <div className='abtArtWorkinpt'>
-           <h2>Signature: </h2>
-           <h3>{product?.sign}</h3>            
-           </div>
-            
-           <div className='abtArtWorkinpt'>
-           <h2>Frame: </h2>
-           <h3>{product?.frame}</h3>
-            </div> 
-            <div className='abtArtWorkinpt'>
-           <h2>Special Features: </h2>
-           <h3>{product?.specialfeature}</h3>
-            </div> 
-            <div className='abtArtWorkinpt'>
-           <h2>Ship from: </h2>
-           <h3>{product?.country}</h3>
-            </div>            
-          </div>
-          </div>  
-        
 
-        <div className='ArtistImgViewConProf'>
-           <div className='ArtistImgViewContProf'>
-           {/* <div className='ArtistImgViewConDet'>
+                  <div>
+                    <p>{product?.desc}</p>
+                    <p>Inguire ID:{product?.inguireId}</p>
+                  </div>
+
+                  <div className="inguireProdContainer">
+                    <button onClick={openPopup}>Inguire</button>
+
+                    {showPopup && (
+                      <div className="popupStyles">
+                        <div className="popupContentStyles">
+                          <input
+                            type="text"
+                            placeholder="Full Name"
+                            value={customerDisplayName}
+                            onChange={handleDisplayNameInputChange}
+                            className="inputStyles"
+                            required
+                          />
+                          <input
+                            type="text"
+                            placeholder="Email Address"
+                            value={customerEmail}
+                            onChange={handleEmailInputChange}
+                            className="inputStyles"
+                            required
+                          />
+                          <input
+                            type="text"
+                            placeholder="Phone Number"
+                            value={customerPhone}
+                            onChange={handlePhoneInputChange}
+                            className="inputStyles"
+                            required
+                          />
+                          <textarea
+                            placeholder="Hi, I'm interested in purchasing this work. Could you please provide more information about the piece?"
+                            value={customerMessage}
+                            onChange={handleInputChange}
+                            required
+                            className="inputStyles"
+                          />
+                          <button onClick={handleSubmit}>Submit</button>
+                          <button onClick={closePopup}>Close</button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <div className='hr'><hr></hr>  </div> */}
+          <div className="aboutArtWork">
+            <h1>About the work</h1>
+            <div className="abtArtWork">
+              <div className="abtArtWorkinpt">
+                <h2>Material:</h2>
+                <h3>{product?.material} </h3>
+              </div>
+              <div className="abtArtWorkinpt">
+                <h2>Medium: </h2>
+                <h3> {product?.medium}</h3>
+              </div>
+
+              <div className="abtArtWorkinpt">
+                <h2>Signature: </h2>
+                <h3>{product?.sign}</h3>
+              </div>
+
+              <div className="abtArtWorkinpt">
+                <h2>Frame: </h2>
+                <h3>{product?.frame}</h3>
+              </div>
+              <div className="abtArtWorkinpt">
+                <h2>Special Features: </h2>
+                <h3>{product?.specialfeature}</h3>
+              </div>
+              <div className="abtArtWorkinpt">
+                <h2>Ship from: </h2>
+                <h3>{product?.country}</h3>
+              </div>
+            </div>
+          </div>
+
+          <div className="ArtistImgViewConProf">
+            <div className="ArtistImgViewContProf">
+              {/* <div className='ArtistImgViewConDet'>
            <div className='ArtistImgViewConDet'>
            <img src='https://images.unsplash.com/photo-1686594094819-0685648e8925?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60' alt="profile" />
             <div className='ArtistImgViewConDetNames'>
@@ -162,9 +269,9 @@ const decreaseCart = (product) => {
             {artistInfo?.displayName}
            </h2>
            </div> */}
-           </div>
+            </div>
 
-           {/* <Card cardClass='reviewcard'>
+            {/* <Card cardClass='reviewcard'>
           <h1>Product Reviews</h1>
           <div>
             {filteredReviews.length === 0 ? (
@@ -199,13 +306,11 @@ const decreaseCart = (product) => {
             )}
           </div>
         </Card> */}
+          </div>
         </div>
-     
-</div>
-</section>
-</main>
-  )
+      </section>
+    </main>
+  );
+};
 
-}
-
-export default Registration
+export default Registration;

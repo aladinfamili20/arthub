@@ -8,7 +8,8 @@ import Orders from "../../components/admin/orders/Orders";
 import ViewProducts from "../../components/admin/viewProducts/ViewProducts";
 
 import styles from "./Admin.module.scss";
-
+import Inguire from "../../components/admin/Inguire/Inguire";
+ 
 const Admin = () => {
   return (
     <div className='adminHome'>
@@ -21,6 +22,8 @@ const Admin = () => {
           <Route path="all-products" element={<ViewProducts />} />
           <Route path="add-product/:id" element={<AddProduct />} />
           <Route path="orders" element={<Orders />} />
+          <Route path="inguire" element={<Inguire />} />
+
           <Route path="order-details/:id" element={<OrderDetails />} />
         </Routes>
       </div>

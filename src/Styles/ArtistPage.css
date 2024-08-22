@@ -11,9 +11,9 @@
  }
 
 .artistsContents img {
-  width: 300px;
-  height: 300px;
-
+  max-width: 264px;
+  max-height: 264px;
+ 
 }
 
 .artitsArtworksContainer {
@@ -24,8 +24,9 @@
      }
 
    .artistConent img{
-    width: 400px;
-    height: 300px;
+    max-width: 264px;
+    max-height: 264px;
+    margin: 0.5px;
    }
   
   .artistConent h2{

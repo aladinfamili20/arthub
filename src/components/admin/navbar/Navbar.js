@@ -62,6 +62,11 @@ const Navbar = () => {
               Orders
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/admin/inguire" className={activeLink}>
+              Inguire
+            </NavLink>
+          </li>
           
         </ul>
       </nav>

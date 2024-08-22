@@ -1,0 +1,46 @@
+/* .inguireContainer {
+ } */
+
+.inguireContainer th {
+    font-size: 17px;
+    font-family: 'Courier New', Courier, monospace;
+ }
+
+.inguireContainer td{
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    /* background-color: aliceblue; */
+}
+
+.inguireContainer  textarea {
+    height: 70px;
+    width: 400px;
+    padding: 7px;
+}
+
+.artworkImg {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  #searchedUsers{
+    display: flex;
+  }
+  
+  #searchInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .displayName {
+    margin-left: 15px;
+  }
+
+  #searchInfo img {
+    max-width: 200px;
+    max-width: 200px;
+    margin: 20px;
+   }

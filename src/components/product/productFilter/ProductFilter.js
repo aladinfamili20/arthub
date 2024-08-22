@@ -229,9 +229,9 @@ const filterProductsLocation = (location) => {
             );
           })}
         </select>
-        <h4>Price</h4>
-        <h4>{`$${price}`}</h4>
-         <div className="rangeCon">
+        {/* <h4>Price</h4>
+        <h4>{`$${price}`}</h4> */}
+         {/* <div className="rangeCon">
       
           <input
             type="range"
@@ -241,7 +241,7 @@ const filterProductsLocation = (location) => {
             max={maxPrice}
             style={{ background: 'teal', width: '80%' }}
           />
-        </div>
+        </div> */}
     
         <br />
         <button className="btn1" onClick={clearFilters}>

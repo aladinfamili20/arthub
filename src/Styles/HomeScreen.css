@@ -26,7 +26,6 @@
     justify-content: center;
     align-items: center;    
     color: rgb(73, 73, 73);
-    font-family: 'Courier New', Courier, monospace;
   }
 
   .mainContent1{
@@ -64,7 +63,6 @@
     justify-content: center;
     align-items: center;    
     color: rgb(73, 73, 73);
-    font-family: 'Courier New', Courier, monospace;
     /* text-transform: uppercase; */
     text-align: left;
  }
@@ -119,7 +117,6 @@
  }
 
  .section2 button{
-    font-family: 'Courier New', Courier, monospace;
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
@@ -166,20 +163,17 @@
 
 .col  p,a{
    color: #494949;
-    font-family: 'Courier New', Courier, monospace;
    margin-top: 5px;
 }
 
 .col h4{
    font-size: 20px;
     color: #494949;
-    font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
 
  }
 .social-media h4{
    color: #494949;
-    font-family: 'Courier New', Courier, monospace;
    margin-top: 20px;
 }
 

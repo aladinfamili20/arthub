@@ -1,27 +1,33 @@
 .ArtHubContainer {     
-    width: 70%;
-    margin: auto;
-    margin-top: 100px;
-    justify-content: center;
+  width: 1080px;
+  margin: auto;
+  margin-top: 100px;
   }
   
   .ArtHubContainer h2{
     font-size: 20px;
     margin-top: 10px;
-    font-family: 'Courier New', Courier, monospace;
   }
   
   .ArtHubSection2 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
-  margin-top: 50px;
-   }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 150px;
+    flex-direction: row;
+  }
   
-  
+  .ArtHubGrid {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   .ArtHubGrid img{
-    width: 300px;
+    width: 400px;
     height: 300px;
     cursor: pointer;
   }

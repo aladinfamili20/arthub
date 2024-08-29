@@ -121,19 +121,20 @@ import { Link, useNavigate } from 'react-router-dom';
           </tr>
         </thead>
         <tbody>
-          {inguire.map((inguireId, index) => (
-            <tr key={inguireId.id}>
+          {inguire.map((ing, index) => (
+            <tr key={ing.id}>
               <td>{index + 1}</td>
-              <td>{inguireId.customerDisplayName}</td>
-              <td>{inguireId.customerEmail}</td>
-              <td>{inguireId.customerPhone}</td>
-              <td>{inguireId.inguireId}</td>
+              <td>{ing.customerDisplayName}</td>
+              <td>{ing.customerEmail}</td>
+              <td>{ing.customerPhone}</td>
+              <td>{ing.inguireId}</td>
+              
               <td>
                 <textarea>
-                {inguireId.customerMessage}
+                {ing.customerMessage}
                 </textarea>
               </td>
-              <td>{inguireId.dateJoined}</td>
+              <td>{ing.dateJoined}</td>
             </tr>
           ))}
         </tbody>

@@ -14,9 +14,9 @@ import useFetchCollection from "../../../customHooks/useFetchCollection";
 import useFetchDocument from "../../../customHooks/useFetchDocument";
 import UseFetchArtistProfDoc from "../../../customHooks/UseFetchArtistProfDoc";
 import StarsRating from "react-star-rate";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getDocs, orderBy, where,query } from "firebase/firestore";
 import { db } from "../../../firebase/config";
-const Registration = () => {
+ const Registration = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [artistInfo, setArtistInfo] = useState("");
@@ -32,7 +32,7 @@ const Registration = () => {
   const [customerEmail, setCustomerEmail] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerMessage, setCustomerMessage] = useState('');
-
+  const [getInguireId, setGetInguiredId] = useState(null)
   const filteredReviews = data.filter((review) => review.productID === id);
 
   const cart = cartItems.find((cart) => cart.id === id);
@@ -63,6 +63,56 @@ const Registration = () => {
     setCustomerPhone(e.target.value);
   };
 
+
+
+  // useEffect(() => {         
+  //       // console.log(uid)
+  //       const fetchData = async () => {
+  //         const timestamp = ("timestamp", "desc");
+  //         const q = collection(db, "posts");
+  //         const querySnapshot = query(q, 
+  //           // where("uid", "==", uid)
+  //         );
+  //         orderBy(timestamp);
+  //         const snapshot = await getDocs(querySnapshot);
+  //         const documents = snapshot.docs.map((doc) => {
+  //           setGetInguiredId({
+  //             inguireId: doc.data().inguireId,              
+  //           });
+  //         });
+  //       };
+  //       fetchData();
+    
+  // }, []);
+
+
+  useEffect(() => {
+  
+        const fetchData = async () => {
+          const timestamp = ("timestamp", "desc");
+          const citiesRef = collection(db, "posts");
+          const querySnapshot = query(citiesRef
+            // , where("uid", "==", uid)
+          );
+          orderBy(timestamp);
+          const snapshot = await getDocs(querySnapshot);
+          snapshot.docs.forEach((doc) => {
+            setGetInguiredId({
+              inguireId:doc.data().inguireId
+            });
+          });
+        };
+        fetchData();
+      
+  }, []);
+
+
+
+
+
+
+
+
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,6 +125,8 @@ const Registration = () => {
     });
     const time = today.toLocaleDateString();
      try {
+      // const inquireId = product?.inquireId; 
+
       const inguireRef = addDoc(collection(db, "inquire"), {
         customerDisplayName: customerDisplayName,
         customerEmail: customerEmail,
@@ -83,7 +135,9 @@ const Registration = () => {
         product: product,
         hourJoined: hours,
         createdAt: today,
-        postTime: date,
+        inguireId:getInguireId.inguireId,
+        // inquireId: inquireId, 
+        // postTime: date,
         dateJoined: time,
       });
       console.log("Inguire sumbitted successfully", inguireRef);

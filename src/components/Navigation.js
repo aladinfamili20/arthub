@@ -102,7 +102,7 @@ const Header = () => {
  
  
  
-<li className="logbutton"><a href="/login">Login</a></li>
+{/* <li className="logbutton"><a href="/login">Login</a></li> */}
    </div>  
 </ul>
 

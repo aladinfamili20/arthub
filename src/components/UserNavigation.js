@@ -153,7 +153,7 @@ const allowArtistList = Object.keys(artist).map(function(name){
 </ProfileOnlyLink>
  
 
-<li><a href="/profile" className='navName'>Hi:{displayName}</a></li>  
+{/* <li><a href="/profile" className='navName'>Hi:{displayName}</a></li>   */}
  
   </div>  
 </ul> 

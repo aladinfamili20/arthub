@@ -121,7 +121,7 @@ const filterProductsLocation = (location) => {
   return (
     <div className={styles.filter}>
       <h4>Medium</h4>
-      <div className={styles.category}>
+      {/* <div className={styles.category}>
         {allMedium.map((med, index) => {
           return (
             <button
@@ -134,7 +134,7 @@ const filterProductsLocation = (location) => {
             </button>
           );
         })}
-      </div>
+      </div> */}
 
       <h4>Size</h4>
       <div className={styles.category}>
@@ -169,7 +169,7 @@ const filterProductsLocation = (location) => {
       </div>
       {/* Style */}
       <h4>Style</h4>
-      <div className={styles.category}>
+      {/* <div className={styles.category}>
         {allStyle.map((styl, index) => {
           return (
             <button
@@ -182,7 +182,7 @@ const filterProductsLocation = (location) => {
             </button>
           );
         })}
-      </div>
+      </div> */}
       
       {/* Style */}
       <h4>Frame</h4>

@@ -17,11 +17,13 @@
     /* text-transform: uppercase; */
   }
 
-.upContent{
-   width: 100%;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
+  .upContent {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
 }
 
  
@@ -40,11 +42,9 @@
 
 .upInfo h1 {
    font-size: 50px;
-   font-weight: 700;
    justify-content: center;
    align-items: center;    
    color: #494949;
-   font-family: 'Courier New', Courier, monospace;
    /* text-transform: uppercase; */
 }
 

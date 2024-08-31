@@ -3,12 +3,10 @@
 
 .inguireContainer th {
     font-size: 17px;
-    font-family: 'Courier New', Courier, monospace;
  }
 
 .inguireContainer td{
     font-size: 15px;
-    font-family: 'Courier New', Courier, monospace;
     /* background-color: aliceblue; */
 }
 

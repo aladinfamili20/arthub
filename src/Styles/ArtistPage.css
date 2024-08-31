@@ -9,11 +9,18 @@
   display: flex;
    gap: 20px;
  }
-
+.artistConent{
+  width: 264px;
+  height: 284px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
 .artistsContents img {
   max-width: 264px;
   max-height: 264px;
- 
 }
 
 .artitsArtworksContainer {
@@ -21,6 +28,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   margin-top: 50px;
+  width: 1080px;
      }
 
    .artistConent img{

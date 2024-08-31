@@ -25,7 +25,6 @@
     justify-content: center;
     align-items: center;    
     color: #494949;
-    font-family: 'Courier New', Courier, monospace;
   }
   .table-container td{
     font-size: 20px;
@@ -33,7 +32,6 @@
     justify-content: center;
     align-items: center;    
     color: #494949;
-    font-family: 'Courier New', Courier, monospace;
   }
  
   .table-container td:last-child {

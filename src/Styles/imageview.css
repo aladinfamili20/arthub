@@ -5,7 +5,7 @@
     margin: auto;
     margin-top: 80px;
 }
- 
+/*  
  .imageInfo{
     height: 500px;
     background-color: #fff;
@@ -28,7 +28,6 @@
     align-items: center;    
     color: #494949;
     font-family: 'Courier New', Courier, monospace;
-    /* text-transform: uppercase; */
     text-align: left;
   }
 
@@ -39,7 +38,6 @@
     align-items: center;    
     color: #494949;
     font-family: 'Courier New', Courier, monospace;
-    /* text-transform: uppercase; */
     text-align: left;
     margin-top: 10px;
   }
@@ -51,7 +49,6 @@
     align-items: center;    
     color: #494949;
     font-family: 'Courier New', Courier, monospace;
-    /* text-transform: uppercase; */
     text-align: left;
     margin-top: 10px;
    }
@@ -75,7 +72,6 @@
     font-size: 20px;
     font-weight: 700;
     font-family: 'Courier New', Courier, monospace;
-    /* text-transform: uppercase; */
     border: none;
     margin-top: 20px;
     cursor: pointer;
@@ -97,7 +93,7 @@
     width: 30px;
     height: 30px;
      color: #494949;
-    }
+    } */
  
      .aboutArtWork h1{
       font-size: 20px;

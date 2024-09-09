@@ -37,7 +37,7 @@
    width: auto;
    margin: 50px;
    height: auto;
-   background-color: #f5f5f5;
+   background-color: #ffffff;
  }
 
 .upInfo h1 {
@@ -46,6 +46,11 @@
    align-items: center;    
    color: #494949;
    /* text-transform: uppercase; */
+}
+
+.inguireProdContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .upInfoConetents {

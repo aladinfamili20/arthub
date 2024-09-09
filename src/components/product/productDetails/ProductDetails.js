@@ -176,13 +176,13 @@ import { db } from "../../../firebase/config";
             <div className="upInfo">
               <div className="imageInfo">
                 <div className="imageInfoView">
-                  <h1>{product?.displayName}</h1>
+                  <h2>{product?.displayName}</h2>
                   <div className="detNameInfo">
                     <h2>
-                      <b>{product?.name}</b>
+                      {product?.name}
                     </h2>
                     <h2>
-                      <b>{product?.year}</b>
+                      {product?.year}
                     </h2>
                   </div>
                   <h2>{product?.rarity}</h2>
@@ -220,11 +220,11 @@ import { db } from "../../../firebase/config";
  </a> */}
 
                   <div>
-                    <p>{product?.desc}</p>
-                    <p>Inguire ID:{product?.inguireId}</p>
+                    <h2>{product?.desc}</h2>
                   </div>
 
                   <div className="inguireProdContainer">
+                    <h2>Inguire ID:{product?.inguireId}</h2>
                     <button onClick={openPopup}>Inguire</button>
 
                     {showPopup && (
@@ -273,33 +273,33 @@ import { db } from "../../../firebase/config";
           </div>
           {/* <div className='hr'><hr></hr>  </div> */}
           <div className="aboutArtWork">
-            <h1>About the work</h1>
+            <h2>About the work</h2>
             <div className="abtArtWork">
               <div className="abtArtWorkinpt">
                 <h2>Material:</h2>
-                <h3>{product?.material} </h3>
+                <h2>{product?.material} </h2>
               </div>
               <div className="abtArtWorkinpt">
                 <h2>Medium: </h2>
-                <h3> {product?.medium}</h3>
+                <h2> {product?.medium}</h2>
               </div>
 
               <div className="abtArtWorkinpt">
                 <h2>Signature: </h2>
-                <h3>{product?.sign}</h3>
+                <h2>{product?.sign}</h2>
               </div>
 
               <div className="abtArtWorkinpt">
                 <h2>Frame: </h2>
-                <h3>{product?.frame}</h3>
+                <h2>{product?.frame}</h2>
               </div>
               <div className="abtArtWorkinpt">
                 <h2>Special Features: </h2>
-                <h3>{product?.specialfeature}</h3>
+                <h2>{product?.specialfeature}</h2>
               </div>
               <div className="abtArtWorkinpt">
                 <h2>Ship from: </h2>
-                <h3>{product?.country}</h3>
+                <h2>{product?.country}</h2>
               </div>
             </div>
           </div>
